@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://b85cc610f6nxy"]
+[gd_scene format=3 uid="uid://cnhyxk6dfqovw"]
 
 [ext_resource type="PackedScene" uid="uid://c4xp62x0jamtc" path="res://prefabs/level_generator.tscn" id="1_r5dcy"]
-[ext_resource type="PackedScene" uid="uid://c208c05lnw0jw" path="res://prefabs/maro_lvl_1.tscn" id="2_efef3"]
+[ext_resource type="PackedScene" uid="uid://ijmul6xsn0m7" path="res://prefabs/maro_lvl_1.tscn" id="2_efef3"]
 
 [sub_resource type="Environment" id="Environment_o52t6"]
 background_mode = 1

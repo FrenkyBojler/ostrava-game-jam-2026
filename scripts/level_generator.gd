@@ -40,7 +40,8 @@ func _generate_level() -> void:
 	
 	while(levels_placed.size() != NUMBER_OF_ROOMS):
 		_place_random_room(rows)
-		
+	
+	_print_level()
 	_instantiate_levels(rows)
 	
 	var player = player_scene.instantiate() as Node3D
@@ -54,20 +55,28 @@ func _instantiate_levels(rows: int) -> void:
 				_instantiate_level(Vector2(x,y), rows)
 
 func _instantiate_level(pos: Vector2, rows: int) -> void:
+	print_debug("Now: " + str(pos))
+	
 	var level_resource = LevelResource.new()
 	var level_prefab = levels_scenes.pick_random()
 	var level_instance = level_prefab.instantiate() as Level
 	
 	level_resource.right_connection = pos.x + 1 < rows and level[pos.x + 1][pos.y]
-	level_resource.bottom_connection = pos.y - 1 >= 0 and level[pos.x][pos.y - 1]
+	level_resource.bottom_connection = pos.y + 1 < rows and level[pos.x][pos.y + 1]
 	
-	level_resource.top_connection = pos.y + 1 < rows and level[pos.x][pos.y + 1]
+	level_resource.top_connection = pos.y - 1 >= 0 and level[pos.x][pos.y - 1]
 	level_resource.left_connection = pos.x - 1 >= 0 and level[pos.x - 1][pos.y]
+	
+	print_debug("Right Connection: " + str(level_resource.right_connection))
+	print_debug("Left Connection: " + str(level_resource.left_connection))
+	print_debug("Top Connection: " + str(level_resource.top_connection))
+	print_debug("Bottom Connection: " + str(level_resource.bottom_connection))
+	
 	
 	add_child(level_instance)
 	
 	level_instance.global_position = Vector3(pos.x * level_size, 0, pos.y * level_size)
-	level_instance.setup(level_resource)
+	level_instance.setup(level_resource, level_size)
 
 func _place_random_room(rows: int) -> void:
 	var random_level := levels_placed.pick_random() as Vector2
@@ -90,11 +99,11 @@ func _get_empty_neighbours(cell: Vector2, rows: int) -> Array[Vector2]:
 	if cell.x - 1 >= 0 and not level[cell.x - 1][cell.y]:
 		empty_neighborous.push_back(Vector2(cell.x - 1, cell.y))
 	# top neigbour
-	if cell.y + 1 < rows and not level[cell.x][cell.y + 1]:
-		empty_neighborous.push_back(Vector2(cell.x, cell.y + 1))
-	# bottom neighbour
 	if cell.y - 1 >= 0 and not level[cell.x][cell.y - 1]:
 		empty_neighborous.push_back(Vector2(cell.x, cell.y - 1))
+	# bottom neighbour
+	if cell.y + 1 < rows and not level[cell.x][cell.y + 1]:
+		empty_neighborous.push_back(Vector2(cell.x, cell.y + 1))
 
 	return empty_neighborous
 

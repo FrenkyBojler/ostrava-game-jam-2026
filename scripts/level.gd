@@ -2,49 +2,39 @@ class_name Level extends Node3D
 
 const door_prefab = preload("res://prefabs/door.tscn")
 
-var door_north: Door
-var door_south: Door
-var door_west: Door
-var door_east: Door
+var doors: Array[Node3D] = []
 
-@onready
-var doors: Array[Door] = [door_north, door_south, door_east, door_west]
-var door_placeholders: Array[Node]
+func setup(level_resource: LevelResource, size: int) -> void:
+	_place_doors(level_resource, size)
 
-func _ready() -> void:
-	for child in get_children():
-		if child.name == "Doors":
-			door_placeholders = child.get_children()
-			break
-	assert(not door_placeholders.is_empty(), "There is no Doors object in the level: " + name)
-
-func setup(level_resource: LevelResource) -> void:
-	_place_doors(level_resource)
-
-func _place_doors(level_resource: LevelResource) -> void:
-	_place_door(3, level_resource.right_connection)
-	_place_door(1, level_resource.bottom_connection)
-	
+func _place_doors(level_resource: LevelResource, size: int) -> void:
+	doors.push_back(_place_door(1, size))
+	doors.push_back(_place_door(0, size))
+	doors.push_back(_place_door(3, size))
+	doors.push_back(_place_door(2, size))
+	 
+	if level_resource.right_connection:
+		doors[2].queue_free()
+	if level_resource.bottom_connection:
+		doors[1].queue_free()
 	if level_resource.left_connection:
-		_remove_door(2)
-	else:
-		_place_door(2, false)
+		doors[3].queue_free()
 	if level_resource.top_connection:
-		_remove_door(0)
-	else:
-		_place_door(0, false)
+		doors[0].queue_free()
 
-func _place_door(door_index: int, is_opened: bool) -> void:
-		doors[door_index] = door_prefab.instantiate() as Door
-		add_child(doors[door_index])
-		doors[door_index].global_position = door_placeholders[door_index].global_position
-		doors[door_index].global_rotation = door_placeholders[door_index].global_rotation
-		door_placeholders[door_index].queue_free()
+func _place_door(door_index: int, size: int) -> Node3D:
+		var door = door_prefab.instantiate() as Door
+		add_child(door)
 		
-		if is_opened:
-			doors[door_index].opened()
-		else:
-			doors[door_index].closed()
+		if door_index == 0:
+			door.position = Vector3(0, 0, size / 2)
+		if door_index == 1:
+			door.position = Vector3(0, 0, -size / 2)
+		if door_index == 2:
+			door.position = Vector3(-size / 2, 0, 0)
+			door.rotate(Vector3.UP, 1.5)
+		if door_index == 3:
+			door.position = Vector3(size / 2, 0, 0)
+			door.rotate(Vector3.UP, 1.5)
 
-func _remove_door(door_index: int) -> void:
-	door_placeholders[door_index].queue_free()
+		return door

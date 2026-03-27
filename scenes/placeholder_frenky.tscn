@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cro1wupa5m6hg"]
 
 [ext_resource type="PackedScene" uid="uid://c4xp62x0jamtc" path="res://prefabs/level_generator.tscn" id="1_e2c6g"]
+[ext_resource type="PackedScene" uid="uid://ijmul6xsn0m7" path="res://prefabs/maro_lvl_1.tscn" id="2_l588l"]
 
 [sub_resource type="Environment" id="Environment_o52t6"]
 background_mode = 1
@@ -16,4 +17,5 @@ transform = Transform3D(1, 0, 0, 0, 0.9256792, 0.37830934, 0, -0.37830934, 0.925
 shadow_enabled = true
 
 [node name="LevelGenerator" parent="." unique_id=1892546490 instance=ExtResource("1_e2c6g")]
-level_size = 20.0
+levels_scenes = Array[PackedScene]([ExtResource("2_l588l")])
+level_size = 50.0
