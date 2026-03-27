@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c208c05lnw0jw"]
+
+[ext_resource type="PackedScene" uid="uid://cvj8hvwlg63t2" path="res://assets/meshes/lvl1/lvl1.gltf" id="1_al3pg"]
+[ext_resource type="Script" uid="uid://yl634gjwssgq" path="res://scripts/level.gd" id="2_2cvx8"]
+
+[node name="lvl1" unique_id=498083643 instance=ExtResource("1_al3pg")]
+script = ExtResource("2_2cvx8")
+
+[node name="Doors" type="Node3D" parent="." index="10" unique_id=1706076802]
+
+[node name="Node3D" type="Node3D" parent="Doors" index="0" unique_id=889904844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.907944, 0, 0)
+
+[node name="Node3D2" type="Node3D" parent="Doors" index="1" unique_id=1891242311]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.29984)
+
+[node name="Node3D3" type="Node3D" parent="Doors" index="2" unique_id=1922365488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.765717, 0, 0)
+
+[node name="Node3D4" type="Node3D" parent="Doors" index="3" unique_id=1548559778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20.604977)
