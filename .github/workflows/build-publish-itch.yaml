@@ -25,9 +25,9 @@ jobs:
         run: |
           unzip godot.zip -d godot
           chmod +x godot/Godot_v4.6.1-stable_linux.x86_64
-          mkdir -p /home/runner/.local/share/godot/export_templates/4.6.stable/
+          mkdir -p /home/runner/.local/share/godot/export_templates/4.6.1.stable/
           unzip godot_export_templates.zip -d /home/runner/.local/share/godot/
-          mv /home/runner/.local/share/godot/templates/* /home/runner/.local/share/godot/export_templates/4.6.stable/
+          mv /home/runner/.local/share/godot/templates/* /home/runner/.local/share/godot/export_templates/4.6.1.stable/
 
       - name: Export game
         run: |
@@ -36,3 +36,11 @@ jobs:
 
       - name: List build output
         run: ls -l build
+
+      - uses: KikimoraGames/itch-publish@v0.0.3
+        with:
+          butlerApiKey: ${{ secrets.BUTLER_API_KEY }}
+          gameData: ./build
+          itchUsername: ${{ env.ITCH_USERNAME}}
+          itchGameId: ${{ env.ITCH_GAME_ID }}
+          buildChannel: linux
