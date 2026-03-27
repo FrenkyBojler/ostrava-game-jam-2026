@@ -41,6 +41,6 @@ jobs:
         with:
           butlerApiKey: ${{ secrets.BUTLER_API_KEY }}
           gameData: ./build
-          itchUsername: ${{ env.ITCH_USERNAME}}
-          itchGameId: ${{ env.ITCH_GAME_ID }}
+          itchUsername: ${{ vars.ITCH_USERNAME}}
+          itchGameId: ${{ vars.ITCH_GAME_ID }}
           buildChannel: linux
