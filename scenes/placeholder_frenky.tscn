@@ -18,4 +18,4 @@ shadow_enabled = true
 
 [node name="LevelGenerator" parent="." unique_id=1892546490 instance=ExtResource("1_e2c6g")]
 levels_scenes = Array[PackedScene]([ExtResource("2_l588l")])
-level_size = 50.0
+level_size = 45.0

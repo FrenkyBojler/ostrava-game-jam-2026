@@ -9,6 +9,7 @@
 [node name="Player" type="CharacterBody3D" unique_id=1511632940]
 script = ExtResource("1_72ieh")
 move_speed = 1000.0
+look_sensitivity = 0.08
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111660792]
 shape = SubResource("CapsuleShape3D_fp3wc")

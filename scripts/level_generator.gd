@@ -3,6 +3,9 @@ extends Node3D
 @export
 var player_scene: PackedScene
 @export
+var enemy_scene: PackedScene
+
+@export
 var start_level_scene: PackedScene
 @export
 var levels_scenes: Array[PackedScene]
@@ -22,7 +25,6 @@ func _ready() -> void:
 	assert(level_size != null, "Missing level size!")
 	
 	_generate_level()
-	
 
 func _generate_level() -> void:
 	var rows = _get_number_of_rows()
@@ -38,25 +40,24 @@ func _generate_level() -> void:
 	level[(rows - 1) / 2][(rows - 1) / 2] = true
 	levels_placed.push_back(Vector2((rows - 1) / 2, (rows - 1) / 2))
 	
+	var player = player_scene.instantiate() as Node3D
+	
 	while(levels_placed.size() != NUMBER_OF_ROOMS):
 		_place_random_room(rows)
 	
 	_print_level()
-	_instantiate_levels(rows)
+	_instantiate_levels(rows, player)
 	
-	var player = player_scene.instantiate() as Node3D
 	add_child(player)
 	player.global_position = Vector3(((rows - 1) / 2) * level_size, 5, ((rows - 1) / 2) * level_size)
 	
-func _instantiate_levels(rows: int) -> void:
+func _instantiate_levels(rows: int, player: Node3D) -> void:
 	for x in rows as int:
 		for y in rows as int:
 			if level[x][y]:
-				_instantiate_level(Vector2(x,y), rows)
+				_instantiate_level(Vector2(x,y), rows, player)
 
-func _instantiate_level(pos: Vector2, rows: int) -> void:
-	print_debug("Now: " + str(pos))
-	
+func _instantiate_level(pos: Vector2, rows: int, player: Node3D) -> void:
 	var level_resource = LevelResource.new()
 	var level_prefab = levels_scenes.pick_random()
 	var level_instance = level_prefab.instantiate() as Level
@@ -67,16 +68,15 @@ func _instantiate_level(pos: Vector2, rows: int) -> void:
 	level_resource.top_connection = pos.y - 1 >= 0 and level[pos.x][pos.y - 1]
 	level_resource.left_connection = pos.x - 1 >= 0 and level[pos.x - 1][pos.y]
 	
-	print_debug("Right Connection: " + str(level_resource.right_connection))
-	print_debug("Left Connection: " + str(level_resource.left_connection))
-	print_debug("Top Connection: " + str(level_resource.top_connection))
-	print_debug("Bottom Connection: " + str(level_resource.bottom_connection))
-	
-	
 	add_child(level_instance)
 	
 	level_instance.global_position = Vector3(pos.x * level_size, 0, pos.y * level_size)
 	level_instance.setup(level_resource, level_size)
+	
+	var enemy = enemy_scene.instantiate() as Enemy
+	add_child(enemy)
+	enemy.global_position = Vector3(pos.x * level_size, 1, pos.y * level_size)
+	enemy.set_movement_target(player)
 
 func _place_random_room(rows: int) -> void:
 	var random_level := levels_placed.pick_random() as Vector2
