@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://flw35qhrcijy" path="res://assets/meshes/placeholder/Cube_Prototype_Large_A.gltf" id="16_bshq8"]
 [ext_resource type="PackedScene" uid="uid://d0ajsq0kpeo7u" path="res://assets/meshes/placeholder/Cube_Prototype_Large_B.gltf" id="17_ubai5"]
 [ext_resource type="PackedScene" uid="uid://bsd1k54iqui5" path="res://assets/meshes/placeholder/Cube_Prototype_Small.gltf" id="18_ikpcj"]
-[ext_resource type="PackedScene" uid="uid://bryw3kae6x7k" path="res://assets/meshes/placeholder/Door_A.gltf" id="19_pfogm"]
+[ext_resource type="PackedScene" uid="uid://bryw3kae6x7k" path="res://assets/meshes/placeholder/P.gltf" id="19_pfogm"]
 [ext_resource type="PackedScene" uid="uid://dhleup7sc4jj8" path="res://assets/meshes/placeholder/Door_A_Decorated.gltf" id="20_w56u6"]
 [ext_resource type="PackedScene" uid="uid://bh3mxm5pwpmqc" path="res://assets/meshes/placeholder/Door_B.gltf" id="21_ix4nr"]
 [ext_resource type="PackedScene" uid="uid://dfs6x3wgtvc8u" path="res://assets/meshes/placeholder/Dummy.fbx" id="22_pt55c"]
@@ -139,11 +139,11 @@
 
 [node name="Dummy_Base2" parent="." unique_id=510771493 instance=ExtResource("24_kojp4")]
 
-[node name="Floor2" parent="." unique_id=1808470182 instance=ExtResource("25_6bjb1")]
+[node name="Floor2" parent="." unique_id=1222685303 instance=ExtResource("25_6bjb1")]
 
-[node name="Floor_Dirt2" parent="." unique_id=1840224172 instance=ExtResource("1_85dd2")]
+[node name="Floor_Dirt2" parent="." unique_id=1959394064 instance=ExtResource("1_85dd2")]
 
-[node name="Floor_Prototype2" parent="." unique_id=861498086 instance=ExtResource("27_opm3b")]
+[node name="Floor_Prototype2" parent="." unique_id=1489289313 instance=ExtResource("27_opm3b")]
 
 [node name="Gun_Pistol2" parent="." unique_id=921386090 instance=ExtResource("28_14v3y")]
 
@@ -163,9 +163,9 @@
 
 [node name="Pallet_Small_Decorated_B2" parent="." unique_id=948054831 instance=ExtResource("36_h5cak")]
 
-[node name="Pillar_A2" parent="." unique_id=850138098 instance=ExtResource("37_b8t77")]
+[node name="Pillar_A2" parent="." unique_id=910183908 instance=ExtResource("37_b8t77")]
 
-[node name="Pillar_B2" parent="." unique_id=480719569 instance=ExtResource("38_lsomm")]
+[node name="Pillar_B2" parent="." unique_id=1937471150 instance=ExtResource("38_lsomm")]
 
 [node name="Primitive_Beam2" parent="." unique_id=775735656 instance=ExtResource("39_vbcup")]
 
@@ -175,9 +175,9 @@
 
 [node name="Primitive_Doorway2" parent="." unique_id=1795312781 instance=ExtResource("42_vncn7")]
 
-[node name="Primitive_Floor2" parent="." unique_id=839238270 instance=ExtResource("43_0cjuv")]
+[node name="Primitive_Floor2" parent="." unique_id=676868634 instance=ExtResource("43_0cjuv")]
 
-[node name="Primitive_Floor_Hole2" parent="." unique_id=234664320 instance=ExtResource("44_g6g4u")]
+[node name="Primitive_Floor_Hole2" parent="." unique_id=1421345410 instance=ExtResource("44_g6g4u")]
 
 [node name="Primitive_Pillar2" parent="." unique_id=2054457858 instance=ExtResource("45_1c27i")]
 

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b0r5tb6s8jyao"]
+
+[ext_resource type="Script" uid="uid://b7lhhqve3qnqb" path="res://scripts/door.gd" id="1_gx6vt"]
+[ext_resource type="PackedScene" uid="uid://dbc4mjv5vo2lf" path="res://assets/meshes/placeholder/Wall_Doorway.gltf" id="2_iv2is"]
+[ext_resource type="PackedScene" uid="uid://bh3mxm5pwpmqc" path="res://assets/meshes/placeholder/Door_B.gltf" id="3_08et4"]
+[ext_resource type="PackedScene" uid="uid://dhleup7sc4jj8" path="res://assets/meshes/placeholder/Door_A_Decorated.gltf" id="4_iv2is"]
+
+[node name="Door" type="Node3D" unique_id=393886895]
+script = ExtResource("1_gx6vt")
+
+[node name="Wall_Doorway2" parent="." unique_id=1211290951 instance=ExtResource("2_iv2is")]
+
+[node name="Closed" parent="." unique_id=79854898 instance=ExtResource("3_08et4")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78114426, 0, 0)
+visible = false
+
+[node name="Open" parent="." unique_id=1384092622 instance=ExtResource("4_iv2is")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8050329, 0, 0)
+visible = false
