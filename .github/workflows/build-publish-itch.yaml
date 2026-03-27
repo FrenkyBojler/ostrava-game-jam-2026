@@ -39,7 +39,7 @@ jobs:
 
       - name: Export Windows Build
         run: |
-          godot/Godot_v4.6.1-stable_linux.x86_64 project.godot --quiet --headless --export-debug "Windows" build/windows.zip
+          godot/Godot_v4.6.1-stable_linux.x86_64 project.godot --quiet --headless --export-debug "Windows Desktop" build/windows.zip
 
       - name: List build output
         run: ls -l build
