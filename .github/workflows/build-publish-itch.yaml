@@ -1,0 +1,38 @@
+name: Build and Publish to Itch.io
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download Godot
+        run: |
+          curl -o godot.zip https://github.com/godotengine/godot/releases/download/4.6.1-stable/Godot_v4.6.1-stable_linux.x86_64.zip -L
+          curl -o godot_export_templates.zip https://github.com/godotengine/godot/releases/download/4.6.1-stable/Godot_v4.6.1-stable_export_templates.tpz -L
+
+      - name: Unzip Godot
+        run: |
+          unzip godot.zip -d godot
+          chmod +x godot/Godot_v4.6.1-stable_linux.x86_64
+          mkdir -p /home/runner/.local/share/godot/export_templates/4.6.stable/
+          unzip godot_export_templates.zip -d /home/runner/.local/share/godot/
+          mv /home/runner/.local/share/godot/templates/* /home/runner/.local/share/godot/export_templates/4.6.stable/
+
+      - name: Export game
+        run: |
+          mkdir -p build
+          godot/Godot_v4.6.1-stable_linux.x86_64 project.godot --quiet --headless --export-debug "Web" build/index.html
+
+      - name: List build output
+        run: ls -l build
