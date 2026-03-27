@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bp04axg4idi3t"]
+
+[ext_resource type="PackedScene" uid="uid://dtmthfn46w05" path="res://prefabs/floor_with_collision.tscn" id="1_85dd2"]
+
+[node name="PlaceholderGrid" type="Node3D" unique_id=1411715459]
+
+[node name="FloorWithCollision" parent="." unique_id=1442618873 instance=ExtResource("1_85dd2")]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://1u5mc23wrx2v"]
+
+[ext_resource type="Script" uid="uid://bq35xfqrlbbxc" path="res://scripts/player.gd" id="1_72ieh"]
+[ext_resource type="PackedScene" uid="uid://c468sb5rv5pvx" path="res://prefabs/fps_psx_hаnds.tscn" id="2_4dohe"]
+[ext_resource type="Texture2D" uid="uid://oc8y3g0eg6ip" path="res://assets/textures/placeholder/Outline/crosshair001.png" id="3_r66lb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fp3wc"]
+
+[node name="Player" type="CharacterBody3D" unique_id=1511632940]
+script = ExtResource("1_72ieh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111660792]
+shape = SubResource("CapsuleShape3D_fp3wc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1664272512]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.09489608, 0.04001701)
+
+[node name="Hands" parent="Camera3D" unique_id=1583094752 instance=ExtResource("2_4dohe")]
+unique_name_in_owner = true
+transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, 0, -0.09489608, -0.04001701)
+
+[node name="Control" type="Control" parent="." unique_id=2111418139]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=1428477478]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_r66lb")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cro1wupa5m6hg"]
+
+[ext_resource type="PackedScene" uid="uid://dtmthfn46w05" path="res://prefabs/floor_with_collision.tscn" id="2_8mn08"]
+[ext_resource type="PackedScene" uid="uid://1u5mc23wrx2v" path="res://prefabs/player.tscn" id="2_l588l"]
+
+[sub_resource type="Environment" id="Environment_o52t6"]
+background_mode = 1
+background_color = Color(0.58238727, 0.5737228, 0.9586676, 1)
+
+[node name="Placeholder" type="Node3D" unique_id=1062387625]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=17398320]
+environment = SubResource("Environment_o52t6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=177660982]
+transform = Transform3D(1, 0, 0, 0, 0.9256792, 0.37830934, 0, -0.37830934, 0.9256792, 0, 3.1145773, 5.4949274)
+shadow_enabled = true
+
+[node name="Player" parent="." unique_id=1511632940 instance=ExtResource("2_l588l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="FloorWithCollision" parent="." unique_id=1442618873 instance=ExtResource("2_8mn08")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 2)
+
+[editable path="Player"]
