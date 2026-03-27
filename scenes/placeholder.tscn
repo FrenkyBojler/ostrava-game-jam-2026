@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ds3appydr6tvl"]
 
 [ext_resource type="PackedScene" uid="uid://dktja5d8jl7u4" path="res://assets/meshes/placeholder/Dummy.glb" id="1_3wf17"]
+[ext_resource type="PackedScene" uid="uid://cu1wpi6egjes5" path="res://assets/meshes/frank_cube/frank_cube.glb" id="2_j22yv"]
 [ext_resource type="PackedScene" uid="uid://sh3bt8veaqbt" path="res://assets/meshes/placeholder/Pallet_Large.gltf" id="2_o52t6"]
 [ext_resource type="Script" uid="uid://b7p2nntcmyeu7" path="res://scripts/placeholder_camera.gd" id="3_o52t6"]
 
@@ -12,6 +13,9 @@ background_color = Color(0.58238727, 0.5737228, 0.9586676, 1)
 
 [node name="Dummy" parent="." unique_id=1191855665 instance=ExtResource("1_3wf17")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5055381, 0)
+
+[node name="engine_frank_cube" parent="." unique_id=1161640350 instance=ExtResource("2_j22yv")]
+transform = Transform3D(0.605, 0, 0, 0, 0.605, 0, 0, 0, 0.605, 0, 2.294111, 0)
 
 [node name="Pallet_Large2" parent="." unique_id=1536688388 instance=ExtResource("2_o52t6")]
 
