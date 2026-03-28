@@ -118,7 +118,7 @@
 		},
 		{
 			"mesh":6,
-			"name":"ceiling.003"
+			"name":"ceiling.003-col"
 		},
 		{
 			"mesh":7,
@@ -151,6 +151,11 @@
 		{
 			"mesh":10,
 			"name":"door_closed.005",
+			"scale":[
+				2.131930112838745,
+				2.131930112838745,
+				2.131930112838745
+			],
 			"translation":[
 				21.5993709564209,
 				0.02338150143623352,
@@ -308,7 +313,7 @@
 			]
 		},
 		{
-			"name":"ceiling.003",
+			"name":"ceiling.003-col",
 			"primitives":[
 				{
 					"attributes":{
@@ -861,29 +866,29 @@
 		{
 			"bufferView":50,
 			"componentType":5126,
-			"count":36901,
+			"count":35082,
 			"max":[
-				-8.439678192138672,
-				0.0448148176074028,
-				9.133406639099121
+				-3.2972793579101562,
+				0.04481480270624161,
+				4.4243083000183105
 			],
 			"min":[
-				-31.411636352539062,
-				-0.044814806431531906,
-				0.6551021933555603
+				-15.679048538208008,
+				-0.0448148213326931,
+				-8.680915832519531
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":51,
 			"componentType":5126,
-			"count":36901,
+			"count":35082,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":52,
 			"componentType":5126,
-			"count":36901,
+			"count":35082,
 			"type":"VEC2"
 		},
 		{
@@ -1196,26 +1201,26 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":442812,
+			"byteLength":420984,
 			"byteOffset":1997960,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":442812,
-			"byteOffset":2440772,
+			"byteLength":420984,
+			"byteOffset":2418944,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":295208,
-			"byteOffset":2883584,
+			"byteLength":280656,
+			"byteOffset":2839928,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":216960,
-			"byteOffset":3178792,
+			"byteOffset":3120584,
 			"target":34963
 		}
 	],
@@ -1227,7 +1232,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":3395752,
+			"byteLength":3337544,
 			"uri":"lvl3.bin"
 		}
 	]
