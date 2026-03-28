@@ -10,18 +10,8 @@
 			"nodes":[
 				0,
 				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13
+				13,
+				14
 			]
 		}
 	],
@@ -52,66 +42,66 @@
 		},
 		{
 			"mesh":2,
-			"name":"door_planks",
+			"name":"door_planks.001",
 			"rotation":[
-				-0.006438399199396372,
-				0.025383230298757553,
-				0.06451291590929031,
-				0.9975732564926147
+				0.04025743156671524,
+				-0.07626552134752274,
+				-0.5492123961448669,
+				0.8312212228775024
+			],
+			"scale":[
+				1.5807119607925415,
+				1.5807114839553833,
+				1.580711841583252
 			],
 			"translation":[
-				-0.2511679530143738,
-				0.34785720705986023,
-				0.07274055480957031
+				-0.5137157440185547,
+				0.7775218486785889,
+				0.13636401295661926
 			]
 		},
 		{
 			"mesh":3,
-			"name":"door_planks.001",
+			"name":"door_planks.002",
 			"rotation":[
-				0.04025740921497345,
-				-0.07626549899578094,
-				-0.5492123961448669,
-				0.8312212228775024
+				0.00715543981641531,
+				-0.0012517906725406647,
+				0.03228440508246422,
+				0.9994524121284485
+			],
+			"scale":[
+				1.5807113647460938,
+				1.580711841583252,
+				1.5807112455368042
 			],
 			"translation":[
-				-0.32499003410339355,
-				0.4826281666755676,
-				0.08629989624023438
+				-0.3552270829677582,
+				1.3748632669448853,
+				0.10499629378318787
 			]
 		},
 		{
 			"mesh":4,
-			"name":"door_planks.002",
+			"name":"door_planks.003",
 			"rotation":[
-				0.007155437953770161,
-				-0.0012517905561253428,
-				0.032284390181303024,
-				0.9994523525238037
+				-0.003065862925723195,
+				0.026006948202848434,
+				-0.0664125308394432,
+				0.9974485635757446
+			],
+			"scale":[
+				1.5807119607925415,
+				1.5807121992111206,
+				1.5807119607925415
 			],
 			"translation":[
-				-0.22472596168518066,
-				0.8605221509933472,
-				0.06645584106445312
+				-0.3968238830566406,
+				1.9078412055969238,
+				0.11493060737848282
 			]
 		},
 		{
 			"mesh":5,
-			"name":"door_planks.003",
-			"rotation":[
-				-0.0030658638570457697,
-				0.026006946340203285,
-				-0.0664125382900238,
-				0.9974486231803894
-			],
-			"translation":[
-				-0.2510411739349365,
-				1.1976979970932007,
-				0.07274055480957031
-			]
-		},
-		{
-			"mesh":6,
 			"name":"door_planks.004",
 			"rotation":[
 				-0.008165758103132248,
@@ -119,14 +109,19 @@
 				-0.1572498083114624,
 				0.9870961904525757
 			],
+			"scale":[
+				1.5807119607925415,
+				1.5807116031646729,
+				1.5807119607925415
+			],
 			"translation":[
-				-0.23096130788326263,
-				0.14443010091781616,
-				0.06970977783203125
+				-0.36508339643478394,
+				0.24292808771133423,
+				0.11013980954885483
 			]
 		},
 		{
-			"mesh":7,
+			"mesh":6,
 			"name":"door_planks.005",
 			"rotation":[
 				-0.007374770939350128,
@@ -134,89 +129,119 @@
 				0.05963115766644478,
 				0.9981632828712463
 			],
+			"scale":[
+				1.5807119607925415,
+				1.5807119607925415,
+				1.580711841583252
+			],
 			"translation":[
-				-0.251705527305603,
-				0.7285357117652893,
-				0.09059715270996094
+				-0.39787402749061584,
+				1.1662307977676392,
+				0.1431567370891571
+			]
+		},
+		{
+			"mesh":7,
+			"name":"door_planks.006",
+			"rotation":[
+				-0.0064383987337350845,
+				0.025383232161402702,
+				0.06451293081045151,
+				0.9975732564926147
+			],
+			"scale":[
+				1.5807100534439087,
+				1.5807113647460938,
+				1.580712080001831
+			],
+			"translation":[
+				0.2758427858352661,
+				0.6517127752304077,
+				0.07995998859405518
 			]
 		},
 		{
 			"mesh":8,
-			"name":"door_planks.006",
+			"name":"door_planks.007",
 			"rotation":[
-				-0.006438399199396372,
-				0.025383230298757553,
-				0.06451291590929031,
-				0.9975732564926147
+				-0.035140715539455414,
+				0.05511583387851715,
+				0.17133936285972595,
+				0.9830412864685059
+			],
+			"scale":[
+				1.580712080001831,
+				1.580711841583252,
+				1.580712080001831
 			],
 			"translation":[
-				0.17450545728206635,
-				0.40303802490234375,
-				0.050617218017578125
+				0.28712379932403564,
+				0.9347798824310303,
+				0.11398088932037354
 			]
 		},
 		{
 			"mesh":9,
-			"name":"door_planks.007",
-			"rotation":[
-				-0.035140711814165115,
-				0.05511584132909775,
-				0.17133933305740356,
-				0.9830414056777954
-			],
-			"translation":[
-				0.18164213001728058,
-				0.5821137428283691,
-				0.07213973999023438
-			]
-		},
-		{
-			"mesh":10,
 			"name":"door_planks.008",
 			"rotation":[
-				-0.011344178579747677,
+				-0.011344177648425102,
 				0.0015252088196575642,
 				0.13365687429904938,
 				0.9909615516662598
 			],
+			"scale":[
+				1.580711841583252,
+				1.580711841583252,
+				1.5807121992111206
+			],
 			"translation":[
-				0.1691758632659912,
-				0.9883095026016235,
-				0.05988311767578125
+				0.26741823554039,
+				1.5768581628799438,
+				0.09460670500993729
+			]
+		},
+		{
+			"mesh":10,
+			"name":"door_planks.009",
+			"rotation":[
+				-0.003065862925723195,
+				0.026006948202848434,
+				-0.0664125308394432,
+				0.9974485635757446
+			],
+			"scale":[
+				1.5807119607925415,
+				1.5807121992111206,
+				1.5807119607925415
+			],
+			"translation":[
+				0.2756616771221161,
+				1.8177220821380615,
+				0.07995998859405518
 			]
 		},
 		{
 			"mesh":11,
-			"name":"door_planks.009",
+			"name":"door_planks.010",
 			"rotation":[
-				-0.0030658638570457697,
-				0.026006946340203285,
-				-0.0664125382900238,
-				0.9974486231803894
+				5.282883648760617e-06,
+				0.024218598380684853,
+				0.06374146789312363,
+				0.9976726174354553
+			],
+			"scale":[
+				1.5807119607925415,
+				1.580711841583252,
+				1.580711841583252
 			],
 			"translation":[
-				0.17439088225364685,
-				1.140686273574829,
-				0.050617218017578125
+				0.30857694149017334,
+				0.1892254501581192,
+				0.07433104515075684
 			]
 		},
 		{
 			"mesh":12,
-			"name":"door_planks.010",
-			"rotation":[
-				5.283000064082444e-06,
-				0.024218590930104256,
-				0.06374146789312363,
-				0.9976725578308105
-			],
-			"translation":[
-				0.19521397352218628,
-				0.11045639961957932,
-				0.04705619812011719
-			]
-		},
-		{
-			"mesh":13,
 			"name":"door_planks.011",
 			"rotation":[
 				-0.007374770939350128,
@@ -224,10 +249,62 @@
 				0.05963115766644478,
 				0.9981632828712463
 			],
+			"scale":[
+				1.5807119607925415,
+				1.5807119607925415,
+				1.580711841583252
+			],
 			"translation":[
-				0.17499127984046936,
-				0.7796520590782166,
-				0.08358573913574219
+				0.27661073207855225,
+				1.2470309734344482,
+				0.13207371532917023
+			]
+		},
+		{
+			"children":[
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			],
+			"mesh":13,
+			"name":"door_frame.001",
+			"scale":[
+				1.190106749534607,
+				1.190106749534607,
+				1.190106749534607
+			],
+			"translation":[
+				0,
+				-0.009252604097127914,
+				3.24249267578125e-05
+			]
+		},
+		{
+			"mesh":14,
+			"name":"door_planks",
+			"rotation":[
+				0.0001657355751376599,
+				-0.035522159188985825,
+				-0.005983979441225529,
+				0.9993509650230408
+			],
+			"scale":[
+				1.6928951740264893,
+				1.6928951740264893,
+				1.6928950548171997
+			],
+			"translation":[
+				-0.44174787402153015,
+				0.721035897731781,
+				0.11856581270694733
 			]
 		}
 	],
@@ -309,7 +386,7 @@
 			]
 		},
 		{
-			"name":"door_planks",
+			"name":"door_planks.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -323,7 +400,7 @@
 			]
 		},
 		{
-			"name":"door_planks.001",
+			"name":"door_planks.002",
 			"primitives":[
 				{
 					"attributes":{
@@ -337,7 +414,7 @@
 			]
 		},
 		{
-			"name":"door_planks.002",
+			"name":"door_planks.003",
 			"primitives":[
 				{
 					"attributes":{
@@ -351,7 +428,7 @@
 			]
 		},
 		{
-			"name":"door_planks.003",
+			"name":"door_planks.004",
 			"primitives":[
 				{
 					"attributes":{
@@ -365,7 +442,7 @@
 			]
 		},
 		{
-			"name":"door_planks.004",
+			"name":"door_planks.005",
 			"primitives":[
 				{
 					"attributes":{
@@ -379,7 +456,7 @@
 			]
 		},
 		{
-			"name":"door_planks.005",
+			"name":"door_planks.006",
 			"primitives":[
 				{
 					"attributes":{
@@ -387,21 +464,7 @@
 						"NORMAL":29,
 						"TEXCOORD_0":30
 					},
-					"indices":15,
-					"material":2
-				}
-			]
-		},
-		{
-			"name":"door_planks.006",
-			"primitives":[
-				{
-					"attributes":{
-						"POSITION":31,
-						"NORMAL":32,
-						"TEXCOORD_0":33
-					},
-					"indices":34,
+					"indices":31,
 					"material":2
 				}
 			]
@@ -411,11 +474,11 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":35,
-						"NORMAL":36,
-						"TEXCOORD_0":37
+						"POSITION":32,
+						"NORMAL":33,
+						"TEXCOORD_0":34
 					},
-					"indices":34,
+					"indices":31,
 					"material":2
 				}
 			]
@@ -425,11 +488,11 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":38,
-						"NORMAL":39,
-						"TEXCOORD_0":40
+						"POSITION":35,
+						"NORMAL":36,
+						"TEXCOORD_0":37
 					},
-					"indices":34,
+					"indices":31,
 					"material":2
 				}
 			]
@@ -439,11 +502,11 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":41,
-						"NORMAL":42,
-						"TEXCOORD_0":43
+						"POSITION":38,
+						"NORMAL":39,
+						"TEXCOORD_0":40
 					},
-					"indices":34,
+					"indices":31,
 					"material":2
 				}
 			]
@@ -453,11 +516,11 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":44,
-						"NORMAL":45,
-						"TEXCOORD_0":46
+						"POSITION":41,
+						"NORMAL":42,
+						"TEXCOORD_0":43
 					},
-					"indices":34,
+					"indices":31,
 					"material":2
 				}
 			]
@@ -467,11 +530,39 @@
 			"primitives":[
 				{
 					"attributes":{
+						"POSITION":44,
+						"NORMAL":45,
+						"TEXCOORD_0":46
+					},
+					"indices":31,
+					"material":2
+				}
+			]
+		},
+		{
+			"name":"door_frame.003",
+			"primitives":[
+				{
+					"attributes":{
 						"POSITION":47,
 						"NORMAL":48,
 						"TEXCOORD_0":49
 					},
-					"indices":34,
+					"indices":50,
+					"material":1
+				}
+			]
+		},
+		{
+			"name":"door_planks",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":51,
+						"NORMAL":52,
+						"TEXCOORD_0":53
+					},
+					"indices":15,
 					"material":2
 				}
 			]
@@ -530,7 +621,7 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":13,
+			"count":20,
 			"max":[
 				2.373647928237915,
 				2.789498805999756,
@@ -546,13 +637,13 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":13,
+			"count":20,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":13,
+			"count":20,
 			"type":"VEC2"
 		},
 		{
@@ -564,7 +655,7 @@
 		{
 			"bufferView":4,
 			"componentType":5126,
-			"count":210,
+			"count":142,
 			"max":[
 				2.519038677215576,
 				2.9903602600097656,
@@ -572,7 +663,7 @@
 			],
 			"min":[
 				-2.519038677215576,
-				0,
+				0.009252604097127914,
 				-0.25918012857437134
 			],
 			"type":"VEC3"
@@ -580,19 +671,19 @@
 		{
 			"bufferView":5,
 			"componentType":5126,
-			"count":210,
+			"count":142,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":6,
 			"componentType":5126,
-			"count":210,
+			"count":142,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":7,
 			"componentType":5123,
-			"count":408,
+			"count":252,
 			"type":"SCALAR"
 		},
 		{
@@ -780,12 +871,12 @@
 			"componentType":5126,
 			"count":48,
 			"max":[
-				0.2870292365550995,
+				0.30875736474990845,
 				0.06122902035713196,
 				0.01166624203324318
 			],
 			"min":[
-				-0.2870292365550995,
+				-0.30875739455223083,
 				-0.06122902035713196,
 				-0.01166624203324318
 			],
@@ -805,6 +896,12 @@
 		},
 		{
 			"bufferView":31,
+			"componentType":5123,
+			"count":84,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":32,
 			"componentType":5126,
 			"count":48,
 			"max":[
@@ -820,22 +917,16 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":32,
+			"bufferView":33,
 			"componentType":5126,
 			"count":48,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":33,
+			"bufferView":34,
 			"componentType":5126,
 			"count":48,
 			"type":"VEC2"
-		},
-		{
-			"bufferView":34,
-			"componentType":5123,
-			"count":84,
-			"type":"SCALAR"
 		},
 		{
 			"bufferView":35,
@@ -931,7 +1022,7 @@
 				0.01166624203324318
 			],
 			"min":[
-				-0.30875739455223083,
+				-0.30875736474990845,
 				-0.06122902035713196,
 				-0.01166624203324318
 			],
@@ -954,14 +1045,14 @@
 			"componentType":5126,
 			"count":48,
 			"max":[
-				0.30875736474990845,
-				0.06122902035713196,
-				0.01166624203324318
+				0.6874303221702576,
+				2.0375804901123047,
+				0.06080964580178261
 			],
 			"min":[
-				-0.30875736474990845,
-				-0.06122902035713196,
-				-0.01166624203324318
+				-0.6928540468215942,
+				0,
+				-0.060912150889635086
 			],
 			"type":"VEC3"
 		},
@@ -976,307 +1067,365 @@
 			"componentType":5126,
 			"count":48,
 			"type":"VEC2"
+		},
+		{
+			"bufferView":50,
+			"componentType":5123,
+			"count":72,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":51,
+			"componentType":5126,
+			"count":48,
+			"max":[
+				0.2870292365550995,
+				0.06122902035713196,
+				0.01166624203324318
+			],
+			"min":[
+				-0.2870292365550995,
+				-0.06122902035713196,
+				-0.01166624203324318
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":52,
+			"componentType":5126,
+			"count":48,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":53,
+			"componentType":5126,
+			"count":48,
+			"type":"VEC2"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":156,
+			"byteLength":240,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":156,
-			"byteOffset":156,
+			"byteLength":240,
+			"byteOffset":240,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":104,
-			"byteOffset":312,
+			"byteLength":160,
+			"byteOffset":480,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":60,
-			"byteOffset":416,
+			"byteOffset":640,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":2520,
-			"byteOffset":476,
+			"byteLength":1704,
+			"byteOffset":700,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":2520,
-			"byteOffset":2996,
+			"byteLength":1704,
+			"byteOffset":2404,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":1680,
-			"byteOffset":5516,
+			"byteLength":1136,
+			"byteOffset":4108,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":816,
-			"byteOffset":7196,
+			"byteLength":504,
+			"byteOffset":5244,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":144,
-			"byteOffset":8012,
+			"byteOffset":5748,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":144,
-			"byteOffset":8156,
+			"byteOffset":5892,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":96,
-			"byteOffset":8300,
+			"byteOffset":6036,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":60,
-			"byteOffset":8396,
+			"byteOffset":6132,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":8456,
+			"byteOffset":6192,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":9032,
+			"byteOffset":6768,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":9608,
+			"byteOffset":7344,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":168,
-			"byteOffset":9992,
+			"byteOffset":7728,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":10160,
+			"byteOffset":7896,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":10736,
+			"byteOffset":8472,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":11312,
+			"byteOffset":9048,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":11696,
+			"byteOffset":9432,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":12272,
+			"byteOffset":10008,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":12848,
+			"byteOffset":10584,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":13232,
+			"byteOffset":10968,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":13808,
+			"byteOffset":11544,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":14384,
+			"byteOffset":12120,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":14768,
+			"byteOffset":12504,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":15344,
+			"byteOffset":13080,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":15920,
+			"byteOffset":13656,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":16304,
+			"byteOffset":14040,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":16880,
+			"byteOffset":14616,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":17456,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":576,
-			"byteOffset":17840,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":576,
-			"byteOffset":18416,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":384,
-			"byteOffset":18992,
+			"byteOffset":15192,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":168,
-			"byteOffset":19376,
+			"byteOffset":15576,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":19544,
+			"byteOffset":15744,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":20120,
+			"byteOffset":16320,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":20696,
+			"byteOffset":16896,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":21080,
+			"byteOffset":17280,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":21656,
+			"byteOffset":17856,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":22232,
+			"byteOffset":18432,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":22616,
+			"byteOffset":18816,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":23192,
+			"byteOffset":19392,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":23768,
+			"byteOffset":19968,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":24152,
+			"byteOffset":20352,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":24728,
+			"byteOffset":20928,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":25304,
+			"byteOffset":21504,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":25688,
+			"byteOffset":21888,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":576,
-			"byteOffset":26264,
+			"byteOffset":22464,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":384,
-			"byteOffset":26840,
+			"byteOffset":23040,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":576,
+			"byteOffset":23424,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":576,
+			"byteOffset":24000,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":24576,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":144,
+			"byteOffset":24960,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":576,
+			"byteOffset":25104,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":576,
+			"byteOffset":25680,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":384,
+			"byteOffset":26256,
 			"target":34962
 		}
 	],
@@ -1292,7 +1441,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":27224,
+			"byteLength":26640,
 			"uri":"door_open.bin"
 		}
 	]
