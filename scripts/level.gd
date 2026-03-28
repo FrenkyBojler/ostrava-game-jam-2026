@@ -31,7 +31,7 @@ func _place_doors(level_resource: LevelResource, size: int) -> void:
 		
 
 func _place_door(door_index: int, size: int, open: bool) -> Node3D:
-		var door = open_door_prefab.instantiate() as Door if open else close_door_prefab.instantiate() as Door
+		var door = open_door_prefab.instantiate() as Door if open else close_door_prefab.instantiate() as Node3D
 		add_child(door)
 		
 		if door_index == 0:
@@ -47,3 +47,12 @@ func _place_door(door_index: int, size: int, open: bool) -> Node3D:
 			door.rotate(Vector3.UP, -1.5)
 
 		return door
+
+
+func _on_player_inside_area_area_entered(area: Area3D) -> void:
+	if area.get_parent() is Player:
+		print_debug("Player entered")
+
+func _on_player_inside_area_area_exited(area: Area3D) -> void:
+	if area.get_parent() is Player:
+		print_debug("Player exited")

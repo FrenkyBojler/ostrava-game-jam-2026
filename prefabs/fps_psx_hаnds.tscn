@@ -437,11 +437,11 @@ unique_name_in_owner = true
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.15091157, -0.10433543, 0.46050137)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1059709933]
-transform = Transform3D(1, 0, 0, 0, -0.9611221, -0.27612373, 0, 0.2761237, -0.9611221, 0.3215937, -0.28543878, 0.48068702)
+transform = Transform3D(1, 0, 0, 0, -0.9611221, -0.2761237, 0, 0.2761237, -0.9611221, 0.04905516, -0.28543878, 0.2822107)
 light_color = Color(0.89385575, 0.5604845, 0.15348625, 1)
 light_energy = 5.0
-light_size = 0.237
-spot_range = 43.31024
+spot_range = 57.0
+spot_angle = 61.988033
 
 [node name="Torch" type="Node3D" parent="." unique_id=1089031325]
 transform = Transform3D(1, 0, 0, 0, 0.96112204, 0.27612385, 0, -0.27612385, 0.96112204, 0.3215937, -0.28645462, 0.47715116)

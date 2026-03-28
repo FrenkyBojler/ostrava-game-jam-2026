@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b7lhhqve3qnqb" path="res://scripts/door.gd" id="1_dd40h"]
 [ext_resource type="PackedScene" uid="uid://27210b2774uq" path="res://assets/meshes/door_open/door_open.gltf" id="2_aa5oi"]
+[ext_resource type="PackedScene" uid="uid://4tmreo4btc0s" path="res://assets/meshes/door_closed/door_closed.gltf" id="3_aa5oi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dd40h"]
 size = Vector3(1.9631348, 2.6738281, 4.0247498)
@@ -17,6 +18,10 @@ script = ExtResource("1_dd40h")
 breakable_parent = NodePath("door_open/door_frame_001")
 
 [node name="door_open" parent="." unique_id=1254611388 instance=ExtResource("2_aa5oi")]
+unique_name_in_owner = true
+
+[node name="door_closed" parent="." unique_id=1193278409 instance=ExtResource("3_aa5oi")]
+unique_name_in_owner = true
 
 [node name="InteractableArea" type="Area3D" parent="." unique_id=1050173649]
 
@@ -42,3 +47,4 @@ shape = SubResource("BoxShape3D_oknmm")
 debug_color = Color(0.7058824, 0.627451, 0, 1)
 
 [editable path="door_open"]
+[editable path="door_closed"]

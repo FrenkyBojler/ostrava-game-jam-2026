@@ -1,4 +1,4 @@
-extends PlayerCharacter
+class_name Player extends PlayerCharacter
 
 @onready var hands := %Hands as Hands
 @onready var enemy_check_raycast := %EnemyCheck as RayCast3D

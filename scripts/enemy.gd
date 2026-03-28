@@ -124,7 +124,7 @@ func _play_idle() -> void:
 func _play_run() -> void:
 	if not can_play_movement_anim:
 		return
-	animation_player_movement.play("Running_A")
+	animation_player_movement.play("Jump_Full_Short")
 	animation_player_general.stop()
 	
 func _play_hit() -> void:
