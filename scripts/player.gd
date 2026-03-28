@@ -3,8 +3,14 @@ extends PlayerCharacter
 @onready var hands := %Hands as Hands
 @onready var enemy_check_raycast := %EnemyCheck as RayCast3D
 @onready var my_crosshair := %MyCrosshair as Crosshair
+@onready var hit_texture := %HitTexture as HitRect
 
 var is_reloading := false
+
+const MAX_HEALTH := 100.0
+
+@onready
+var current_health := MAX_HEALTH
 
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -61,3 +67,24 @@ func _input(event: InputEvent) -> void:
 	
 func shoot() -> void:
 	hands.gun.shoot()
+
+func _on_hit_area_area_entered(area: Area3D) -> void:
+	if area.get_parent() is Projectile:
+		var projectile = area.get_parent() as Projectile
+		if projectile.team != 1:
+			_play_hit()
+			_take_damage(projectile._dmg)
+			projectile.queue_free()
+
+func _take_damage(dmg: float) -> void:
+	current_health -= dmg
+	%HealthLabel.text = str(current_health)
+	
+	if current_health <= 0:
+		call_deferred("_death")
+
+func _play_hit() -> void:
+	hit_texture.play_hit()
+	
+func _death() -> void:
+	get_tree().reload_current_scene()

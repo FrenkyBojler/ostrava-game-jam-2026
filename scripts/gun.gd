@@ -60,7 +60,7 @@ func shoot() -> void:
 	rate_of_fire_timer.start()
 	
 	animation_player.play(active_gun.anim_shoot_name)
-	active_gun_logic._shoot(active_gun)
+	active_gun_logic._shoot(active_gun, 1)
 
 func _starting_reloading() -> void:
 	is_reloading = true

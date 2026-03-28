@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c2ymw70hphag4"]
+
+[ext_resource type="Script" uid="uid://dkuo0lgw8u236" path="res://scripts/projectile.gd" id="1_m7iah"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_how8d"]
+radius = 0.11639404
+height = 0.23278809
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uki1p"]
+radius = 0.116
+height = 0.233
+
+[node name="WraightProjectile" type="Node3D" unique_id=1495835721]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+script = ExtResource("1_m7iah")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1162772466]
+light_color = Color(0.37925297, 0.5071865, 0.010809204, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=52006735]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=827128836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.041931152, 0)
+shape = SubResource("CapsuleShape3D_how8d")
+debug_color = Color(0.9776885, 0, 0.40585044, 0.41960785)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=994880469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.041975357, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_uki1p")
