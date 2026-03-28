@@ -1,6 +1,8 @@
 extends PlayerCharacter
 
 @onready var hands := %Hands as Hands
+@onready var enemy_check_raycast := %EnemyCheck as RayCast3D
+@onready var my_crosshair := %MyCrosshair as Crosshair
 
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -23,16 +25,23 @@ func _process_child(delta: float) -> void:
 	if Input.is_action_pressed("fire") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		shoot()
 		
+	if enemy_check_raycast.is_colliding():
+		var distance = enemy_check_raycast.get_collision_point().distance_to(global_position)
+		if abs(distance) <= hands.gun.active_gun.ttl * hands.gun.active_gun.projectile_speed:
+			my_crosshair.switch_to_enemy_close()
+		else:
+			my_crosshair.switch_to_enemy_far()
+	else:
+		my_crosshair.switch_to_normal()
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventKey:
 		var key_event = event as InputEventKey
 		if key_event.as_text_physical_keycode() == "1":
-			print_debug("Tady")
 			hands.gun.switch_gun(0)
 		if key_event.as_text_physical_keycode() == "2":
-			print_debug("Tady 2")
 			hands.gun.switch_gun(1)
 		if key_event.as_text_physical_keycode() == "3":
 			hands.gun.switch_gun(2)

@@ -17,10 +17,10 @@
 [ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addons/PlayerCharacter/Camera/camera_script.gd" id="13_cu0ja"]
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/UI/hud_script.gd" id="14_phign"]
 [ext_resource type="Shader" uid="uid://b34228uop3gdf" path="res://addons/PlayerCharacter/Shaders/speed_lines_shader.gdshader" id="15_ifw0f"]
-[ext_resource type="Texture2D" uid="uid://dv747ov6fcrsg" path="res://addons/Arts/crosshair.png" id="16_es5jv"]
 [ext_resource type="PackedScene" uid="uid://c468sb5rv5pvx" path="res://prefabs/fps_psx_hаnds.tscn" id="16_gt7xx"]
 [ext_resource type="StyleBox" uid="uid://c50syhy1a4dmh" path="res://addons/PlayerCharacter/UI/player_character_ui_theme.tres" id="17_gpxsl"]
 [ext_resource type="LabelSettings" uid="uid://bs0stms0b56kp" path="res://addons/Arts/label_settings.tres" id="18_iiqn7"]
+[ext_resource type="PackedScene" uid="uid://dcc8ugos5iki4" path="res://prefabs/crosshair.tscn" id="21_6hq66"]
 [ext_resource type="FontFile" uid="uid://bvslkan23q0qd" path="res://assets/fonts/HeadCapitalBoldGrunge-KV9RA.otf" id="22_6hq66"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
@@ -127,6 +127,16 @@ far = 1000.0
 unique_name_in_owner = true
 transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, -4.490129e-09, -0.09489608, 0.06270516)
 
+[node name="EnemyCheck" type="RayCast3D" parent="CameraHolder/Camera/Hands" unique_id=496170794]
+unique_name_in_owner = true
+transform = Transform3D(2.1634133e-07, 0, 1.1111112, 0, 1.1111112, 0, -1.1111112, 0, 2.1634133e-07, 0, 0.128, 0)
+target_position = Vector3(-100, 0, 0)
+collision_mask = 4
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_custom_color = Color(1, 0, 0, 1)
+debug_shape_thickness = 1
+
 [node name="CameraBasedRaycasts" type="Node3D" parent="CameraHolder/Camera" unique_id=1063954026]
 
 [node name="LeftWallCheck" type="RayCast3D" parent="CameraHolder/Camera/CameraBasedRaycasts" unique_id=757599735]
@@ -154,7 +164,6 @@ material_override = SubResource("StandardMaterial3D_6bkys")
 mesh = SubResource("CapsuleMesh_p2iaj")
 
 [node name="Raycasts" type="Node3D" parent="." unique_id=1072058839]
-visible = false
 
 [node name="CeilingCheck" type="RayCast3D" parent="Raycasts" unique_id=802955948]
 unique_name_in_owner = true
@@ -209,7 +218,6 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_es5jv")
 
 [node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=764775652]
 visible = false
@@ -628,5 +636,9 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Reloading"
 label_settings = SubResource("LabelSettings_6hq66")
+
+[node name="MyCrosshair" parent="Control" unique_id=1818323891 instance=ExtResource("21_6hq66")]
+unique_name_in_owner = true
+layout_mode = 1
 
 [connection signal="change_fov" from="StateMachine" to="CameraHolder" method="change_fov"]

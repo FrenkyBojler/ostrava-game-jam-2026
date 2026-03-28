@@ -14,6 +14,7 @@ dmg = 5.0
 reload_time = 2.0
 radius_of_dmg = 1.0
 model = ExtResource("1_wdo1j")
+projectile_speed = 50.0
 projectile_model = ExtResource("2_m0fd8")
 anim_shoot_name = "SMGShoot"
 metadata/_custom_type_script = "uid://dqqr0gqodhj24"

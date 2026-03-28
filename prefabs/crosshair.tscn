@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dcc8ugos5iki4"]
+
+[ext_resource type="Script" uid="uid://dlwa8ccyurk1u" path="res://scripts/crosshair.gd" id="1_bl1bn"]
+[ext_resource type="Texture2D" uid="uid://bej3u0p6tnksr" path="res://assets/textures/placeholder/Outline/crosshair117.png" id="2_famdl"]
+[ext_resource type="Texture2D" uid="uid://c3bwvtv3so55h" path="res://assets/textures/placeholder/Outline/crosshair119.png" id="3_qwkhw"]
+
+[node name="Crosshair" type="Control" unique_id=1818323891]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bl1bn")
+normal_crosshair_texture = ExtResource("2_famdl")
+enemy_far_crosshair_texture = ExtResource("2_famdl")
+enemy_close_crosshair_texture = ExtResource("3_qwkhw")
+
+[node name="CrosshairTexture" type="TextureRect" parent="." unique_id=1884678492]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 72.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_famdl")

@@ -84,7 +84,7 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Projectile and not playing_death:
 		_play_hit()
 		var projectile = area.get_parent() as Projectile
-		take_damage(projectile.dmg)
+		take_damage(projectile._dmg)
 		projectile.queue_free()
 
 func _play_idle() -> void:

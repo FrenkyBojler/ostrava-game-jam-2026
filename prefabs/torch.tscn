@@ -48,7 +48,8 @@ transform = Transform3D(0.25, 0, 0, 0, 0.24999999, 0, 0, 0, 0.24999999, 0, 0, 0)
 mesh = SubResource("ArrayMesh_t24cj")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Torch_4" unique_id=1059709933]
-transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0.23934174)
+transform = Transform3D(4, 0, 0, 0, -4, 6.039832e-07, 0, -6.039832e-07, -4, 0, 0, 0.014715597)
 light_color = Color(0.89385575, 0.5604845, 0.15348625, 1)
 light_energy = 5.0
+light_size = 0.237
 spot_range = 43.31024

@@ -68,7 +68,7 @@ func shoot() -> void:
 	projectile.global_position = global_position
 	projectile.global_rotation = global_rotation
 	
-	projectile.shoot(active_gun.ttl, active_gun.dmg, active_gun.projectile_model)
+	projectile.shoot(active_gun.ttl, active_gun.dmg, active_gun.projectile_speed, active_gun.projectile_model)
 	
 func _starting_reloading() -> void:
 	is_reloading = true
@@ -87,7 +87,7 @@ func set_gun(gun: GunResource) -> void:
 
 	active_gun = gun
 	current_ammo = active_gun.max_ammo
-		
+
 	ammo_updated.emit(current_ammo, active_gun.max_ammo)
 	
 	active_gun_mesh = active_gun.model.instantiate()

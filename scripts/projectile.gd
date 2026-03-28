@@ -5,11 +5,10 @@ var placeholder_bullet := %PlaceholderBullet
 @onready
 var time_to_live_timer := %TimeToLive as Timer
 
-const PROJECITLE_SPEED := 100
-
 var can_fly := false
 
-var dmg: float
+var _dmg: float
+var _projectile_speed: float
 
 func _ready() -> void:
 	placeholder_bullet.visible = false
@@ -19,17 +18,18 @@ func _ready() -> void:
 		queue_free()
 	)
 
-func shoot(ttl: float, dmg: float, mesh: PackedScene) -> void:
+func shoot(ttl: float, dmg: float, projectile_speed: float, mesh: PackedScene) -> void:
 	var mesh_instance := mesh.instantiate()
 	add_child(mesh_instance)
 	
 	time_to_live_timer.wait_time = ttl
 	time_to_live_timer.start()
 	
-	self.dmg = dmg
+	_dmg = dmg
+	_projectile_speed = projectile_speed
 
 	can_fly = true
 
 func _physics_process(_delta: float) -> void:
 	if can_fly:
-		global_position += global_basis.z * PROJECITLE_SPEED * _delta
+		global_position += global_basis.z * _projectile_speed * _delta

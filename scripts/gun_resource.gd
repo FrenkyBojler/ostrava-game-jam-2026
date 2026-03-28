@@ -17,6 +17,8 @@ var radius_of_dmg: float
 @export
 var model: PackedScene
 @export
+var projectile_speed: float
+@export
 var projectile_model: PackedScene
 @export
 var anim_shoot_name: String
