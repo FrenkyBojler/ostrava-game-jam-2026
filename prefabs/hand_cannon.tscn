@@ -48,7 +48,7 @@ shadow_mesh = SubResource("ArrayMesh_u7ios")
 script = ExtResource("1_6fll7")
 
 [node name="uhlopal" parent="." unique_id=1205548216 instance=ExtResource("2_bmnj5")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.06501)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.06501)
 
 [node name="Gun" type="MeshInstance3D" parent="." unique_id=570110609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00449723, 0.19196534, -0.542577)

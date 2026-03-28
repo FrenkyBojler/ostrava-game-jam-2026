@@ -7,8 +7,8 @@ var guns: Array[GunResource]
 var placeholder_model := %PlaceholderModel
 @onready
 var gun_model_handler := %GunModelHandler
-@onready
-var animation_player := %AnimationPlayer
+@export
+var animation_player: AnimationPlayer
 @onready
 var rate_of_fire_timer := %RateOfFireTimer as Timer
 @onready
@@ -27,7 +27,7 @@ signal reloading_started
 signal reloading_finished
 
 func _ready() -> void:
-	placeholder_model.visible = false
+	#placeholder_model.visible = false
 	set_gun(guns[0])
 	
 	rate_of_fire_timer.one_shot = true
@@ -59,7 +59,7 @@ func shoot() -> void:
 	can_shoot = false
 	rate_of_fire_timer.start()
 	
-	animation_player.play(active_gun.anim_shoot_name)
+	animation_player.play("fire", -1, 1 / active_gun.rate_of_fire)
 	active_gun_logic._shoot(active_gun, 1)
 
 func _starting_reloading() -> void:
@@ -83,7 +83,7 @@ func set_gun(gun: GunResource) -> void:
 	ammo_updated.emit(current_ammo, active_gun.max_ammo)
 	
 	active_gun_logic = active_gun.gun_logic.instantiate()
-	gun_model_handler.add_child(active_gun_logic)
+	placeholder_model.add_child(active_gun_logic)
 	
 	rate_of_fire_timer.wait_time = active_gun.rate_of_fire
 	reload_timer.wait_time = active_gun.reload_time

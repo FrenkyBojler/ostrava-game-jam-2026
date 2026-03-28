@@ -142,7 +142,7 @@ far = 1000.0
 
 [node name="Hands" parent="CameraHolder/Camera" unique_id=1583094752 instance=ExtResource("16_gt7xx")]
 unique_name_in_owner = true
-transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, -4.490129e-09, -0.09489608, 0.06270516)
+transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, -6.9321797e-09, -0.09489608, 0.11857277)
 
 [node name="EnemyCheck" type="RayCast3D" parent="CameraHolder/Camera/Hands" unique_id=496170794]
 unique_name_in_owner = true
