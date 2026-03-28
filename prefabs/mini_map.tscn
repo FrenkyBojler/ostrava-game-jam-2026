@@ -20,6 +20,8 @@ grow_vertical = 2
 script = ExtResource("1_35qot")
 
 [node name="Background" type="TextureRect" parent="." unique_id=763702405]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

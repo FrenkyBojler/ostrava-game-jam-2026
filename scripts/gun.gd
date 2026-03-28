@@ -39,10 +39,15 @@ func _ready() -> void:
 	reload_timer.timeout.connect(func():
 		_reload()
 	)
+	
+	play_idle()
 
 func switch_gun(index: int) -> void:
 	if index < guns.size():
 		set_gun(guns[index])
+
+func play_idle() -> void:
+	animation_player.play("idle")
 
 func shoot() -> void:
 	if not can_shoot or is_reloading:
@@ -61,9 +66,12 @@ func shoot() -> void:
 	
 	animation_player.play("fire", -1, 1 / active_gun.rate_of_fire)
 	active_gun_logic._shoot(active_gun, 1)
+	await get_tree().create_timer(active_gun.rate_of_fire).timeout
+	play_idle()
 
 func _starting_reloading() -> void:
 	is_reloading = true
+	animation_player.play("reload", -1, 1 / active_gun.reload_time)
 	reload_timer.start()
 	reloading_started.emit()
 

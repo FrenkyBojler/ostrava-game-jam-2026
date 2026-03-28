@@ -47,30 +47,30 @@ shadow_mesh = SubResource("ArrayMesh_e5ikb")
 [node name="Hands" type="Node3D" unique_id=1583094752]
 script = ExtResource("1_m662u")
 
-[node name="arms" parent="." unique_id=1435635636 instance=ExtResource("2_81l7j")]
+[node name="arms" parent="." unique_id=1180254317 instance=ExtResource("2_81l7j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.13988459)
 
-[node name="Skeleton3D" parent="arms/ArmRig" parent_id_path=PackedInt32Array(1435635636, 1072407765) index="0" unique_id=1250193803]
-bones/0/rotation = Quaternion(0.10131671, 0.02684404, 0.96994764, -0.21958171)
-bones/1/rotation = Quaternion(0.013156408, 0.17873006, -0.067942224, 0.98146135)
-bones/2/rotation = Quaternion(0.026131006, -0.046471376, 0.048885714, 0.99738044)
-bones/3/rotation = Quaternion(-0.023948556, 0.73931855, -0.036422387, 0.6719434)
-bones/4/rotation = Quaternion(0.20828728, 0.027262941, -0.05877639, 0.9759193)
-bones/5/rotation = Quaternion(-0.021375103, 0.0062179747, -0.01748706, 0.9995993)
-bones/6/rotation = Quaternion(0.044433385, 0.003216065, -0.03927002, 0.99823505)
-bones/7/rotation = Quaternion(-1.3038517e-08, 8.847564e-09, 7.52043e-08, 1)
-bones/8/rotation = Quaternion(-0.0940295, 0.75404996, 0.2635322, 0.59423715)
-bones/9/rotation = Quaternion(-0.034801688, -0.04971172, 0.10937484, 0.99214655)
-bones/10/rotation = Quaternion(0.027577003, 0.0063892715, 0.10428072, 0.994145)
-bones/11/rotation = Quaternion(2.2351742e-08, 1.6763806e-08, -1.3038516e-08, 1)
-bones/12/rotation = Quaternion(-0.04833628, 0.6497356, -0.20017453, 0.7317358)
-bones/13/rotation = Quaternion(-0.009475912, 0.07583334, 0.0033984256, 0.9970697)
-bones/14/rotation = Quaternion(0.10140239, -0.0041990094, -0.0087602455, 0.99479806)
-bones/15/rotation = Quaternion(0.0068994276, -0.009563043, 0.0033089207, 0.999925)
-bones/16/rotation = Quaternion(8.1490725e-10, -3.1432137e-09, -1.5059413e-08, 1)
+[node name="Skeleton3D" parent="arms/ArmRig" parent_id_path=PackedInt32Array(1180254317, 257061678) index="0" unique_id=1616559791]
+bones/0/rotation = Quaternion(0.10131671, 0.026844041, 0.96994764, -0.21958171)
+bones/1/rotation = Quaternion(0.013156412, 0.17873006, -0.067942224, 0.98146135)
+bones/2/rotation = Quaternion(0.026131002, -0.046471376, 0.04888572, 0.99738044)
+bones/3/rotation = Quaternion(-0.023948543, 0.73931855, -0.036422387, 0.6719434)
+bones/4/rotation = Quaternion(0.20828731, 0.027262945, -0.058776397, 0.9759193)
+bones/5/rotation = Quaternion(-0.021375103, 0.0062179724, -0.017487064, 0.9995993)
+bones/6/rotation = Quaternion(0.04443338, 0.0032160622, -0.039270006, 0.99823505)
+bones/7/rotation = Quaternion(-1.21071935e-08, 2.7939682e-09, 8.009374e-08, 1)
+bones/8/rotation = Quaternion(-0.09402949, 0.7540501, 0.26353225, 0.59423715)
+bones/9/rotation = Quaternion(-0.034801695, -0.04971169, 0.10937484, 0.99214655)
+bones/10/rotation = Quaternion(0.027577002, 0.006389254, 0.10428072, 0.994145)
+bones/11/rotation = Quaternion(1.8626451e-08, 1.1175871e-08, -2.9802322e-08, 1)
+bones/12/rotation = Quaternion(-0.048336282, 0.6497356, -0.20017453, 0.7317358)
+bones/13/rotation = Quaternion(-0.009475913, 0.075833336, 0.0033984126, 0.9970697)
+bones/14/rotation = Quaternion(0.10140237, -0.0041990113, -0.0087602455, 0.99479806)
+bones/15/rotation = Quaternion(0.0068994267, -0.009563043, 0.0033089358, 0.999925)
+bones/16/rotation = Quaternion(2.9103828e-10, -3.4924597e-09, -1.4970283e-08, 1)
 bones/17/rotation = Quaternion(-0.10131671, 0.026844028, 0.96994764, 0.21958172)
 bones/18/rotation = Quaternion(0.68691623, 0.04494637, 0.15724555, 0.70809585)
-bones/19/rotation = Quaternion(0.026131032, 0.046471536, -0.048885617, 0.99738044)
+bones/19/rotation = Quaternion(0.026131034, 0.046471536, -0.04888562, 0.9973805)
 bones/20/rotation = Quaternion(-0.1373079, -0.7090595, 0.08767971, 0.68607104)
 bones/21/rotation = Quaternion(0.15578748, -0.010454822, 0.06277146, 0.9857387)
 bones/22/rotation = Quaternion(0.34510693, 0.02193892, 0.011436717, 0.93823725)
@@ -85,25 +85,25 @@ bones/31/rotation = Quaternion(0.5028085, -0.067348875, -0.10658272, 0.85515374)
 bones/32/rotation = Quaternion(0.3892974, -0.17899784, -0.08779041, 0.8992776)
 bones/33/rotation = Quaternion(0.4345923, -0.006585835, -0.46273768, 0.7726319)
 
-[node name="hand_R" parent="arms/ArmRig/Skeleton3D" index="0" unique_id=1676312559]
-transform = Transform3D(-0.98852944, -0.13405319, 0.06956376, 0.058621153, 0.08391853, 0.9947468, -0.1391867, 0.9874145, -0.07509761, -0.36110964, 0.34332046, 0.273372)
+[node name="hand_R" parent="arms/ArmRig/Skeleton3D" index="0" unique_id=1363911702]
+transform = Transform3D(-0.98852944, -0.13405317, 0.06956377, 0.05862116, 0.08391853, 0.9947468, -0.13918668, 0.98741454, -0.075097606, -0.36110964, 0.34332046, 0.273372)
 
 [node name="Gun" parent="arms/ArmRig/Skeleton3D/hand_R" index="0" unique_id=630209066 node_paths=PackedStringArray("animation_player") instance=ExtResource("3_qgsvd")]
 unique_name_in_owner = true
 transform = Transform3D(-0.21403532, 0.012692595, -0.03013654, -0.029025076, 0.018169956, 0.21379387, 0.015061864, 0.21538152, -0.016260054, 0.014030397, -0.38686973, -0.014536381)
 animation_player = NodePath("../../../../AnimationPlayer")
 
-[node name="Cube_006" parent="arms/ArmRig/Skeleton3D/hand_R" index="1" unique_id=1071418344]
+[node name="Cube_006" parent="arms/ArmRig/Skeleton3D/hand_R" index="1" unique_id=1167812324]
 visible = false
 
-[node name="Skeleton3D" parent="arms/ArmRig_001" parent_id_path=PackedInt32Array(1435635636, 1439484563) index="0" unique_id=2072262655]
+[node name="Skeleton3D" parent="arms/ArmRig_001" parent_id_path=PackedInt32Array(1180254317, 532004313) index="0" unique_id=876671993]
 bones/0/rotation = Quaternion(0.1013167, 0.026844036, 0.9699476, -0.21958168)
 bones/2/rotation = Quaternion(0.026131008, -0.046471383, 0.048885703, 0.9973805)
 bones/17/rotation = Quaternion(-0.1013167, 0.026844025, 0.9699476, 0.2195817)
 bones/18/rotation = Quaternion(0.013156415, -0.17873016, 0.0679422, 0.98146135)
 bones/19/rotation = Quaternion(0.026131026, 0.04647155, -0.048885606, 0.9973805)
 
-[node name="Skeleton3D" parent="arms/ArmRig_002" parent_id_path=PackedInt32Array(1435635636, 681323964) index="0" unique_id=1716679212]
+[node name="Skeleton3D" parent="arms/ArmRig_002" parent_id_path=PackedInt32Array(1180254317, 707452578) index="0" unique_id=331232757]
 bones/0/rotation = Quaternion(0.1013167, 0.026844036, 0.9699476, -0.21958168)
 bones/2/rotation = Quaternion(0.026131008, -0.046471383, 0.048885703, 0.9973805)
 bones/17/rotation = Quaternion(-0.1013167, 0.026844025, 0.9699476, 0.2195817)
