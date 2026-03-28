@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bothfdelnxw3r"]
+
+[ext_resource type="Script" uid="uid://daxg8hxgtqmkl" path="res://scripts/wraith_gun_logic.gd" id="1_0igxx"]
+
+[node name="WraithGun" type="Node3D" unique_id=1692977969]
+script = ExtResource("1_0igxx")

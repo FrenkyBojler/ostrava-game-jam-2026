@@ -22,6 +22,8 @@
 [ext_resource type="LabelSettings" uid="uid://bs0stms0b56kp" path="res://addons/Arts/label_settings.tres" id="18_iiqn7"]
 [ext_resource type="PackedScene" uid="uid://dcc8ugos5iki4" path="res://prefabs/crosshair.tscn" id="21_6hq66"]
 [ext_resource type="FontFile" uid="uid://bvslkan23q0qd" path="res://assets/fonts/HeadCapitalBoldGrunge-KV9RA.otf" id="22_6hq66"]
+[ext_resource type="PackedScene" uid="uid://diplhol4cfisa" path="res://prefabs/hit_texture.tscn" id="23_dmkdn"]
+[ext_resource type="Script" uid="uid://ba0hfdffnq53u" path="res://scripts/health_label.gd" id="24_4vl0f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
 
@@ -56,6 +58,13 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_6hq66"]
 font = ExtResource("22_6hq66")
 font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_4vl0f"]
+font = ExtResource("22_6hq66")
+font_size = 120
+font_color = Color(0.84313726, 0.12941177, 0.19215687, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6hq66"]
 
 [node name="PlayerCharacter" type="CharacterBody3D" unique_id=887730227 groups=["PlayerCharacter"]]
 collision_layer = 2
@@ -159,6 +168,7 @@ debug_shape_custom_color = Color(0.91764706, 0.79607844, 0.18039216, 1)
 shape = SubResource("CapsuleShape3D_5yjma")
 
 [node name="Model" type="MeshInstance3D" parent="." unique_id=256913148]
+visible = false
 layers = 2
 material_override = SubResource("StandardMaterial3D_6bkys")
 mesh = SubResource("CapsuleMesh_p2iaj")
@@ -643,4 +653,33 @@ label_settings = SubResource("LabelSettings_6hq66")
 unique_name_in_owner = true
 layout_mode = 1
 
+[node name="HitTexture" parent="Control" unique_id=789957062 instance=ExtResource("23_dmkdn")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="HealthLabel" type="Label" parent="Control" unique_id=1121869937]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.86100006
+anchor_right = 0.5
+anchor_bottom = 0.86100006
+offset_left = -77.0
+offset_top = -37.880066
+offset_right = 76.0
+offset_bottom = 57.119934
+grow_horizontal = 2
+grow_vertical = 0
+text = "100"
+label_settings = SubResource("LabelSettings_4vl0f")
+script = ExtResource("24_4vl0f")
+
+[node name="HitArea" type="Area3D" parent="." unique_id=29700697]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=1765208095]
+shape = SubResource("CapsuleShape3D_6hq66")
+debug_color = Color(0.84934384, 0, 0.24771458, 1)
+
 [connection signal="change_fov" from="StateMachine" to="CameraHolder" method="change_fov"]
+[connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]

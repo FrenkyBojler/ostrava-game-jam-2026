@@ -3,7 +3,7 @@ extends Node3D
 @export
 var player_scene: PackedScene
 @export
-var enemy_scene: PackedScene
+var enemy_scenes: Array[PackedScene]
 
 @export
 var start_level_scene: PackedScene
@@ -23,7 +23,7 @@ func _ready() -> void:
 	assert(start_level_scene != null, "Missing start level scene!")
 	assert(levels_scenes.size() != 0, "Missing levels scenes!")
 	assert(level_size != null, "Missing level size!")
-	
+
 	_generate_level()
 
 func _generate_level() -> void:
@@ -72,7 +72,7 @@ func _instantiate_level(pos: Vector2, rows: int, player: Node3D) -> void:
 	level_instance.global_position = Vector3(pos.x * level_size, 0, pos.y * level_size)
 	level_instance.setup(level_resource, level_size)
 	
-	var enemy = enemy_scene.instantiate() as Enemy
+	var enemy = enemy_scenes.pick_random().instantiate() as Enemy
 	add_child(enemy)
 	enemy.global_position = Vector3(pos.x * level_size, 1, pos.y * level_size)
 	enemy.set_movement_target(player)
