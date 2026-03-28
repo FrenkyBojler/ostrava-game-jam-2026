@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://b4ywvmsaaakw"]
 
 [ext_resource type="PackedScene" uid="uid://dcb4amgsq1s5b" path="res://prefabs/hand_cannon.tscn" id="1_8idqh"]
-[ext_resource type="PackedScene" uid="uid://bry8gv42m2pre" path="res://prefabs/handgun_projectile.tscn" id="2_8idqh"]
+[ext_resource type="PackedScene" path="res://prefabs/handgun_projectile.tscn" id="2_8idqh"]
 [ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="3_5xtx3"]
 
 [resource]

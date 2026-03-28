@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cgab7p1wmnes1"]
 
 [ext_resource type="Script" uid="uid://d0j628gcykl5e" path="res://scripts/enemy.gd" id="1_0nth0"]
-[ext_resource type="Resource" uid="uid://djv4kcf46iyyo" path="res://reousrc/wraight_gun.tres" id="2_6tyqv"]
+[ext_resource type="Resource" path="res://reousrc/wraight_gun.tres" id="2_6tyqv"]
 [ext_resource type="Texture2D" uid="uid://miuf7ovhlw67" path="res://assets/meshes/placeholder/prototypebits_texture.png" id="2_7uhnq"]
 [ext_resource type="Texture2D" uid="uid://dgbkmmqdiagvb" path="res://assets/meshes/monster_1/monster_1_T_monster_BaseColor.png" id="3_6tyqv"]
 [ext_resource type="Texture2D" uid="uid://damebv70308ef" path="res://assets/meshes/monster_1/monster_1_T_monster_Metallic-T_monster_Roughness.png" id="4_b58kp"]
