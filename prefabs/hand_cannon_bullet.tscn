@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bo0nwtyd2lqn6"]
 
 [ext_resource type="Texture2D" uid="uid://dy0dgkgrpqwfs" path="res://assets/meshes/placeholder/Handcannon_untitled_1.png" id="1_602a6"]
+[ext_resource type="PackedScene" uid="uid://baevyeld67ppb" path="res://assets/meshes/projectile/projectile.gltf" id="1_qo5pd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsidp"]
 resource_name = "Material.002"
@@ -44,6 +45,10 @@ shadow_mesh = SubResource("ArrayMesh_602a6")
 
 [node name="HandCannonBullet" type="Node3D" unique_id=456944271]
 
+[node name="projectile2" parent="." unique_id=1952371775 instance=ExtResource("1_qo5pd")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.018829778, 0.49779475, -0.15849541)
+
 [node name="Bullet" type="MeshInstance3D" parent="." unique_id=1511597630]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+visible = false
 mesh = SubResource("ArrayMesh_lnyyj")
