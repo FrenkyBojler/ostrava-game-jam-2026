@@ -9,7 +9,7 @@ vertices = PackedVector3Array(-2.5000038, 0.4147182, 19.499998, -2.2500038, 0.41
 polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 0), PackedInt32Array(0, 7, 11), PackedInt32Array(0, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(6, 4, 9), PackedInt32Array(9, 4, 3), PackedInt32Array(9, 3, 0), PackedInt32Array(4, 12, 3)]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wua2"]
-size = Vector3(42, 1, 42)
+size = Vector3(30, 1, 30)
 
 [node name="lvl1" type="Node3D" unique_id=135452395]
 script = ExtResource("2_2cvx8")
@@ -24,7 +24,7 @@ navigation_mesh = SubResource("NavigationMesh_5wua2")
 [node name="PlayerInsideArea" type="Area3D" parent="." unique_id=433931316]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerInsideArea" unique_id=1564127529]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.230896)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28358078, 0, 0.43499756)
 shape = SubResource("BoxShape3D_5wua2")
 
 [node name="Lights" type="Node3D" parent="." unique_id=1433672005]
@@ -52,6 +52,57 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -13.
 light_color = Color(1, 0.23529412, 0.17254902, 1)
 spot_range = 7.9179883
 spot_angle = 51.994404
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1214152989]
+unique_name_in_owner = true
+
+[node name="SpawnPoint" type="Node3D" parent="SpawnPoints" unique_id=1522119197]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7673476, 1, 0)
+
+[node name="SpawnPoint2" type="Node3D" parent="SpawnPoints" unique_id=519114177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7673476, 1, -6.2819033)
+
+[node name="SpawnPoint3" type="Node3D" parent="SpawnPoints" unique_id=673715350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6847136, 1, -6.2819033)
+
+[node name="SpawnPoint4" type="Node3D" parent="SpawnPoints" unique_id=395608240]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7344477, 1, -12.281903)
+
+[node name="SpawnPoint5" type="Node3D" parent="SpawnPoints" unique_id=48890664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.982159, 1, -12.281903)
+
+[node name="SpawnPoint6" type="Node3D" parent="SpawnPoints" unique_id=2088362384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.982159, 1, 2.7453938)
+
+[node name="SpawnPoint7" type="Node3D" parent="SpawnPoints" unique_id=1149906232]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.982159, 1, 7.376899)
+
+[node name="SpawnPoint8" type="Node3D" parent="SpawnPoints" unique_id=1491045059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8518476, 1, 7.376899)
+
+[node name="SpawnPoint9" type="Node3D" parent="SpawnPoints" unique_id=69265529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8518476, 1, 14.374503)
+
+[node name="SpawnPoint10" type="Node3D" parent="SpawnPoints" unique_id=1782183540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9297571, 1, 14.374503)
+
+[node name="SpawnPoint11" type="Node3D" parent="SpawnPoints" unique_id=1745351576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.303469, 1, 14.374503)
+
+[node name="SpawnPoint12" type="Node3D" parent="SpawnPoints" unique_id=1087735819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.303469, 1, 3.7522402)
+
+[node name="SpawnPoint13" type="Node3D" parent="SpawnPoints" unique_id=1667080996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, 0.10950279)
+
+[node name="SpawnPoint14" type="Node3D" parent="SpawnPoints" unique_id=1114455260]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, -4.887163)
+
+[node name="SpawnPoint15" type="Node3D" parent="SpawnPoints" unique_id=242078614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, -11.919468)
+
+[node name="SpawnPoint16" type="Node3D" parent="SpawnPoints" unique_id=1862860658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.573599, 1, -11.919468)
 
 [connection signal="area_entered" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_entered"]
 [connection signal="area_exited" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_exited"]

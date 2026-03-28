@@ -43,7 +43,6 @@ func _instantiate_levels(rows: int, player: Node3D) -> void:
 	)
 	
 	for level in levels_placed:
-		
 		_instantiate_level(level, rows, player)
 
 func _instantiate_level(pos: Vector2, rows: int, player: Node3D) -> void:
@@ -59,19 +58,15 @@ func _instantiate_level(pos: Vector2, rows: int, player: Node3D) -> void:
 	level_resource.top_connection = LevelResource.ConnectionState.EdgeOfMap if not (pos.y - 1 >= 0) else LevelResource.ConnectionState.Open if _has_top_neighbour(pos) else LevelResource.ConnectionState.Closed
 	level_resource.left_connection = LevelResource.ConnectionState.EdgeOfMap if not (pos.x - 1 >= 0) else LevelResource.ConnectionState.Open if _has_left_neighbour(pos) else LevelResource.ConnectionState.Closed
 	
-	add_child(level_instance)
+	add_child(level_instance, true)
 	
 	level_instance.global_position = Vector3(pos.x * level_size, 0, pos.y * level_size)
-	level_instance.setup(level_resource, level_size)
+	level_instance.setup(level_resource, level_size, enemy_scenes, player)
 	
-	if not is_start_level:
-		_spawn_enemies(pos, player)
-
-func _spawn_enemies(pos: Vector2, player: Node3D) -> void:
+func _spawn_enemies(pos: Vector2, player: Node3D) -> Node3D:
 	var enemy = enemy_scenes.pick_random().instantiate() as Enemy
-	add_child(enemy)
-	enemy.global_position = Vector3(pos.x * level_size, 1, pos.y * level_size)
 	enemy.set_movement_target(player)
+	return enemy
 
 func _place_random_room(rows: int) -> void:
 	var random_level := levels_placed.pick_random() as Vector2

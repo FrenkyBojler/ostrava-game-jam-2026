@@ -31,6 +31,8 @@ var gun: GunLogic
 
 const DISTANCE_TO_PLAYER_BUFFER := 1.0
 
+signal enemy_died(who: Enemy)
+
 @onready
 var projectile_placement_position: Node3D = %ProjectilePlacementPos
 
@@ -38,9 +40,7 @@ func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	_play_idle()
 
-	NavigationServer3D.map_changed.connect(func(_cosi: RID): 
-		map_ready = true
-	)
+	map_ready = true
 
 	gun = gun_resource.gun_logic.instantiate()
 	add_child(gun)
@@ -56,7 +56,7 @@ func update_target_position() -> void:
 	var map = navigation_agent.get_navigation_map()
 	var safe_target = NavigationServer3D.map_get_closest_point(map, target_node.global_position)
 	var move_target = safe_target
-
+	
 	if can_attack:
 		move_target = get_target_position_to_attack(safe_target)
 
@@ -146,6 +146,7 @@ func _play_death() -> void:
 	animation_player_movement.stop()
 	animation_player_general.play("Death_A")
 	
+	enemy_died.emit(self)
 	await get_tree().create_timer(4).timeout
 	queue_free()
 
