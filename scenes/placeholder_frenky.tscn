@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://c4xp62x0jamtc" path="res://prefabs/level_generator.tscn" id="1_e2c6g"]
 [ext_resource type="PackedScene" uid="uid://ijmul6xsn0m7" path="res://prefabs/maro_lvl_1.tscn" id="2_l588l"]
+[ext_resource type="PackedScene" uid="uid://cgab7p1wmnes1" path="res://prefabs/wraight.tscn" id="2_o105g"]
 [ext_resource type="PackedScene" uid="uid://bj7htfunciahq" path="res://prefabs/maro_lvl_2.tscn" id="3_8mn08"]
+[ext_resource type="PackedScene" uid="uid://b2c757mcpf422" path="res://prefabs/loupak.tscn" id="3_y4hj8"]
 [ext_resource type="PackedScene" uid="uid://vooredjcup0m" path="res://prefabs/maro_lvl_3.tscn" id="4_nxbvd"]
 [ext_resource type="PackedScene" uid="uid://b7ua8c0ggmbou" path="res://prefabs/maro_lvl_4.tscn" id="5_mx3e5"]
 [ext_resource type="PackedScene" uid="uid://rem2pfj44syf" path="res://prefabs/maro_lvl_5.tscn" id="6_o105g"]
@@ -20,5 +22,6 @@ ambient_light_energy = 0.01
 environment = SubResource("Environment_o52t6")
 
 [node name="LevelGenerator" parent="." unique_id=1892546490 instance=ExtResource("1_e2c6g")]
+enemy_scenes = Array[PackedScene]([ExtResource("2_o105g"), ExtResource("3_y4hj8")])
 levels_scenes = Array[PackedScene]([ExtResource("2_l588l"), ExtResource("3_8mn08"), ExtResource("4_nxbvd"), ExtResource("5_mx3e5"), ExtResource("6_o105g")])
 level_size = 41.0
