@@ -20,15 +20,14 @@
 				9,
 				10,
 				11,
-				12,
-				13
+				12
 			]
 		}
 	],
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"walls",
+			"name":"walls-col.002",
 			"rotation":[
 				0,
 				0.7071068286895752,
@@ -52,7 +51,7 @@
 		},
 		{
 			"mesh":2,
-			"name":"walls.001",
+			"name":"walls.001-col",
 			"rotation":[
 				0,
 				-0.7071068286895752,
@@ -67,7 +66,7 @@
 		},
 		{
 			"mesh":3,
-			"name":"walls.002",
+			"name":"walls.002-col",
 			"rotation":[
 				0,
 				-1,
@@ -96,6 +95,22 @@
 			]
 		},
 		{
+			"name":"NurbsPath",
+			"translation":[
+				11.156477928161621,
+				0.04662102088332176,
+				-1.9807968139648438
+			]
+		},
+		{
+			"name":"NurbsPath.001",
+			"translation":[
+				11.156477928161621,
+				0.04662102088332176,
+				1.0363540649414062
+			]
+		},
+		{
 			"mesh":5,
 			"name":"ground_prop",
 			"rotation":[
@@ -115,36 +130,12 @@
 			"name":"ceiling-col"
 		},
 		{
-			"name":"NurbsPath",
-			"translation":[
-				11.156477928161621,
-				0.04662102088332176,
-				-1.9807968139648438
-			]
-		},
-		{
-			"name":"NurbsPath.001",
-			"translation":[
-				11.156477928161621,
-				0.04662102088332176,
-				1.0363540649414062
-			]
-		},
-		{
 			"mesh":7,
-			"name":"pillar",
+			"name":"pillar-col",
 			"translation":[
 				-10.824501991271973,
 				4.132321357727051,
 				-12.988025665283203
-			]
-		},
-		{
-			"name":"pillar.001",
-			"translation":[
-				40.75959777832031,
-				2.647106885910034,
-				1.89788019657135
 			]
 		},
 		{
@@ -153,7 +144,7 @@
 		},
 		{
 			"mesh":9,
-			"name":"door_closed.007",
+			"name":"door_closed.001",
 			"translation":[
 				17.548797607421875,
 				0.02338150143623352,
@@ -162,7 +153,7 @@
 		},
 		{
 			"mesh":10,
-			"name":"door_closed.008",
+			"name":"door_closed.002",
 			"translation":[
 				28.702838897705078,
 				0.02338150143623352,
@@ -200,7 +191,7 @@
 	],
 	"meshes":[
 		{
-			"name":"walls",
+			"name":"walls.002-col",
 			"primitives":[
 				{
 					"attributes":{
@@ -223,7 +214,7 @@
 			]
 		},
 		{
-			"name":"walls",
+			"name":"walls.002-col",
 			"primitives":[
 				{
 					"attributes":{
@@ -246,7 +237,7 @@
 			]
 		},
 		{
-			"name":"walls",
+			"name":"walls.002-col",
 			"primitives":[
 				{
 					"attributes":{
@@ -269,7 +260,7 @@
 			]
 		},
 		{
-			"name":"walls",
+			"name":"walls.002-col",
 			"primitives":[
 				{
 					"attributes":{
@@ -334,7 +325,7 @@
 			]
 		},
 		{
-			"name":"pillar",
+			"name":"pillar-col",
 			"primitives":[
 				{
 					"attributes":{
@@ -361,7 +352,7 @@
 			]
 		},
 		{
-			"name":"door_closed.003",
+			"name":"door_closed.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -375,7 +366,7 @@
 			]
 		},
 		{
-			"name":"door_closed.003",
+			"name":"door_closed.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -705,14 +696,14 @@
 			"componentType":5126,
 			"count":1176,
 			"max":[
-				16.627355575561523,
+				17.1075439453125,
 				1.1248588562011719,
-				16.09109115600586
+				16.573583602905273
 			],
 			"min":[
-				-19.85404396057129,
-				-0.003483593463897705,
-				-15.515525817871094
+				-20.3342342376709,
+				-0.2625533938407898,
+				-15.998017311096191
 			],
 			"type":"VEC3"
 		},
