@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8xwbm7nelvil" path="res://prefabs/hand_cannon_logic.gd" id="1_6fll7"]
 [ext_resource type="Texture2D" uid="uid://do6ihynoilh5s" path="res://assets/meshes/placeholder/Handcannon_untitled.png" id="1_u7ios"]
+[ext_resource type="PackedScene" uid="uid://gmn40keiftfc" path="res://assets/meshes/weapons/Handcannon.gltf" id="2_bmnj5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dylr"]
 resource_name = "Material.001"
@@ -46,6 +47,10 @@ shadow_mesh = SubResource("ArrayMesh_u7ios")
 [node name="HandCannon" type="Node3D" unique_id=92678778]
 script = ExtResource("1_6fll7")
 
+[node name="uhlopal" parent="." unique_id=1205548216 instance=ExtResource("2_bmnj5")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -2.06501)
+
 [node name="Gun" type="MeshInstance3D" parent="." unique_id=570110609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00449723, 0.19196534, -0.542577)
+visible = false
 mesh = SubResource("ArrayMesh_6fll7")
