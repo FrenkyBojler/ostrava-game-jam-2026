@@ -20,7 +20,15 @@ var temp_doors: Array[Node3D] = []
 
 var size: float = -1
 
-func setup(level_resource: LevelResource, size: int, enemies: Array[PackedScene], player: Node3D) -> void:
+var world_pos: Vector2
+
+signal player_entered_level(world_pos: Vector2)
+
+var is_start_level: bool = false
+
+func setup(level_resource: LevelResource, size: int, enemies: Array[PackedScene], player: Node3D, world_pos: Vector2, is_start_level: bool) -> void:
+	self.is_start_level = is_start_level
+	self.world_pos = world_pos
 	self.enemy_scenes = enemies
 	self.player = player
 	_place_doors(level_resource, size)
@@ -28,7 +36,7 @@ func setup(level_resource: LevelResource, size: int, enemies: Array[PackedScene]
 func _spawn_enemies() -> void:
 	enemies_spawned = true
 	
-	if spawn_points == null:
+	if spawn_points == null or spawn_points.get_children().is_empty() or is_start_level:
 		print_debug("Missing spawn points!")
 		return
 
@@ -96,7 +104,7 @@ func _place_door(door_index: int, size: int, open: bool) -> Node3D:
 		return door
 		
 func _prepare_level() -> void:
-	if not enemies_spawned:
+	if not enemies_spawned and not is_start_level:
 		_spawn_enemies() 
 		_close_doors()
 
@@ -111,6 +119,7 @@ func _open_doors() -> void:
 
 func _on_player_inside_area_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
+		player_entered_level.emit(world_pos)
 		print_debug("Player entered: " + name)
 		is_player_present = true
 		_prepare_level()

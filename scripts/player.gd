@@ -14,6 +14,12 @@ var current_health := MAX_HEALTH
 
 var has_dashed_recently := false
 
+var minimap: MiniMap
+var current_level_pos: Vector2
+
+func setup(minimap: MiniMap) -> void:
+	self.minimap = minimap
+
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -42,6 +48,9 @@ func _process_child(delta: float) -> void:
 		hands.gun._starting_reloading()
 	
 	_check_crosshair()
+	
+	minimap.update_player(global_position, $CameraHolder.global_rotation.y)
+
 
 func _check_crosshair() -> void:
 	if is_reloading:

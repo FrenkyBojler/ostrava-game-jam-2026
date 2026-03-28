@@ -12,6 +12,9 @@ var levels_scenes: Array[PackedScene]
 @export
 var level_size : float
 
+@onready
+var mini_map := %MiniMap as MiniMap
+
 const NUMBER_OF_ROOMS := 10
 
 var levels: Array[LevelResource]
@@ -28,13 +31,17 @@ func _generate_level() -> void:
 	var rows = _get_number_of_rows()
 	levels_placed.push_back(Vector2((rows - 1) / 2, (rows - 1) / 2))
 	
-	var player = player_scene.instantiate() as Node3D
+	var player = player_scene.instantiate() as Player
 	
 	while(levels_placed.size() != NUMBER_OF_ROOMS):
 		_place_random_room(rows)
 	_instantiate_levels(rows, player)
 	
+	mini_map.setup(rows, level_size, levels_placed)
+	
 	add_child(player)
+	player.setup(mini_map)
+	
 	player.global_position = Vector3(((rows - 1) / 2) * level_size, 5, ((rows - 1) / 2) * level_size)
 	
 func _instantiate_levels(rows: int, player: Node3D) -> void:
@@ -61,7 +68,7 @@ func _instantiate_level(pos: Vector2, rows: int, player: Node3D) -> void:
 	add_child(level_instance, true)
 	
 	level_instance.global_position = Vector3(pos.x * level_size, 0, pos.y * level_size)
-	level_instance.setup(level_resource, level_size, enemy_scenes, player)
+	level_instance.setup(level_resource, level_size, enemy_scenes, player, pos, is_start_level)
 	
 func _spawn_enemies(pos: Vector2, player: Node3D) -> Node3D:
 	var enemy = enemy_scenes.pick_random().instantiate() as Enemy
