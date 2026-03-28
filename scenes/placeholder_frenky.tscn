@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cro1wupa5m6hg"]
 
 [ext_resource type="PackedScene" uid="uid://c4xp62x0jamtc" path="res://prefabs/level_generator.tscn" id="1_e2c6g"]
-[ext_resource type="PackedScene" uid="uid://c4mt0tiqpa8v" path="res://prefabs/lvl_1_test.tscn" id="2_l588l"]
+[ext_resource type="PackedScene" uid="uid://ijmul6xsn0m7" path="res://prefabs/maro_lvl_1.tscn" id="2_l588l"]
 
 [sub_resource type="Environment" id="Environment_o52t6"]
 background_mode = 1

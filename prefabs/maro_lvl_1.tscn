@@ -2,8 +2,18 @@
 
 [ext_resource type="Script" uid="uid://yl634gjwssgq" path="res://scripts/level.gd" id="2_2cvx8"]
 [ext_resource type="PackedScene" uid="uid://cvj8hvwlg63t2" path="res://assets/meshes/lvl1/lvl1.gltf" id="2_6cdef"]
+[ext_resource type="PackedScene" uid="uid://dnm0ver6smsgg" path="res://assets/meshes/lvl1/lvl1_nav_mesh.glb" id="3_6cdef"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5wua2"]
+vertices = PackedVector3Array(-2.5000038, 0.4147182, 19.499998, -2.2500038, 0.4147182, 19.999998, 2.2499962, 0.4147182, 19.999998, 2.4999962, 0.4147182, 19.499998, 19.499996, 0.4147182, 2.499998, 19.999996, 0.4147182, 2.249998, 19.999996, 0.4147182, -2.250002, -20.000004, 0.4147182, -2.500002, -19.750004, 0.4147182, 19.499998, 19.499996, 0.4147182, -2.500002, 19.499996, 0.4147182, -19.750002, -19.750004, 0.4147182, -19.750002, 19.499996, 0.4147182, 19.499998)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(6, 5, 4), PackedInt32Array(8, 7, 0), PackedInt32Array(0, 7, 11), PackedInt32Array(0, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(6, 4, 9), PackedInt32Array(9, 4, 3), PackedInt32Array(9, 3, 0), PackedInt32Array(4, 12, 3)]
 
 [node name="lvl1" type="Node3D" unique_id=135452395]
 script = ExtResource("2_2cvx8")
 
 [node name="lvl1" parent="." unique_id=207484724 instance=ExtResource("2_6cdef")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=438177665]
+navigation_mesh = SubResource("NavigationMesh_5wua2")
+
+[node name="lvl1_nav_mesh" parent="NavigationRegion3D" unique_id=1793701346 instance=ExtResource("3_6cdef")]
