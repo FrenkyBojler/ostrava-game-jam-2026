@@ -140,35 +140,35 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":8,
+			"count":28,
 			"max":[
-				4.705084800720215,
-				3.200030565261841,
+				5.318722724914551,
+				3.531853437423706,
 				1.7700706720352173
 			],
 			"min":[
-				-1.21270751953125,
-				-5.960464477539063e-08,
-				1
+				-1.8263452053070068,
+				-0.3318229913711548,
+				-0.9023581147193909
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":8,
+			"count":28,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":8,
+			"count":28,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":12,
+			"count":42,
 			"type":"SCALAR"
 		},
 		{
@@ -183,7 +183,7 @@
 			"min":[
 				-3.0099611282348633,
 				-0.017718685790896416,
-				-0.25548848509788513
+				-1.548943042755127
 			],
 			"type":"VEC3"
 		},
@@ -243,74 +243,74 @@
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":96,
+			"byteLength":336,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":96,
-			"byteOffset":96,
+			"byteLength":336,
+			"byteOffset":336,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":64,
-			"byteOffset":192,
+			"byteLength":224,
+			"byteOffset":672,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":24,
-			"byteOffset":256,
+			"byteLength":84,
+			"byteOffset":896,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1656,
-			"byteOffset":280,
+			"byteOffset":980,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1656,
-			"byteOffset":1936,
+			"byteOffset":2636,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1104,
-			"byteOffset":3592,
+			"byteOffset":4292,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":432,
-			"byteOffset":4696,
+			"byteOffset":5396,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":3456,
-			"byteOffset":5128,
+			"byteOffset":5828,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":3456,
-			"byteOffset":8584,
+			"byteOffset":9284,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":2304,
-			"byteOffset":12040,
+			"byteOffset":12740,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1056,
-			"byteOffset":14344,
+			"byteOffset":15044,
 			"target":34963
 		}
 	],
@@ -322,7 +322,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":15400,
+			"byteLength":16100,
 			"uri":"door_closed.bin"
 		}
 	]
