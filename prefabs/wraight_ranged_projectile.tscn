@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://4d5d623hwx1f"]
+
+[ext_resource type="Script" uid="uid://dkuo0lgw8u236" path="res://scripts/projectile.gd" id="1_dn6e1"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_how8d"]
+radius = 0.045898438
+height = 0.30639648
+
+[node name="WraightRangedProjectile" type="Node3D" unique_id=1495835721]
+script = ExtResource("1_dn6e1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1162772466]
+light_color = Color(0.89385575, 0.5604845, 0.15348625, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=52006735]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=827128836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07873535, 0)
+shape = SubResource("CapsuleShape3D_how8d")
+debug_color = Color(0.9776885, 0, 0.40585044, 0.41960785)

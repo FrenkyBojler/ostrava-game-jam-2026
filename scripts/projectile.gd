@@ -29,6 +29,11 @@ func shoot(ttl: float, dmg: float, projectile_speed: float, team: int) -> void:
 
 	can_fly = true
 
+func _physics_process_child(_delta) -> void:
+	pass
+
 func _physics_process(_delta: float) -> void:
 	if can_fly:
 		global_position += global_basis.z * _projectile_speed * _delta
+		
+	_physics_process_child(_delta)
