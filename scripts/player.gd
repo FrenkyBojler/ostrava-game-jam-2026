@@ -38,6 +38,8 @@ func _process_child(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_pressed("fire") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		shoot()
+	if Input.is_action_just_pressed("reload") and not is_reloading:
+		hands.gun._starting_reloading()
 	
 	_check_crosshair()
 
