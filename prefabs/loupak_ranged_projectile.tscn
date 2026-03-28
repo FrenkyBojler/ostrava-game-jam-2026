@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://byaagan6fgdgu"]
+
+[ext_resource type="Script" uid="uid://ddujrte75puly" path="res://scripts/krumpac_projectile.gd" id="1_rq5cx"]
+[ext_resource type="PackedScene" uid="uid://cfnfx4g74stf7" path="res://prefabs/krumpac_projectile.tscn" id="2_rq5cx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_how8d"]
+radius = 0.045898438
+height = 0.5372925
+
+[node name="LoupakRangedProjectile" type="Node3D" unique_id=1495835721]
+script = ExtResource("1_rq5cx")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1162772466]
+light_color = Color(0.89385575, 0.5604845, 0.15348625, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=52006735]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=827128836]
+transform = Transform3D(0.9981824, 0.060264587, 0, -0.060264587, 0.9981824, 0, 0, 0, 1, -0.009439245, -0.0077819824, 0)
+shape = SubResource("CapsuleShape3D_how8d")
+debug_color = Color(0.9776885, 0, 0.40585044, 0.41960785)
+
+[node name="Krumpac" parent="." unique_id=320867170 instance=ExtResource("2_rq5cx")]
