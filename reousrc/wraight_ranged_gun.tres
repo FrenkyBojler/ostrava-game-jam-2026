@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://bmfdovw2ybqql"]
+
+[ext_resource type="PackedScene" uid="uid://bothfdelnxw3r" path="res://prefabs/wraith_gun.tscn" id="1_etx2n"]
+[ext_resource type="PackedScene" uid="uid://c2ymw70hphag4" path="res://prefabs/wraight_projectile.tscn" id="2_qfldu"]
+[ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="3_h4iyu"]
+
+[resource]
+script = ExtResource("3_h4iyu")
+name = "WraightAttack"
+rate_of_fire = 1.0
+max_ammo = 3
+ttl = 0.1
+dmg = 10.0
+reload_time = 1.0
+radius_of_dmg = 1.0
+gun_logic = ExtResource("1_etx2n")
+projectile = ExtResource("2_qfldu")
+metadata/_custom_type_script = "uid://dqqr0gqodhj24"

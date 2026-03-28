@@ -1,11 +1,11 @@
-[gd_scene format=4 uid="uid://cgab7p1wmnes1"]
+[gd_scene format=4 uid="uid://d3aq4fq46acqb"]
 
-[ext_resource type="Script" uid="uid://d0j628gcykl5e" path="res://scripts/enemy.gd" id="1_0nth0"]
-[ext_resource type="Resource" uid="uid://djv4kcf46iyyo" path="res://reousrc/wraight_gun.tres" id="2_6tyqv"]
-[ext_resource type="Texture2D" uid="uid://miuf7ovhlw67" path="res://assets/meshes/placeholder/prototypebits_texture.png" id="2_7uhnq"]
-[ext_resource type="Texture2D" uid="uid://dgbkmmqdiagvb" path="res://assets/meshes/monster_1/monster_1_T_monster_BaseColor.png" id="3_6tyqv"]
-[ext_resource type="Texture2D" uid="uid://damebv70308ef" path="res://assets/meshes/monster_1/monster_1_T_monster_Metallic-T_monster_Roughness.png" id="4_b58kp"]
-[ext_resource type="Texture2D" uid="uid://l3im7v6no52f" path="res://assets/meshes/monster_1/monster_1_T_monster_Normal.png" id="5_g0s2y"]
+[ext_resource type="Script" uid="uid://d0j628gcykl5e" path="res://scripts/enemy.gd" id="1_iqj46"]
+[ext_resource type="Resource" uid="uid://djv4kcf46iyyo" path="res://reousrc/wraight_gun.tres" id="2_cixgc"]
+[ext_resource type="Texture2D" uid="uid://miuf7ovhlw67" path="res://assets/meshes/placeholder/prototypebits_texture.png" id="3_g2de7"]
+[ext_resource type="Texture2D" uid="uid://damebv70308ef" path="res://assets/meshes/monster_1/monster_1_T_monster_Metallic-T_monster_Roughness.png" id="5_d58p3"]
+[ext_resource type="Texture2D" uid="uid://cntysdncq5j2a" path="res://assets/meshes/monster_2/monster_2_T_monster_BaseColorRed.png" id="6_g2de7"]
+[ext_resource type="Texture2D" uid="uid://l3im7v6no52f" path="res://assets/meshes/monster_1/monster_1_T_monster_Normal.png" id="6_nfxf8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ks3ws"]
 height = 2.4194336
@@ -13,7 +13,7 @@ height = 2.4194336
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_avsbk"]
 resource_name = "prototype_texture"
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("2_7uhnq")
+albedo_texture = ExtResource("3_g2de7")
 emission_enabled = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_a6c0h"]
@@ -353,14 +353,14 @@ bind/22/pose = Transform3D(-1, -1.5343983e-07, 4.443523e-15, 3.0471307e-12, -1.3
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7a6of"]
 resource_name = "M_wraith"
 cull_mode = 2
-albedo_texture = ExtResource("3_6tyqv")
+albedo_texture = ExtResource("6_g2de7")
 metallic = 1.0
-metallic_texture = ExtResource("4_b58kp")
+metallic_texture = ExtResource("5_d58p3")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("4_b58kp")
+roughness_texture = ExtResource("5_d58p3")
 roughness_texture_channel = 1
 normal_enabled = true
-normal_texture = ExtResource("5_g0s2y")
+normal_texture = ExtResource("6_nfxf8")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j4wfa"]
@@ -8279,8 +8279,8 @@ radius = 0.6464844
 height = 2.4533691
 
 [node name="Wraight" type="CharacterBody3D" unique_id=1907275028]
-script = ExtResource("1_0nth0")
-gun_resource = ExtResource("2_6tyqv")
+script = ExtResource("1_iqj46")
+gun_resource = ExtResource("2_cixgc")
 run_anim = "Jump_Full_Short"
 attack_anim = "Throw"
 idle_anim = "Idle_A"
