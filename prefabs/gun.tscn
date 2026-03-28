@@ -3,22 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://do6ihynoilh5s" path="res://assets/meshes/placeholder/Handcannon_untitled.png" id="1_5mcpd"]
 [ext_resource type="Script" uid="uid://b2x53ylskajto" path="res://scripts/gun.gd" id="1_cxs04"]
 [ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="2_37pk5"]
-[ext_resource type="PackedScene" uid="uid://dcb4amgsq1s5b" path="res://prefabs/hand_cannon.tscn" id="3_plv75"]
-[ext_resource type="PackedScene" uid="uid://bo0nwtyd2lqn6" path="res://prefabs/hand_cannon_bullet.tscn" id="4_0afcb"]
+[ext_resource type="Resource" uid="uid://b4ywvmsaaakw" path="res://reousrc/hand_cannon_gun_resource.tres" id="3_ekedq"]
+[ext_resource type="Resource" uid="uid://bb0xh6fsmpfwa" path="res://reousrc/smg_gun_resource.tres" id="4_8k260"]
 [ext_resource type="PackedScene" uid="uid://bu6f5fo62ekmc" path="res://prefabs/projectile.tscn" id="5_ekedq"]
-
-[sub_resource type="Resource" id="Resource_plv75"]
-script = ExtResource("2_37pk5")
-name = "HandCannon"
-rate_of_fire = 0.3
-max_ammo = 12
-ttl = 0.8
-dmg = 10.0
-radius_of_dmg = 1.0
-model = ExtResource("3_plv75")
-projectile_model = ExtResource("4_0afcb")
-anim_shoot_name = "HandGunShoot"
-metadata/_custom_type_script = "uid://dqqr0gqodhj24"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dylr"]
 resource_name = "Material.001"
@@ -91,15 +78,32 @@ tracks/0/keys = {
 "values": [Vector3(-0.40592867, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_8k260"]
+resource_name = "SMGShoot"
+length = 0.13333668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.041684795, 0.06691175, 0.13333668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.14990632, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8k260"]
 _data = {
 &"HandGunShoot": SubResource("Animation_0afcb"),
-&"RESET": SubResource("Animation_ekedq")
+&"RESET": SubResource("Animation_ekedq"),
+&"SMGShoot": SubResource("Animation_8k260")
 }
 
 [node name="Gun" type="Node3D" unique_id=630209066]
 script = ExtResource("1_cxs04")
-guns = Array[ExtResource("2_37pk5")]([SubResource("Resource_plv75")])
+guns = Array[ExtResource("2_37pk5")]([ExtResource("3_ekedq"), ExtResource("4_8k260")])
 projectile_scene = ExtResource("5_ekedq")
 
 [node name="GunModelHandler" type="Node3D" parent="." unique_id=1703791587]

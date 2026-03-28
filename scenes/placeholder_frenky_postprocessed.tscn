@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cro1wupa5m6hg" path="res://scenes/placeholder_frenky.tscn" id="1_cbejb"]
 [ext_resource type="Shader" uid="uid://der0vpe21e2u1" path="res://reousrc/postprocess.gdshader" id="1_x8puo"]
+[ext_resource type="PackedScene" uid="uid://coxfygbo5rhvv" path="res://prefabs/fps_label.tscn" id="2_g7y67"]
+[ext_resource type="FontFile" uid="uid://bvslkan23q0qd" path="res://assets/fonts/HeadCapitalBoldGrunge-KV9RA.otf" id="3_iwq0e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g7y67"]
 shader = ExtResource("1_x8puo")
@@ -9,6 +11,10 @@ shader_parameter/enabled = true
 shader_parameter/dithering = true
 shader_parameter/colors = 12
 shader_parameter/dither_size = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_sxo53"]
+font = ExtResource("3_iwq0e")
+font_size = 40
 
 [node name="placeholder_frenky_postprocessed" type="SubViewportContainer" unique_id=874157037]
 material = SubResource("ShaderMaterial_g7y67")
@@ -23,5 +29,24 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 4
+
+[node name="Control" type="Control" parent="SubViewport" unique_id=253295555]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FPSLabel" parent="SubViewport/Control" unique_id=162012030 instance=ExtResource("2_g7y67")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -69.0
+offset_right = 0.0
+offset_bottom = 55.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_sxo53")
 
 [node name="Placeholder" parent="SubViewport" unique_id=1062387625 instance=ExtResource("1_cbejb")]

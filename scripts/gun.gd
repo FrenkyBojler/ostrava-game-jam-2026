@@ -29,6 +29,10 @@ func _ready() -> void:
 		can_shoot = true
 	)
 
+func switch_gun(index: int) -> void:
+	if index < guns.size():
+		set_gun(guns[index])
+
 func shoot() -> void:
 	if not can_shoot:
 		return
@@ -43,7 +47,7 @@ func shoot() -> void:
 	projectile.global_rotation = global_rotation
 	
 	projectile.shoot(active_gun.ttl, active_gun.dmg, active_gun.projectile_model)
-	
+
 func set_gun(gun: GunResource) -> void:
 	if active_gun_mesh != null:
 		active_gun_mesh.queue_free()
