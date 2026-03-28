@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cfvvmjb6nxqwd"]
+
+[ext_resource type="PackedScene" uid="uid://cro1wupa5m6hg" path="res://scenes/placeholder_frenky.tscn" id="1_cbejb"]
+[ext_resource type="Shader" uid="uid://der0vpe21e2u1" path="res://reousrc/postprocess.gdshader" id="1_x8puo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g7y67"]
+shader = ExtResource("1_x8puo")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 12
+shader_parameter/dither_size = 2
+
+[node name="placeholder_frenky_postprocessed" type="SubViewportContainer" unique_id=874157037]
+material = SubResource("ShaderMaterial_g7y67")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1758102904]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="Placeholder" parent="SubViewport" unique_id=1062387625 instance=ExtResource("1_cbejb")]

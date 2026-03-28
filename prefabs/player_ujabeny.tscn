@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/UI/hud_script.gd" id="14_phign"]
 [ext_resource type="Shader" uid="uid://b34228uop3gdf" path="res://addons/PlayerCharacter/Shaders/speed_lines_shader.gdshader" id="15_ifw0f"]
 [ext_resource type="Texture2D" uid="uid://dv747ov6fcrsg" path="res://addons/Arts/crosshair.png" id="16_es5jv"]
+[ext_resource type="PackedScene" uid="uid://c468sb5rv5pvx" path="res://prefabs/fps_psx_hаnds.tscn" id="16_gt7xx"]
 [ext_resource type="StyleBox" uid="uid://c50syhy1a4dmh" path="res://addons/PlayerCharacter/UI/player_character_ui_theme.tres" id="17_gpxsl"]
 [ext_resource type="LabelSettings" uid="uid://bs0stms0b56kp" path="res://addons/Arts/label_settings.tres" id="18_iiqn7"]
 
@@ -110,6 +111,10 @@ current = true
 fov = 90.0
 near = 0.01
 far = 1000.0
+
+[node name="Hands" parent="CameraHolder/Camera" unique_id=1583094752 instance=ExtResource("16_gt7xx")]
+unique_name_in_owner = true
+transform = Transform3D(-0.9, 0, -1.3589622e-07, 0, 0.9, 0, 1.3589622e-07, 0, -0.9, -4.490129e-09, -0.09489608, 0.06270516)
 
 [node name="CameraBasedRaycasts" type="Node3D" parent="CameraHolder/Camera" unique_id=1063954026]
 
