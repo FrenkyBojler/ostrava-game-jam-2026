@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dgbkmmqdiagvb" path="res://assets/meshes/monster_1/monster_1_T_monster_BaseColor.png" id="3_6tyqv"]
 [ext_resource type="Texture2D" uid="uid://damebv70308ef" path="res://assets/meshes/monster_1/monster_1_T_monster_Metallic-T_monster_Roughness.png" id="4_b58kp"]
 [ext_resource type="Texture2D" uid="uid://l3im7v6no52f" path="res://assets/meshes/monster_1/monster_1_T_monster_Normal.png" id="5_g0s2y"]
+[ext_resource type="AudioStream" uid="uid://cuubgjqxuo214" path="res://assets/audio/warith_death.wav" id="7_6tyqv"]
+[ext_resource type="AudioStream" uid="uid://bhjkw81vwcetw" path="res://assets/audio/wraith_attack.wav" id="8_b58kp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ks3ws"]
 height = 2.4194336
@@ -8729,6 +8731,12 @@ light_energy = 0.324
 [node name="ProjectilePlacementPos" type="Node3D" parent="." unique_id=805506004]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5237901)
+
+[node name="Perishy" type="AudioStreamPlayer3D" parent="." unique_id=1655512141]
+stream = ExtResource("7_6tyqv")
+
+[node name="Attacky" type="AudioStreamPlayer3D" parent="." unique_id=161675136]
+stream = ExtResource("8_b58kp")
 
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

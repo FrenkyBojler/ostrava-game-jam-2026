@@ -14,6 +14,7 @@ func _ready() -> void:
 	show_open()
 
 func break_door(direction: Vector3) -> void:
+	$Breaky.play()
 	broken = true
 	for item in breakable_parent.get_children():
 		var rigidbody = RigidBody3D.new()

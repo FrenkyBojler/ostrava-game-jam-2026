@@ -94,6 +94,7 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 		(area.get_parent() as Door).break_door(velocity)
 
 func _take_damage(dmg: float) -> void:
+	$Hurty.play()
 	current_health -= dmg
 	%HealthLabel.text = str(current_health)
 	
@@ -104,6 +105,7 @@ func _play_hit() -> void:
 	hit_texture.play_hit()
 	
 func _death() -> void:
+	$Perishy.play()
 	get_tree().reload_current_scene()
 
 func _on_hit_area_area_exited(area: Area3D) -> void:

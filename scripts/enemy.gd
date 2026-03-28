@@ -139,6 +139,7 @@ func _play_hit() -> void:
 	can_move = true
 
 func _play_death() -> void:
+	$Perishy.play()
 	playing_death = true
 	can_play_movement_anim = false
 	can_move = false
@@ -151,6 +152,7 @@ func _play_death() -> void:
 	queue_free()
 
 func _play_attack() -> void:
+	$Attacky.play()
 	can_attack = false
 	is_attacking = true
 

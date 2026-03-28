@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7lhhqve3qnqb" path="res://scripts/door.gd" id="1_dd40h"]
 [ext_resource type="PackedScene" uid="uid://27210b2774uq" path="res://assets/meshes/door_open/door_open.gltf" id="2_aa5oi"]
 [ext_resource type="PackedScene" uid="uid://4tmreo4btc0s" path="res://assets/meshes/door_closed/door_closed.gltf" id="3_aa5oi"]
+[ext_resource type="AudioStream" uid="uid://cvoj6carekwds" path="res://assets/audio/break_door.wav" id="4_oknmm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dd40h"]
 size = Vector3(1.9631348, 2.6738281, 4.0247498)
@@ -45,6 +46,9 @@ shape = SubResource("BoxShape3D_aa5oi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026550293, 1.265152, 0.045166016)
 shape = SubResource("BoxShape3D_oknmm")
 debug_color = Color(0.7058824, 0.627451, 0, 1)
+
+[node name="Breaky" type="AudioStreamPlayer3D" parent="." unique_id=213623752]
+stream = ExtResource("4_oknmm")
 
 [editable path="door_open"]
 [editable path="door_closed"]

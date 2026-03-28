@@ -23,7 +23,7 @@ func verifications():
 	
 func physics_update(delta : float):
 	applies(delta)
-	
+	$"../../Dashy".play()
 	move()
 	
 func applies(delta : float):

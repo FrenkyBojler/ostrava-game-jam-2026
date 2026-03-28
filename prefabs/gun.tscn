@@ -5,6 +5,8 @@
 [ext_resource type="Resource" uid="uid://b4ywvmsaaakw" path="res://reousrc/hand_cannon_gun_resource.tres" id="3_ekedq"]
 [ext_resource type="Resource" uid="uid://bb0xh6fsmpfwa" path="res://reousrc/smg_gun_resource.tres" id="4_8k260"]
 [ext_resource type="PackedScene" uid="uid://gmn40keiftfc" path="res://assets/meshes/weapons/Handcannon.gltf" id="5_0afcb"]
+[ext_resource type="AudioStream" uid="uid://duvug5kyp3umc" path="res://assets/audio/gunshot.wav" id="6_8k260"]
+[ext_resource type="AudioStream" uid="uid://bsaks43jf8nl4" path="res://assets/audio/reload.wav" id="7_bmwcm"]
 
 [sub_resource type="Animation" id="Animation_0afcb"]
 resource_name = "HandGunShoot"
@@ -81,3 +83,11 @@ unique_name_in_owner = true
 
 [node name="ReloadTimer" type="Timer" parent="." unique_id=1712173649]
 unique_name_in_owner = true
+
+[node name="Shooty" type="AudioStreamPlayer3D" parent="." unique_id=1138768543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40664828, 3.489367)
+stream = ExtResource("6_8k260")
+
+[node name="Reloady" type="AudioStreamPlayer3D" parent="." unique_id=2137308200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7595235, 2.6536396)
+stream = ExtResource("7_bmwcm")

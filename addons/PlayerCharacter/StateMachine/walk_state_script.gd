@@ -79,6 +79,8 @@ func move(delta : float) -> void:
 	
 	if play_char.move_direction and play_char.is_on_floor():
 		#apply smooth move
+		if !$"../../Walky".playing:
+			$"../../Walky".play()
 		play_char.velocity.x = lerp(play_char.velocity.x, play_char.move_direction.x * play_char.move_speed, play_char.move_accel * delta)
 		play_char.velocity.z = lerp(play_char.velocity.z, play_char.move_direction.z * play_char.move_speed, play_char.move_accel * delta)
 		

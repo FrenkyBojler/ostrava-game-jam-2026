@@ -104,6 +104,8 @@ func move(delta : float) -> void:
 func jump() -> void: 
 	#manage the jump behaviour, depending of the different variables and states the character is
 	
+	$"../../Jumpy".play()
+	
 	var can_jump : bool = false #jump condition
 	
 	var jump_force_additions : float = 0.0 #accumulation of different buff values to apply to the y velocity once the play char jump

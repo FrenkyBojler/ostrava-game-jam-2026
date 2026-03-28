@@ -65,11 +65,13 @@ func shoot() -> void:
 	rate_of_fire_timer.start()
 	
 	animation_player.play("fire", -1, 1 / active_gun.rate_of_fire)
+	$Shooty.play()
 	active_gun_logic._shoot(active_gun, 1)
 	await get_tree().create_timer(active_gun.rate_of_fire).timeout
 	play_idle()
 
 func _starting_reloading() -> void:
+	$Reloady.play()
 	is_reloading = true
 	animation_player.play("reload", -1, 1 / active_gun.reload_time)
 	reload_timer.start()
