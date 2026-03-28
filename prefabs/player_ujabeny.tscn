@@ -1,0 +1,573 @@
+[gd_scene format=3 uid="uid://b6t06rh6ver10"]
+
+[ext_resource type="Script" uid="uid://bq35xfqrlbbxc" path="res://scripts/player.gd" id="1_je842"]
+[ext_resource type="Curve" uid="uid://c6wl66dkewd5x" path="res://reousrc/move_speed_curve.tres" id="2_b2bnw"]
+[ext_resource type="Script" uid="uid://sca7ypsol83f" path="res://addons/PlayerCharacter/StateMachine/state_machine_script.gd" id="2_y772w"]
+[ext_resource type="Script" uid="uid://stil4xkf3tk0" path="res://addons/PlayerCharacter/StateMachine/idle_state_script.gd" id="3_b2bnw"]
+[ext_resource type="Curve" uid="uid://l6wropmxh8oq" path="res://reousrc/in_air_curve.tres" id="3_gt7xx"]
+[ext_resource type="Script" uid="uid://bhoqhv7escpyx" path="res://addons/PlayerCharacter/StateMachine/crouch_state_script.gd" id="4_gt7xx"]
+[ext_resource type="Script" uid="uid://blt7dest23fk0" path="res://addons/PlayerCharacter/StateMachine/walk_state_script.gd" id="5_6hq66"]
+[ext_resource type="Script" uid="uid://5gk47o641xgt" path="res://addons/PlayerCharacter/StateMachine/run_state_script.gd" id="6_dmkdn"]
+[ext_resource type="Script" uid="uid://dvu58wf01wils" path="res://addons/PlayerCharacter/StateMachine/jump_state_script.gd" id="7_4vl0f"]
+[ext_resource type="Script" uid="uid://bh3rdvokmrar1" path="res://addons/PlayerCharacter/StateMachine/inair_state_script.gd" id="8_fc85j"]
+[ext_resource type="Script" uid="uid://hc1xroood24q" path="res://addons/PlayerCharacter/StateMachine/slide_state_script.gd" id="9_pbqsq"]
+[ext_resource type="Script" uid="uid://c4skioddhqatw" path="res://addons/PlayerCharacter/StateMachine/dash_state_script.gd" id="10_cg47n"]
+[ext_resource type="Script" uid="uid://8g033x6qm1rx" path="res://addons/PlayerCharacter/StateMachine/fly_state_script.gd" id="11_hpv1o"]
+[ext_resource type="Script" uid="uid://bq1stj2mujnp2" path="res://addons/PlayerCharacter/StateMachine/wallrun_state_script.gd" id="12_c0t4o"]
+[ext_resource type="Script" uid="uid://b0fbr48rbvn27" path="res://addons/PlayerCharacter/Camera/camera_script.gd" id="13_cu0ja"]
+[ext_resource type="Script" uid="uid://dx02l6p6behb8" path="res://addons/PlayerCharacter/UI/hud_script.gd" id="14_phign"]
+[ext_resource type="Shader" uid="uid://b34228uop3gdf" path="res://addons/PlayerCharacter/Shaders/speed_lines_shader.gdshader" id="15_ifw0f"]
+[ext_resource type="Texture2D" uid="uid://dv747ov6fcrsg" path="res://addons/Arts/crosshair.png" id="16_es5jv"]
+[ext_resource type="StyleBox" uid="uid://c50syhy1a4dmh" path="res://addons/PlayerCharacter/UI/player_character_ui_theme.tres" id="17_gpxsl"]
+[ext_resource type="LabelSettings" uid="uid://bs0stms0b56kp" path="res://addons/Arts/label_settings.tres" id="18_iiqn7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bkys"]
+albedo_color = Color(0.196078, 0.223529, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p2iaj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jv0i6"]
+frequency = 0.15
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_khex2"]
+noise = SubResource("FastNoiseLite_jv0i6")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_khex2"]
+shader = ExtResource("15_ifw0f")
+shader_parameter/noise = SubResource("NoiseTexture2D_khex2")
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/line_count = 2.0
+shader_parameter/line_density = 0.800000038
+shader_parameter/line_faloff = 1.0
+shader_parameter/mask_size = 0.1
+shader_parameter/mask_edge = 0.800000038
+shader_parameter/animation_speed = 20.0
+
+[node name="PlayerCharacter" type="CharacterBody3D" unique_id=887730227 groups=["PlayerCharacter"]]
+collision_layer = 2
+floor_block_on_wall = false
+floor_max_angle = 1.13446
+floor_snap_length = 0.0
+platform_floor_layers = 4278190081
+script = ExtResource("1_je842")
+desired_move_speed_curve = ExtResource("2_b2bnw")
+in_air_move_speed_curve = ExtResource("3_gt7xx")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1108714996 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_y772w")
+initial_state = NodePath("IdleState")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1063816253]
+script = ExtResource("3_b2bnw")
+metadata/_custom_type_script = "uid://stil4xkf3tk0"
+
+[node name="CrouchState" type="Node" parent="StateMachine" unique_id=1899389358]
+script = ExtResource("4_gt7xx")
+metadata/_custom_type_script = "uid://bhoqhv7escpyx"
+
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=879105636]
+script = ExtResource("5_6hq66")
+metadata/_custom_type_script = "uid://blt7dest23fk0"
+
+[node name="RunState" type="Node" parent="StateMachine" unique_id=594141207]
+script = ExtResource("6_dmkdn")
+metadata/_custom_type_script = "uid://5gk47o641xgt"
+
+[node name="JumpState" type="Node" parent="StateMachine" unique_id=1423244851]
+script = ExtResource("7_4vl0f")
+metadata/_custom_type_script = "uid://dvu58wf01wils"
+
+[node name="InairState" type="Node" parent="StateMachine" unique_id=1473050045]
+script = ExtResource("8_fc85j")
+metadata/_custom_type_script = "uid://bh3rdvokmrar1"
+
+[node name="SlideState" type="Node" parent="StateMachine" unique_id=1604563858]
+script = ExtResource("9_pbqsq")
+metadata/_custom_type_script = "uid://hc1xroood24q"
+
+[node name="DashState" type="Node" parent="StateMachine" unique_id=1137762184]
+script = ExtResource("10_cg47n")
+metadata/_custom_type_script = "uid://c4skioddhqatw"
+
+[node name="FlyState" type="Node" parent="StateMachine" unique_id=2041433633]
+script = ExtResource("11_hpv1o")
+metadata/_custom_type_script = "uid://8g033x6qm1rx"
+
+[node name="WallrunState" type="Node" parent="StateMachine" unique_id=158718813]
+script = ExtResource("12_c0t4o")
+metadata/_custom_type_script = "uid://bq1stj2mujnp2"
+
+[node name="CameraHolder" type="Node3D" parent="." unique_id=593699926]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.715, 0)
+script = ExtResource("13_cu0ja")
+
+[node name="Camera" type="Camera3D" parent="CameraHolder" unique_id=2089145848]
+unique_name_in_owner = true
+cull_mask = 1
+current = true
+fov = 90.0
+near = 0.01
+far = 1000.0
+
+[node name="CameraBasedRaycasts" type="Node3D" parent="CameraHolder/Camera" unique_id=1063954026]
+
+[node name="LeftWallCheck" type="RayCast3D" parent="CameraHolder/Camera/CameraBasedRaycasts" unique_id=757599735]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.715, 0)
+exclude_parent = false
+target_position = Vector3(1, 0, 0)
+collision_mask = 4
+debug_shape_custom_color = Color(0.91764706, 0.79607844, 0.18039216, 1)
+
+[node name="RightWallCheck" type="RayCast3D" parent="CameraHolder/Camera/CameraBasedRaycasts" unique_id=962877088]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.715, 0)
+exclude_parent = false
+target_position = Vector3(-1, 0, 0)
+collision_mask = 4
+debug_shape_custom_color = Color(0.91764706, 0.79607844, 0.18039216, 1)
+
+[node name="Hitbox" type="CollisionShape3D" parent="." unique_id=1390536454]
+shape = SubResource("CapsuleShape3D_5yjma")
+
+[node name="Model" type="MeshInstance3D" parent="." unique_id=256913148]
+layers = 2
+material_override = SubResource("StandardMaterial3D_6bkys")
+mesh = SubResource("CapsuleMesh_p2iaj")
+
+[node name="Raycasts" type="Node3D" parent="." unique_id=1072058839]
+visible = false
+
+[node name="CeilingCheck" type="RayCast3D" parent="Raycasts" unique_id=802955948]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.758088, 0)
+exclude_parent = false
+target_position = Vector3(0, 3, 0)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="FloorCheck" type="RayCast3D" parent="Raycasts" unique_id=318920402]
+unique_name_in_owner = true
+exclude_parent = false
+target_position = Vector3(0, -3, 0)
+debug_shape_custom_color = Color(0, 0.823529, 0.956863, 1)
+
+[node name="WallrunFloorCheck" type="RayCast3D" parent="Raycasts" unique_id=457991074]
+unique_name_in_owner = true
+exclude_parent = false
+target_position = Vector3(0, -1.7, 0)
+debug_shape_custom_color = Color(0, 0.3372549, 0.7176471, 1)
+
+[node name="SlideFloorCheck" type="RayCast3D" parent="Raycasts" unique_id=299411417]
+unique_name_in_owner = true
+exclude_parent = false
+target_position = Vector3(0, -3, 0)
+debug_shape_custom_color = Color(0, 0.823529, 0.956863, 1)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1278093734 node_paths=PackedStringArray("play_char")]
+script = ExtResource("14_phign")
+play_char = NodePath("..")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpeedLinesContainer" type="ColorRect" parent="HUD" unique_id=81813359]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_khex2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Crosshair" type="TextureRect" parent="HUD" unique_id=2105580562]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_es5jv")
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD" unique_id=764775652]
+visible = false
+offset_right = 295.0
+offset_bottom = 376.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/MarginContainer" unique_id=795334478]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("17_gpxsl")
+
+[node name="PlayCharInfos" type="HBoxContainer" parent="HUD/MarginContainer/PanelContainer" unique_id=1009405821]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos" unique_id=1865480061]
+layout_mode = 2
+
+[node name="CurrentStateLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=2041331671]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Current state : "
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="DesiredMoveSpeedLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1831889870]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Desired move speed : "
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="VelocityLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=353176960]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Velocity : "
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="VelocityVectorLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=324286157]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Velocity vector : "
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="IsOnFloorLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1639176601]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Is on floor :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CeilingCheckLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=2108311474]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Ceiling raycast colliding :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="JumpBufferLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1785905671]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Jump buffering  on :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CoyoteTimeLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=87574488]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Coyote time :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="NbJumpsInAirAllowedLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1940584815]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Nb jumps in air allowed :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="JumpCooldownLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1823317810]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Time before can jump again :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="SlideTimeLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1324452274]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Slide time :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="SlideCooldownLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1315483355]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Time before can slide again :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="NbDashsAllowedLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=173621243]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Nb dashs allowed :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="DashCooldownLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1939404263]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Time before can dash again :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="WallrunTimeLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1542310099]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Wallrun time :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1427213281]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="CameraRotationLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=2132816618]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Camera rotation :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CurrentFOVLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=960776467]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Current FOV :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CameraBobVerticalOffsetLabel" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer" unique_id=1918348027]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Camera bob vertical offset :"
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos" unique_id=590374791]
+layout_mode = 2
+
+[node name="CurrentStateLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=232051859]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="DesiredMoveSpeedLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1433885616]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="VelocityLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1687334907]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="VelocityVectorLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=939812332]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="IsOnFloorLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1536568951]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CeilingCheckLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=669506346]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="JumpBufferLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=239695343]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CoyoteTimeLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1843515646]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="NbJumpsInAirAllowedLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1070436716]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="JumpCooldownLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1418140857]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="SlideTimeLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1494144812]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="SlideCooldownLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1732290122]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="NbDashsAllowedLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=2050004765]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="DashCooldownLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=498224225]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="WallrunTimeLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=871749762]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1581773965]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="CameraRotationLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1681528361]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CurrentFOVLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1315089861]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="CameraBobVerticalOffsetLabelText" type="Label" parent="HUD/MarginContainer/PanelContainer/PlayCharInfos/VBoxContainer2" unique_id=1375798655]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "..................."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="HUD" unique_id=1672678074]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -167.0
+offset_bottom = 33.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="HUD/MarginContainer2" unique_id=2112239329]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("17_gpxsl")
+
+[node name="PlayCharInfos2" type="HBoxContainer" parent="HUD/MarginContainer2/PanelContainer" unique_id=162787558]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer2/PanelContainer/PlayCharInfos2" unique_id=1227282777]
+layout_mode = 2
+
+[node name="FramesPerSecondLabel" type="Label" parent="HUD/MarginContainer2/PanelContainer/PlayCharInfos2/VBoxContainer" unique_id=1348010904]
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Frames per seconds : "
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/MarginContainer2/PanelContainer/PlayCharInfos2" unique_id=316333015]
+layout_mode = 2
+
+[node name="FramesPerSecondLabelText" type="Label" parent="HUD/MarginContainer2/PanelContainer/PlayCharInfos2/VBoxContainer2" unique_id=1974267372]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "....."
+label_settings = ExtResource("18_iiqn7")
+vertical_alignment = 1
+
+[connection signal="change_fov" from="StateMachine" to="CameraHolder" method="change_fov"]

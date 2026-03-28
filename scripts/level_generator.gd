@@ -45,7 +45,6 @@ func _generate_level() -> void:
 	while(levels_placed.size() != NUMBER_OF_ROOMS):
 		_place_random_room(rows)
 	
-	_print_level()
 	_instantiate_levels(rows, player)
 	
 	add_child(player)
