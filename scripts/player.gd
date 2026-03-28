@@ -4,6 +4,8 @@ extends PlayerCharacter
 @onready var enemy_check_raycast := %EnemyCheck as RayCast3D
 @onready var my_crosshair := %MyCrosshair as Crosshair
 
+var is_reloading := false
+
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -12,11 +14,15 @@ func _ready_child() -> void:
 	)
 	
 	hands.gun.reloading_started.connect(func():
+		is_reloading = true
 		%ReloadingLabel.visible = true
+		my_crosshair.switch_to_reloading()
 	)
 	
 	hands.gun.reloading_finished.connect(func():
+		is_reloading = false
 		%ReloadingLabel.visible = false
+		my_crosshair.switch_to_normal()
 	)
 
 func _process_child(delta: float) -> void:
@@ -24,7 +30,12 @@ func _process_child(delta: float) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_pressed("fire") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		shoot()
-		
+	
+	_check_crosshair()
+
+func _check_crosshair() -> void:
+	if is_reloading:
+		return
 	if enemy_check_raycast.is_colliding():
 		var distance = enemy_check_raycast.get_collision_point().distance_to(global_position)
 		if abs(distance) <= hands.gun.active_gun.ttl * hands.gun.active_gun.projectile_speed:
@@ -33,7 +44,7 @@ func _process_child(delta: float) -> void:
 			my_crosshair.switch_to_enemy_far()
 	else:
 		my_crosshair.switch_to_normal()
-
+		
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
