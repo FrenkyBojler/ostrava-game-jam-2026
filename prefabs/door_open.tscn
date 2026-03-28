@@ -16,10 +16,7 @@ size = Vector3(1.4222412, 2.3475647, 0.6791992)
 script = ExtResource("1_dd40h")
 breakable_parent = NodePath("door_open/door_frame_001")
 
-[node name="door_open" parent="." unique_id=1350279219 instance=ExtResource("2_aa5oi")]
-
-[node name="CollisionShape3D" parent="door_open/@StaticBody3D@18536" parent_id_path=PackedInt32Array(1350279219, 1575738585) index="0" unique_id=1516509705]
-disabled = true
+[node name="door_open" parent="." unique_id=1254611388 instance=ExtResource("2_aa5oi")]
 
 [node name="InteractableArea" type="Area3D" parent="." unique_id=1050173649]
 
