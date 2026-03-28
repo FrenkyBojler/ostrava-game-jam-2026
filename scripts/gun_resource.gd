@@ -11,6 +11,8 @@ var ttl: float
 @export
 var dmg: float
 @export
+var reload_time: float
+@export
 var radius_of_dmg: float
 @export
 var model: PackedScene

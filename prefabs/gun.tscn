@@ -121,3 +121,6 @@ libraries/ = SubResource("AnimationLibrary_8k260")
 
 [node name="RateOfFireTimer" type="Timer" parent="." unique_id=1712098286]
 unique_name_in_owner = true
+
+[node name="ReloadTimer" type="Timer" parent="." unique_id=1712173649]
+unique_name_in_owner = true

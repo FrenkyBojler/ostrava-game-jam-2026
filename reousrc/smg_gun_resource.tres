@@ -11,6 +11,7 @@ rate_of_fire = 0.1
 max_ammo = 20
 ttl = 0.4
 dmg = 5.0
+reload_time = 2.0
 radius_of_dmg = 1.0
 model = ExtResource("1_wdo1j")
 projectile_model = ExtResource("2_m0fd8")

@@ -4,6 +4,18 @@ extends PlayerCharacter
 
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	hands.gun.ammo_updated.connect(func(current_ammo: int, max_ammo: int):
+		%CurrentAmmoLabel.text = str(current_ammo) + "/" + str(max_ammo)
+	)
+	
+	hands.gun.reloading_started.connect(func():
+		%ReloadingLabel.visible = true
+	)
+	
+	hands.gun.reloading_finished.connect(func():
+		%ReloadingLabel.visible = false
+	)
 
 func _process_child(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -27,6 +39,5 @@ func _input(event: InputEvent) -> void:
 		if key_event.as_text_physical_keycode() == "4":
 			hands.gun.switch_gun(3)
 	
-
 func shoot() -> void:
 	hands.gun.shoot()
