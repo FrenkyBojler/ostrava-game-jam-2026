@@ -39,20 +39,8 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Cube_001": {
-"generate/occluder": 1
-},
-"PATH:Cube_001/Plane_001": {
-"generate/occluder": 1
-},
-"PATH:Cube_001/Plane_002": {
-"generate/occluder": 1
-},
-"PATH:Cube_001/Plane_003": {
-"generate/occluder": 1
-},
-"PATH:SM_lvl1_001": {
-"generate/navmesh": 1
+"PATH:nav_mesh": {
+"generate/navmesh": 2
 }
 }
 }
