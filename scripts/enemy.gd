@@ -36,6 +36,14 @@ signal enemy_died(who: Enemy)
 @onready
 var projectile_placement_position: Node3D = %ProjectilePlacementPos
 
+
+@export
+var run_anim: String
+@export
+var attack_anim: String
+@export
+var idle_anim: String
+
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	_play_idle()
@@ -119,12 +127,12 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 
 func _play_idle() -> void:
 	animation_player_movement.stop()
-	animation_player_general.play("Idle_A")
+	animation_player_general.play(idle_anim)
 	
 func _play_run() -> void:
 	if not can_play_movement_anim:
 		return
-	animation_player_movement.play("Jump_Full_Short")
+	animation_player_movement.play(run_anim)
 	animation_player_general.stop()
 	
 func _play_hit() -> void:
@@ -160,7 +168,7 @@ func _play_attack() -> void:
 	can_play_movement_anim = false
 	
 	animation_player_movement.stop()
-	animation_player_general.play("Throw")
+	animation_player_general.play(attack_anim)
 	
 	await get_tree().create_timer(0.7).timeout
 	_attack()

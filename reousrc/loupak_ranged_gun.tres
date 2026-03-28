@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://bk7rn0vjo8ug4"]
+
+[ext_resource type="PackedScene" uid="uid://d125yx4sd1kvu" path="res://prefabs/loupak_gun.tscn" id="1_nptb7"]
+[ext_resource type="PackedScene" uid="uid://byaagan6fgdgu" path="res://prefabs/loupak_ranged_projectile.tscn" id="2_nptb7"]
+[ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="3_xiyje"]
+
+[resource]
+script = ExtResource("3_xiyje")
+name = "WraightAttack"
+rate_of_fire = 1.0
+max_ammo = 3
+ttl = 5.0
+dmg = 10.0
+reload_time = 1.0
+radius_of_dmg = 1.0
+gun_logic = ExtResource("1_nptb7")
+projectile_speed = 50.0
+projectile = ExtResource("2_nptb7")
+metadata/_custom_type_script = "uid://dqqr0gqodhj24"

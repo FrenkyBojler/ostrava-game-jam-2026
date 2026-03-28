@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://dvpe6offecmh0" path="res://assets/audio/hurt.wav" id="27_cg47n"]
 [ext_resource type="AudioStream" uid="uid://dikjmumxa5hyt" path="res://assets/audio/death.wav" id="28_c0t4o"]
 [ext_resource type="AudioStream" uid="uid://bdpf74fr6cuxp" path="res://assets/audio/jump.wav" id="29_cu0ja"]
+[ext_resource type="PackedScene" uid="uid://bgecmn521fplj" path="res://prefabs/upgrades_list.tscn" id="25_fc85j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
 radius = 0.27734375
@@ -618,6 +619,7 @@ label_settings = ExtResource("18_iiqn7")
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="." unique_id=1901074836]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -707,6 +709,9 @@ grow_vertical = 0
 text = "100"
 label_settings = SubResource("LabelSettings_4vl0f")
 script = ExtResource("24_4vl0f")
+
+[node name="UpgradesList" parent="Control" unique_id=839277164 instance=ExtResource("25_fc85j")]
+layout_mode = 1
 
 [node name="HitArea" type="Area3D" parent="." unique_id=29700697]
 

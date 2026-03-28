@@ -2,6 +2,7 @@ class_name Level extends Node3D
 
 const open_door_prefab = preload("res://prefabs/door_open.tscn")
 const close_door_prefab = preload("res://prefabs/door_closed.tscn")
+const chest_prefab = preload("res://prefabs/chest.tscn")
 
 @onready
 var spawn_points: Node3D = %SpawnPoints
@@ -49,6 +50,7 @@ func _spawn_enemies() -> void:
 			
 			if enemies.is_empty():
 				_open_doors()
+				_spawn_chest(who.global_position)
 		)
 		
 		var spawn_point = spawn_points_list.pick_random()
@@ -62,6 +64,11 @@ func _spawn_enemies() -> void:
 		enemy.position = Vector3(spawn_point.position.x, 1, spawn_point.position.x)
 		enemy.set_movement_target(player)
 		enemies.push_back(enemy)
+		
+func _spawn_chest(position: Vector3) -> void:
+	var chest = chest_prefab.instantiate() as Chest
+	add_child(chest)
+	chest.global_position = Vector3(position.x, 1.3, position.z)
 
 func _place_doors(level_resource: LevelResource, size: int) -> void:
 	self.size = size
@@ -120,12 +127,9 @@ func _open_doors() -> void:
 func _on_player_inside_area_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Player:
 		player_entered_level.emit(world_pos)
-		print_debug("Player entered: " + name)
 		is_player_present = true
 		_prepare_level()
 
 func _on_player_inside_area_area_exited(area: Area3D) -> void:
 	if area.get_parent() is Player:
-		print_debug("Player exited")
-		
 		is_player_present = false

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bald5v6ac77ki"]
+
+[ext_resource type="Script" uid="uid://daxg8hxgtqmkl" path="res://scripts/wraith_gun_logic.gd" id="1_23dgp"]
+[ext_resource type="PackedScene" uid="uid://drecwv5ijhpdn" path="res://assets/meshes/projectile/projectile.glb" id="2_foboq"]
+
+[node name="WraithRangedGun" type="Node3D" unique_id=1692977969]
+script = ExtResource("1_23dgp")
+
+[node name="projectile2" parent="." unique_id=1212771200 instance=ExtResource("2_foboq")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0.055021644, 0.82620525, -0.2612331)
