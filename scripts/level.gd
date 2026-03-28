@@ -66,7 +66,6 @@ func _spawn_enemies() -> void:
 		enemies.push_back(enemy)
 		
 func _spawn_chest(position: Vector3) -> void:
-	print_debug("TADY")
 	var chest = chest_prefab.instantiate() as Chest
 	add_child(chest)
 	chest.global_position = Vector3(position.x, 1.3, position.z)

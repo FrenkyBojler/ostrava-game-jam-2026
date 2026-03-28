@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cao0mijw4v1qv" path="res://assets/meshes/placeholder/Misc_Money_Case_Base_color.png" id="1_7lya3"]
 [ext_resource type="Script" uid="uid://dydkvpggtov8y" path="res://scripts/chest.gd" id="1_c347f"]
+[ext_resource type="PackedScene" uid="uid://bh3admtaqrckr" path="res://assets/meshes/upgarde_1/upgarde_1.glb" id="2_5xlvm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sh48a"]
 resource_name = "Money_Case_Material"
@@ -50,10 +51,21 @@ radius = 3.022185
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 script = ExtResource("1_c347f")
 
+[node name="engine_upgarde_1" parent="." unique_id=117794373 instance=ExtResource("2_5xlvm")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
 [node name="Money_Case" type="MeshInstance3D" parent="." unique_id=106718176]
+visible = false
 mesh = SubResource("ArrayMesh_p28wq")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1843317164]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0.685473, -2.4359956)
+light_color = Color(0.82232374, 0.6321298, 0.048733413, 1)
+light_energy = 20.0
+omni_range = 5.6956935
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=2085224490]
+transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0.03789276, 0.685473, 1.4927707)
 light_color = Color(0.82232374, 0.6321298, 0.048733413, 1)
 light_energy = 20.0
 omni_range = 5.6956935
