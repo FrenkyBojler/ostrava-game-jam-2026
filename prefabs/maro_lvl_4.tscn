@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://b7ua8c0ggmbou"]
+
+[ext_resource type="Script" uid="uid://yl634gjwssgq" path="res://scripts/level.gd" id="1_7q2b8"]
+[ext_resource type="PackedScene" uid="uid://dvnlycbd5g62s" path="res://assets/meshes/lvl4/lvl4.gltf" id="2_7q2b8"]
+[ext_resource type="PackedScene" uid="uid://csqml4lvkvqsc" path="res://assets/meshes/lvl4/lvl4_nav_mesh.glb" id="3_aqssb"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5wua2"]
+vertices = PackedVector3Array(-5.000004, 0.4147182, -6.500002, -3.8146973e-06, 0.4147182, -8.250002, -3.8146973e-06, 0.4147182, -20.000002, -20.000004, 0.4147182, -1.9073486e-06, -8.250004, 0.4147182, -1.9073486e-06, -6.250004, 0.4147182, -5.500002, -19.750004, 0.4147182, -19.750002, 6.249996, 0.4147182, -5.500002, 7.749996, 0.4147182, -1.7500019, 19.499996, 0.4147182, -2.750002, 5.499996, 0.4147182, -6.250002, 19.499996, 0.4147182, -19.750002, 19.499996, 0.4147182, 2.749998, 19.999996, 0.4147182, 2.249998, 19.999996, 0.4147182, -2.250002, 8.249996, 0.4147182, -0.7500019, 7.749996, 0.4147182, 1.7499981, -2.7500038, 0.4147182, 19.499998, -1.7500038, 0.4147182, 7.749998, -5.500004, 0.4147182, 6.249998, -6.250004, 0.4147182, 5.499998, -19.750004, 0.4147182, 19.499998, 6.249996, 0.4147182, 5.499998, 5.499996, 0.4147182, 6.249998, 1.7499962, 0.4147182, 7.749998, 2.7499962, 0.4147182, 19.499998, 19.499996, 0.4147182, 19.499998, -2.2500038, 0.4147182, 19.999998, 2.2499962, 0.4147182, 19.999998, -0.7500038, 0.4147182, 8.249998)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(0, 5, 2), PackedInt32Array(2, 5, 6), PackedInt32Array(6, 5, 3), PackedInt32Array(9, 8, 7), PackedInt32Array(9, 7, 10), PackedInt32Array(1, 2, 10), PackedInt32Array(10, 2, 11), PackedInt32Array(10, 11, 9), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 9), PackedInt32Array(9, 12, 15), PackedInt32Array(15, 12, 16), PackedInt32Array(15, 8, 9), PackedInt32Array(17, 19, 18), PackedInt32Array(17, 20, 19), PackedInt32Array(4, 20, 3), PackedInt32Array(3, 20, 21), PackedInt32Array(21, 20, 17), PackedInt32Array(12, 22, 16), PackedInt32Array(25, 24, 23), PackedInt32Array(22, 12, 23), PackedInt32Array(23, 12, 26), PackedInt32Array(23, 26, 25), PackedInt32Array(27, 17, 28), PackedInt32Array(28, 17, 25), PackedInt32Array(25, 17, 29), PackedInt32Array(25, 29, 24), PackedInt32Array(17, 18, 29)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wua2"]
+size = Vector3(42, 1, 42)
+
+[node name="lvl4" type="Node3D" unique_id=135452395]
+script = ExtResource("1_7q2b8")
+
+[node name="lvl4_mesh_001" parent="." unique_id=578651642 instance=ExtResource("2_7q2b8")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=438177665]
+navigation_mesh = SubResource("NavigationMesh_5wua2")
+
+[node name="lvl4_nav_mesh_0012" parent="NavigationRegion3D" unique_id=470077463 instance=ExtResource("3_aqssb")]
+
+[node name="PlayerInsideArea" type="Area3D" parent="." unique_id=433931316]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerInsideArea" unique_id=1564127529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.230896)
+shape = SubResource("BoxShape3D_5wua2")
+
+[node name="Lights" type="Node3D" parent="." unique_id=1433672005]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=1511178898]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.1244497, -13)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" unique_id=597577254]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.1244497, 11.75255)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" unique_id=1803642144]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14, 6.1244497, 15.020338)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights" unique_id=1021934585]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -13.682292, 6.1244497, -9.1688)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[connection signal="area_entered" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_entered"]
+[connection signal="area_exited" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_exited"]

@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://b0r5tb6s8jyao"]
-
-[ext_resource type="Script" uid="uid://b7lhhqve3qnqb" path="res://scripts/door.gd" id="1_gx6vt"]
-[ext_resource type="PackedScene" uid="uid://27210b2774uq" path="res://assets/meshes/door_open/door_open.gltf" id="2_qfj2i"]
-
-[node name="DoorOpen" type="Node3D" unique_id=393886895]
-script = ExtResource("1_gx6vt")
-
-[node name="door_open" parent="." unique_id=1098857631 instance=ExtResource("2_qfj2i")]

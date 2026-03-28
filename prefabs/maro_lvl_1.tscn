@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://yl634gjwssgq" path="res://scripts/level.gd" id="2_2cvx8"]
 [ext_resource type="PackedScene" uid="uid://cvj8hvwlg63t2" path="res://assets/meshes/lvl1/lvl1.gltf" id="2_6cdef"]
 [ext_resource type="PackedScene" uid="uid://dnm0ver6smsgg" path="res://assets/meshes/lvl1/lvl1_nav_mesh.glb" id="3_6cdef"]
-[ext_resource type="PackedScene" uid="uid://27210b2774uq" path="res://assets/meshes/door_open/door_open.gltf" id="4_5wua2"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_5wua2"]
 vertices = PackedVector3Array(-2.5000038, 0.4147182, 19.499998, -2.2500038, 0.4147182, 19.999998, 2.2499962, 0.4147182, 19.999998, 2.4999962, 0.4147182, 19.499998, 19.499996, 0.4147182, 2.499998, 19.999996, 0.4147182, 2.249998, 19.999996, 0.4147182, -2.250002, -20.000004, 0.4147182, -2.500002, -19.750004, 0.4147182, 19.499998, 19.499996, 0.4147182, -2.500002, 19.499996, 0.4147182, -19.750002, -19.750004, 0.4147182, -19.750002, 19.499996, 0.4147182, 19.499998)
@@ -21,9 +20,6 @@ script = ExtResource("2_2cvx8")
 navigation_mesh = SubResource("NavigationMesh_5wua2")
 
 [node name="lvl1_nav_mesh" parent="NavigationRegion3D" unique_id=1793701346 instance=ExtResource("3_6cdef")]
-
-[node name="door_open" parent="." unique_id=1802864704 instance=ExtResource("4_5wua2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.782796, 0.009252723, 2.2626886)
 
 [node name="PlayerInsideArea" type="Area3D" parent="." unique_id=433931316]
 

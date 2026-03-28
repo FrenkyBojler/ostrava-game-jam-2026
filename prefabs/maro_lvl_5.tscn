@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://rem2pfj44syf"]
+
+[ext_resource type="Script" uid="uid://yl634gjwssgq" path="res://scripts/level.gd" id="1_tkrmk"]
+[ext_resource type="PackedScene" uid="uid://h76wprdxvgsx" path="res://assets/meshes/lvl5/lvl5.gltf" id="2_tkrmk"]
+[ext_resource type="PackedScene" uid="uid://cs54qurc3cdcj" path="res://assets/meshes/lvl5/lvl5_nav_mesh.glb" id="3_lvma8"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_5wua2"]
+vertices = PackedVector3Array(-2.5000038, 0.4147182, 19.499998, -2.2500038, 0.4147182, 19.999998, 2.2499962, 0.4147182, 19.999998, 2.4999962, 0.4147182, 19.499998, 19.499996, 0.4147182, 2.499998, 19.999996, 0.4147182, 2.249998, 19.999996, 0.4147182, -2.250002, 19.499996, 0.4147182, -2.500002, 6.249996, 0.4147182, -13.000002, 6.249996, 0.4147182, -14.000002, -19.750004, 0.4147182, -19.750002, 7.749996, 0.4147182, -15.250002, 7.749996, 0.4147182, -19.750002, 19.499996, 0.4147182, -14.000002, 9.249996, 0.4147182, -14.250002, 9.249996, 0.4147182, -12.750002, 8.249996, 0.4147182, -11.750002, 7.249996, 0.4147182, -11.750002, -19.750004, 0.4147182, 19.499998, 19.499996, 0.4147182, 19.499998, 8.499996, 0.4147182, -15.250002, 19.499996, 0.4147182, -19.750002)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(4, 3, 0), PackedInt32Array(11, 9, 12), PackedInt32Array(12, 9, 10), PackedInt32Array(15, 14, 13), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 13, 7), PackedInt32Array(10, 8, 17), PackedInt32Array(17, 16, 7), PackedInt32Array(7, 4, 17), PackedInt32Array(17, 4, 0), PackedInt32Array(17, 0, 18), PackedInt32Array(17, 18, 10), PackedInt32Array(4, 19, 3), PackedInt32Array(20, 11, 12), PackedInt32Array(20, 12, 14), PackedInt32Array(14, 12, 13), PackedInt32Array(13, 12, 21)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wua2"]
+size = Vector3(42, 1, 42)
+
+[node name="lvl5" type="Node3D" unique_id=135452395]
+script = ExtResource("1_tkrmk")
+
+[node name="lvl5_mesh" parent="." unique_id=361572401 instance=ExtResource("2_tkrmk")]
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=438177665]
+navigation_mesh = SubResource("NavigationMesh_5wua2")
+
+[node name="lvl5_nav_mesh_0012" parent="NavigationRegion3D" unique_id=1612397821 instance=ExtResource("3_lvma8")]
+
+[node name="PlayerInsideArea" type="Area3D" parent="." unique_id=433931316]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerInsideArea" unique_id=1564127529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.230896)
+shape = SubResource("BoxShape3D_5wua2")
+
+[node name="Lights" type="Node3D" parent="." unique_id=1433672005]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" unique_id=1511178898]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.1244497, -13)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" unique_id=597577254]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.1244497, 11.75255)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" unique_id=1803642144]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 14, 6.1244497, 15.020338)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights" unique_id=1021934585]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -13.682292, 6.1244497, -9.1688)
+light_color = Color(1, 0.23529412, 0.17254902, 1)
+spot_range = 7.9179883
+spot_angle = 51.994404
+
+[connection signal="area_entered" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_entered"]
+[connection signal="area_exited" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_exited"]
