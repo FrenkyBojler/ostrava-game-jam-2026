@@ -132,4 +132,3 @@ func _get_number_of_rows() -> int:
 
 func _print_level() -> void:
 	print_debug(levels_placed)
-	pass

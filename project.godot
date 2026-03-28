@@ -15,11 +15,20 @@ run/main_scene="uid://cfvvmjb6nxqwd"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GlobalUpgrades="*uid://b68xrft15dgr7"
+GlobalGameState="*uid://de76msokfjt3a"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=2
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/UniParticles3D/plugin.cfg")
 
 [global_group]
 

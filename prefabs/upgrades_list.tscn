@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bgecmn521fplj"]
+
+[ext_resource type="Script" uid="uid://ptvdaxikjrxi" path="res://scripts/upgrades_list.gd" id="1_ao8cb"]
+
+[node name="UpgradesList" type="Control" unique_id=839277164]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+size_flags_horizontal = 0
+script = ExtResource("1_ao8cb")
+
+[node name="Container" type="VBoxContainer" parent="." unique_id=1533326367]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2

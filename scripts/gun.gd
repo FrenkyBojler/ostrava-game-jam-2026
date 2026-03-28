@@ -41,6 +41,11 @@ func _ready() -> void:
 	)
 	
 	play_idle()
+	
+	GlobalUpgrades.upgrade_picked.connect(func(upgrade: UpgradeResource):
+		if upgrade.property.begins_with("gun."):
+			_apply_upgrade(upgrade)
+	)
 
 func switch_gun(index: int) -> void:
 	if index < guns.size():
@@ -95,3 +100,23 @@ func set_gun(gun: GunResource) -> void:
 	
 	rate_of_fire_timer.wait_time = active_gun.rate_of_fire
 	reload_timer.wait_time = active_gun.reload_time
+
+func _apply_upgrade(upgrade: UpgradeResource) -> void:
+	var prop = upgrade.property.trim_prefix("gun.")
+	var val = upgrade.value
+	# Properties where lower is better — subtract the value
+	var subtract_props = ["reload_time", "rate_of_fire"]
+
+	for gun in guns:
+		if gun.get(prop) == null:
+			continue
+		if prop in subtract_props:
+			gun.set(prop, max(gun.get(prop) - val, 0.05))
+		else:
+			gun.set(prop, gun.get(prop) + val)
+
+	# Update timers if the active gun was affected
+	rate_of_fire_timer.wait_time = active_gun.rate_of_fire
+	reload_timer.wait_time = active_gun.reload_time
+	
+	ammo_updated.emit(current_ammo, active_gun.max_ammo)

@@ -1,5 +1,7 @@
 class_name Player extends PlayerCharacter
 
+const upgrades_screen_prefab := preload("res://prefabs/upgrades_screen.tscn")
+
 @onready var hands := %Hands as Hands
 @onready var enemy_check_raycast := %EnemyCheck as RayCast3D
 @onready var my_crosshair := %MyCrosshair as Crosshair
@@ -7,10 +9,10 @@ class_name Player extends PlayerCharacter
 
 var is_reloading := false
 
-const MAX_HEALTH := 100.0
+var max_health := 100.0
 
 @onready
-var current_health := MAX_HEALTH
+var current_health := max_health
 
 var has_dashed_recently := false
 
@@ -22,6 +24,11 @@ func setup(minimap: MiniMap) -> void:
 
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	GlobalUpgrades.upgrade_picked.connect(func(upgrade: UpgradeResource):
+		if upgrade.property.begins_with("player."):
+			_apply_upgrade(upgrade)
+	)
 	
 	hands.gun.ammo_updated.connect(func(current_ammo: int, max_ammo: int):
 		%CurrentAmmoLabel.text = str(current_ammo) + "/" + str(max_ammo)
@@ -40,6 +47,8 @@ func _ready_child() -> void:
 	)
 
 func _process_child(delta: float) -> void:
+	if is_game_paused:
+		return
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if Input.is_action_pressed("fire") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -65,6 +74,9 @@ func _check_crosshair() -> void:
 		my_crosshair.switch_to_normal()
 		
 func _input(event: InputEvent) -> void:
+	if is_game_paused:
+		return
+
 	if event is InputEventMouseButton:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventKey:
@@ -93,6 +105,15 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 	if area.is_in_group("BreakDoor") and has_dashed_recently and not (area.get_parent() as Door).broken:
 		(area.get_parent() as Door).break_door(velocity)
 
+	if area.get_parent() is Chest:
+		area.get_parent().queue_free()
+		_consume_chest()
+
+func _consume_chest() -> void:
+	GlobalGameState.pause_game()
+	var upgrades_screen := upgrades_screen_prefab.instantiate()
+	%Control.add_child(upgrades_screen)
+
 func _take_damage(dmg: float) -> void:
 	current_health -= dmg
 	%HealthLabel.text = str(current_health)
@@ -102,6 +123,19 @@ func _take_damage(dmg: float) -> void:
 
 func _play_hit() -> void:
 	hit_texture.play_hit()
+
+func _apply_upgrade(upgrade: UpgradeResource) -> void:
+	var prop = upgrade.property.trim_prefix("player.")
+	var val = upgrade.value
+
+	if prop == "max_health":
+		max_health += val
+		current_health += val
+		%HealthLabel.text = str(current_health)
+	else:
+		var current = get(prop)
+		if current != null:
+			set(prop, current + val)
 	
 func _death() -> void:
 	get_tree().reload_current_scene()

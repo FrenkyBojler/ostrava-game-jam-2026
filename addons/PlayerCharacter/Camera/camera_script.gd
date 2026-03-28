@@ -275,6 +275,8 @@ func change_fov() -> void:
 		fov_change_tween.finished.connect(Callable(fov_change_tween, "kill"))
 		
 func mouse_mode() -> void:
+	if play_char.is_game_paused:
+		return
 	#manage the mouse mode (visible = can use mouse on the screen, captured = mouse not visible and locked in at the center of the screen)
 	if Input.is_action_just_pressed(mouse_mode_action): mouse_free = !mouse_free
 	if !mouse_free: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -159,10 +159,20 @@ var default_input_actions : Dictionary
 @onready var left_wall_check : RayCast3D = %LeftWallCheck
 @onready var right_wall_check : RayCast3D = %RightWallCheck
 
+var is_game_paused := false
+
 func _ready_child() -> void:
 	pass
 
 func _ready() -> void:
+	GlobalGameState.game_paused.connect(func():
+		is_game_paused = true
+	)
+
+	GlobalGameState.game_unpaused.connect(func():
+		is_game_paused = false
+	)
+
 	_ready_child()
 	#set and value references
 	hit_ground_cooldown_ref = hit_ground_cooldown
@@ -202,6 +212,8 @@ func build_default_keybinding() -> void:
 	}
 	
 func input_actions_check() -> void:
+	if is_game_paused:
+		return
 	#check if the input actions written in the editor are the same as the ones registered in the Input map, and if they are written correctly
 	#if not, add it to runtime Input map with default keybindings
 	if check_on_ready_if_inputs_registered:
@@ -235,6 +247,8 @@ func _physics_process_child(delta: float) -> void:
 	pass
 
 func _process(delta: float) -> void:
+	if is_game_paused:
+		return
 	_process_child(delta)
 	wallrun_timer(delta)
 	
@@ -243,6 +257,9 @@ func _process(delta: float) -> void:
 	dash_timer(delta)
 	
 func _physics_process(_delta: float) -> void:
+	if is_game_paused:
+		return
+
 	_physics_process_child(_delta)
 	modify_physics_properties()
 

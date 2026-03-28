@@ -24,6 +24,7 @@
 [ext_resource type="FontFile" uid="uid://bvslkan23q0qd" path="res://assets/fonts/HeadCapitalBoldGrunge-KV9RA.otf" id="22_6hq66"]
 [ext_resource type="PackedScene" uid="uid://diplhol4cfisa" path="res://prefabs/hit_texture.tscn" id="23_dmkdn"]
 [ext_resource type="Script" uid="uid://ba0hfdffnq53u" path="res://scripts/health_label.gd" id="24_4vl0f"]
+[ext_resource type="PackedScene" uid="uid://bgecmn521fplj" path="res://prefabs/upgrades_list.tscn" id="25_fc85j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
 radius = 0.27734375
@@ -613,6 +614,7 @@ label_settings = ExtResource("18_iiqn7")
 vertical_alignment = 1
 
 [node name="Control" type="Control" parent="." unique_id=1901074836]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -702,6 +704,9 @@ grow_vertical = 0
 text = "100"
 label_settings = SubResource("LabelSettings_4vl0f")
 script = ExtResource("24_4vl0f")
+
+[node name="UpgradesList" parent="Control" unique_id=839277164 instance=ExtResource("25_fc85j")]
+layout_mode = 1
 
 [node name="HitArea" type="Area3D" parent="." unique_id=29700697]
 

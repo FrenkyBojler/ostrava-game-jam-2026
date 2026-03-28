@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UpgradeResource" format=3 uid="uid://bb6xjd4o08mvc"]
+
+[ext_resource type="Script" uid="uid://w31onjbn5rq5" path="res://reousrc/upgrade_resource.gd" id="1_ccn34"]
+
+[resource]
+script = ExtResource("1_ccn34")
+headling = "Commong Upgrade"
+description = "Reload Timer"
+value = 0.3
+property = "reload"
+metadata/_custom_type_script = "uid://w31onjbn5rq5"
