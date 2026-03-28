@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="2_37pk5"]
 [ext_resource type="PackedScene" uid="uid://dcb4amgsq1s5b" path="res://prefabs/hand_cannon.tscn" id="3_plv75"]
 [ext_resource type="PackedScene" uid="uid://bo0nwtyd2lqn6" path="res://prefabs/hand_cannon_bullet.tscn" id="4_0afcb"]
+[ext_resource type="PackedScene" uid="uid://bu6f5fo62ekmc" path="res://prefabs/projectile.tscn" id="5_ekedq"]
 
 [sub_resource type="Resource" id="Resource_plv75"]
 script = ExtResource("2_37pk5")
 name = "HandCannon"
-rate_of_fire = 1
+rate_of_fire = 0.3
 max_ammo = 12
 ttl = 0.8
 dmg = 10.0
@@ -99,6 +100,7 @@ _data = {
 [node name="Gun" type="Node3D" unique_id=630209066]
 script = ExtResource("1_cxs04")
 guns = Array[ExtResource("2_37pk5")]([SubResource("Resource_plv75")])
+projectile_scene = ExtResource("5_ekedq")
 
 [node name="GunModelHandler" type="Node3D" parent="." unique_id=1703791587]
 unique_name_in_owner = true
@@ -112,3 +114,6 @@ mesh = SubResource("ArrayMesh_0afcb")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GunModelHandler" unique_id=251414615]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_8k260")
+
+[node name="RateOfFireTimer" type="Timer" parent="." unique_id=1712098286]
+unique_name_in_owner = true

@@ -8,9 +8,16 @@ var repath_timer := 0.0
 var target_node: Node3D
 var map_ready := false
 
+@export
+var max_health: float = 50
+
+@onready
+var current_health: float = max_health
+
 func _ready() -> void:
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	$AnimationPlayer.play("Running_A")
+
 	NavigationServer3D.map_changed.connect(func(cosi: RID): 
 		map_ready = true
 	)
@@ -46,3 +53,18 @@ func _physics_process(delta):
 func _on_velocity_computed(safe_velocity: Vector3):
 	velocity = safe_velocity
 	move_and_slide()
+
+func take_damage(dmg: float) -> void:
+	current_health -= dmg
+	
+	if current_health <= 0:
+		die()
+
+func die() -> void:
+	queue_free()
+
+func _on_hit_area_area_entered(area: Area3D) -> void:
+	if area.get_parent() is Projectile:
+		var projectile = area.get_parent() as Projectile
+		take_damage(projectile.dmg)
+		projectile.queue_free()

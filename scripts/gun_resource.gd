@@ -3,7 +3,7 @@ class_name GunResource extends Resource
 @export
 var name: String
 @export
-var rate_of_fire: int
+var rate_of_fire: float
 @export
 var max_ammo: int
 @export

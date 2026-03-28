@@ -1,14 +1,15 @@
-[gd_scene format=4 uid="uid://bo0nwtyd2lqn6"]
+[gd_scene format=4 uid="uid://bu6f5fo62ekmc"]
 
-[ext_resource type="Texture2D" uid="uid://dy0dgkgrpqwfs" path="res://assets/meshes/placeholder/Handcannon_untitled_1.png" id="1_602a6"]
+[ext_resource type="Script" uid="uid://dkuo0lgw8u236" path="res://scripts/projectile.gd" id="1_how8d"]
+[ext_resource type="Texture2D" uid="uid://dy0dgkgrpqwfs" path="res://assets/meshes/placeholder/Handcannon_untitled_1.png" id="1_s5n0i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsidp"]
 resource_name = "Material.002"
 cull_mode = 2
-albedo_texture = ExtResource("1_602a6")
+albedo_texture = ExtResource("1_s5n0i")
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_602a6"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_0p87a"]
 _surfaces = [{
 "aabb": AABB(-0.044061366, -0.040784944, -0.044061363, 0.08812273, 0.23788579, 0.08812274),
 "format": 34896613377,
@@ -23,7 +24,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_lnyyj"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_xjgtm"]
 resource_name = "Handcannon_Cylinder"
 _surfaces = [{
 "aabb": AABB(-0.044061366, -0.040784944, -0.044061363, 0.08812273, 0.23788579, 0.08812274),
@@ -40,10 +41,28 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_602a6")
+shadow_mesh = SubResource("ArrayMesh_0p87a")
 
-[node name="HandCannonBullet" type="Node3D" unique_id=456944271]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_how8d"]
+radius = 0.045898438
+height = 0.30639648
 
-[node name="Bullet" type="MeshInstance3D" parent="." unique_id=1511597630]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-mesh = SubResource("ArrayMesh_lnyyj")
+[node name="Projectile" type="Node3D" unique_id=1495835721]
+script = ExtResource("1_how8d")
+
+[node name="PlaceholderBullet" type="MeshInstance3D" parent="." unique_id=508938243]
+unique_name_in_owner = true
+mesh = SubResource("ArrayMesh_xjgtm")
+
+[node name="TimeToLive" type="Timer" parent="." unique_id=1412168168]
+unique_name_in_owner = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1162772466]
+light_color = Color(0.89385575, 0.5604845, 0.15348625, 1)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=52006735]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=827128836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07873535, 0)
+shape = SubResource("CapsuleShape3D_how8d")
+debug_color = Color(0.9776885, 0, 0.40585044, 0.41960785)
