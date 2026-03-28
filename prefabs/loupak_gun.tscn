@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d125yx4sd1kvu"]
 
-[ext_resource type="Script" uid="uid://b8xwbm7nelvil" path="res://prefabs/hand_cannon_logic.gd" id="1_kr1bn"]
+[ext_resource type="Script" uid="uid://cwp3akr6c52wt" path="res://scripts/throw_gun_logic.gd" id="1_kr1bn"]
 
 [node name="LoupakGun" type="Node3D" unique_id=1692977969]
 script = ExtResource("1_kr1bn")

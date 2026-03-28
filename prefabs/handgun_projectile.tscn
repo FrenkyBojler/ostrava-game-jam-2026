@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://dkuo0lgw8u236" path="res://scripts/projectile.gd" id="1_cjpgp"]
 [ext_resource type="PackedScene" uid="uid://bo0nwtyd2lqn6" path="res://prefabs/hand_cannon_bullet.tscn" id="3_srrmh"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_how8d"]
-radius = 0.045898438
-height = 0.30639648
+[sub_resource type="SphereShape3D" id="SphereShape3D_cjpgp"]
+radius = 0.10323891
 
 [node name="HandgunProjectile" type="Node3D" unique_id=1495835721]
 script = ExtResource("1_cjpgp")
@@ -16,8 +15,8 @@ light_color = Color(0.89385575, 0.5604845, 0.15348625, 1)
 [node name="Area3D" type="Area3D" parent="." unique_id=52006735]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=827128836]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07873535, 0)
-shape = SubResource("CapsuleShape3D_how8d")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.022740483, -0.0041745305, 0)
+shape = SubResource("SphereShape3D_cjpgp")
 debug_color = Color(0.9776885, 0, 0.40585044, 0.41960785)
 
 [node name="HandCannonBullet" parent="." unique_id=456944271 instance=ExtResource("3_srrmh")]

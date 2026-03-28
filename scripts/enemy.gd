@@ -30,12 +30,15 @@ var is_attacking := false
 var gun: GunLogic
 
 const DISTANCE_TO_PLAYER_BUFFER := 1.0
+const MIN_ATTACK_RANGE := 2.5
 
 signal enemy_died(who: Enemy)
 
+@export
+var projectile_placeholder_to_hide: Node3D
+
 @onready
 var projectile_placement_position: Node3D = %ProjectilePlacementPos
-
 
 @export
 var run_anim: String
@@ -52,10 +55,25 @@ func _ready() -> void:
 
 	gun = gun_resource.gun_logic.instantiate()
 	add_child(gun)
+	gun.global_position = projectile_placement_position.global_position
+
+func _get_attack_range() -> float:
+	return max(gun_resource.ttl * gun_resource.projectile_speed, MIN_ATTACK_RANGE)
+
+func _is_in_attack_range() -> bool:
+	if target_node == null:
+		return false
+	return global_position.distance_to(target_node.global_position) <= _get_attack_range()
+
+func _is_melee() -> bool:
+	return gun_resource.ttl * gun_resource.projectile_speed <= MIN_ATTACK_RANGE
 
 func get_target_position_to_attack(target: Vector3) -> Vector3:
+	if _is_melee():
+		return target
 	var direction = target.direction_to(global_position).normalized()
-	return target - (direction * gun_resource.ttl * gun_resource.projectile_speed) + (direction * DISTANCE_TO_PLAYER_BUFFER)
+	# Navigate to 80% of max range so the enemy reliably ends up within attack range
+	return target + direction * (_get_attack_range() * 0.8)
 
 func set_movement_target(movement_target: Node3D):
 	target_node = movement_target
@@ -65,7 +83,7 @@ func update_target_position() -> void:
 	var safe_target = NavigationServer3D.map_get_closest_point(map, target_node.global_position)
 	var move_target = safe_target
 	
-	if can_attack:
+	if not _is_melee():
 		move_target = get_target_position_to_attack(safe_target)
 
 	navigation_agent.set_target_position(move_target)
@@ -85,11 +103,16 @@ func _physics_process(delta):
 	if NavigationServer3D.map_get_iteration_id(navigation_agent.get_navigation_map()) == 0:
 		return
 
-	if navigation_agent.is_navigation_finished():
-		if can_attack:
+	if navigation_agent.is_navigation_finished() or _is_in_attack_range():
+		if can_attack and _is_in_attack_range():
+			look_at(target_node.global_position)
 			_play_attack()
 		elif not is_attacking:
+			velocity = Vector3.ZERO
 			_play_idle()
+		return
+
+	if is_attacking:
 		return
 
 	var next_path_position: Vector3 = navigation_agent.get_next_path_position()
@@ -130,10 +153,10 @@ func _play_idle() -> void:
 	animation_player_general.play(idle_anim)
 	
 func _play_run() -> void:
-	if not can_play_movement_anim:
+	if not can_play_movement_anim or animation_player_movement.is_playing():
 		return
-	animation_player_movement.play(run_anim)
 	animation_player_general.stop()
+	animation_player_movement.play(run_anim)
 	
 func _play_hit() -> void:
 	animation_player_movement.stop()
@@ -168,17 +191,30 @@ func _play_attack() -> void:
 	can_play_movement_anim = false
 	
 	animation_player_movement.stop()
-	animation_player_general.play(attack_anim)
+	animation_player_general.play(attack_anim, -1, 1 / gun_resource.rate_of_fire)
 	
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(gun_resource.rate_of_fire * 0.5).timeout
+	
+	if projectile_placeholder_to_hide != null:
+		projectile_placeholder_to_hide.visible = false
 	_attack()
-	await get_tree().create_timer(0.5).timeout
+	
+	await get_tree().create_timer(gun_resource.rate_of_fire * 0.5).timeout
 	
 	is_attacking = false
 	can_move = true
 	can_play_movement_anim = true
+	if projectile_placeholder_to_hide != null:
+		projectile_placeholder_to_hide.visible = true
+
+	# Cooldown before allowing next attack
+	await get_tree().create_timer(gun_resource.rate_of_fire).timeout
 	can_attack = true
 
 func _attack() -> void:
 	if gun is WraightGunLogic:
 		(gun as WraightGunLogic)._shoot_at_pos(projectile_placement_position.global_position, gun_resource, 2)
+	elif gun is ThrowGunLogic:
+		(gun as ThrowGunLogic)._shoot_at_direction(gun_resource, gun.global_position.direction_to(target_node.global_position), 2)
+	else:
+		gun._shoot(gun_resource, 2)

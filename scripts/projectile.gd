@@ -9,6 +9,10 @@ var can_fly := false
 var _dmg: float
 var _projectile_speed: float
 
+var target_diretion: Vector3
+
+var should_shoot_at_direction := false
+
 func _enter_tree() -> void:
 	time_to_live_timer = Timer.new()
 	add_child(time_to_live_timer)
@@ -20,6 +24,19 @@ func _ready() -> void:
 	)
 
 func shoot(ttl: float, dmg: float, projectile_speed: float, team: int) -> void:
+	should_shoot_at_direction = false
+	time_to_live_timer.wait_time = ttl
+	time_to_live_timer.start()
+	
+	self.team = team
+	_dmg = dmg
+	_projectile_speed = projectile_speed
+
+	can_fly = true
+	
+func shoot_at_direction(ttl: float, dmg: float, projectile_speed: float, direction: Vector3, team: int) -> void:
+	should_shoot_at_direction = true
+	target_diretion = direction 
 	time_to_live_timer.wait_time = ttl
 	time_to_live_timer.start()
 	
@@ -34,6 +51,6 @@ func _physics_process_child(_delta) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if can_fly:
-		global_position += global_basis.z * _projectile_speed * _delta
+		global_position += (target_diretion.normalized() if should_shoot_at_direction else global_basis.z) * _projectile_speed * _delta
 		
 	_physics_process_child(_delta)
