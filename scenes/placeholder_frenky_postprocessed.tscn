@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cro1wupa5m6hg" path="res://scenes/placeholder_frenky.tscn" id="1_cbejb"]
 [ext_resource type="Shader" uid="uid://der0vpe21e2u1" path="res://reousrc/postprocess.gdshader" id="1_x8puo"]
-[ext_resource type="PackedScene" uid="uid://coxfygbo5rhvv" path="res://prefabs/fps_label.tscn" id="2_g7y67"]
+[ext_resource type="PackedScene" path="res://prefabs/fps_label.tscn" id="2_g7y67"]
 [ext_resource type="FontFile" uid="uid://bvslkan23q0qd" path="res://assets/fonts/HeadCapitalBoldGrunge-KV9RA.otf" id="3_iwq0e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g7y67"]
