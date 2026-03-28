@@ -167,16 +167,22 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 			projectile.queue_free()
 
 func _play_idle() -> void:
+	if playing_death:
+		return
 	animation_player_movement.stop()
 	animation_player_general.play(idle_anim)
 	
 func _play_run() -> void:
+	if playing_death:
+		return
 	if not can_play_movement_anim or animation_player_movement.is_playing():
 		return
 	animation_player_general.stop()
 	animation_player_movement.play(run_anim)
 	
 func _play_hit() -> void:
+	if playing_death:
+		return
 	animation_player_movement.stop()
 	animation_player_general.play("Hit_A")
 	can_move = false
@@ -201,6 +207,8 @@ func _play_death() -> void:
 	queue_free()
 
 func _play_attack() -> void:
+	if playing_death:
+		return
 	attack_sound_player.play()
 	can_attack = false
 	is_attacking = true

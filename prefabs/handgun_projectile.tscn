@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bo0nwtyd2lqn6" path="res://prefabs/hand_cannon_bullet.tscn" id="3_srrmh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cjpgp"]
-radius = 0.10323891
+radius = 0.3
 
 [node name="HandgunProjectile" type="Node3D" unique_id=1495835721]
 script = ExtResource("1_cjpgp")
