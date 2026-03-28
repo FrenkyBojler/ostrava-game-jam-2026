@@ -61,7 +61,6 @@ func _instantiate_level(pos: Vector2, rows: int, player: Node3D) -> void:
 	level_instance.global_position = Vector3(pos.x * level_size, 0, pos.y * level_size)
 	level_instance.setup(level_resource, level_size)
 	
-	return
 	var enemy = enemy_scenes.pick_random().instantiate() as Enemy
 	add_child(enemy)
 	enemy.global_position = Vector3(pos.x * level_size, 1, pos.y * level_size)

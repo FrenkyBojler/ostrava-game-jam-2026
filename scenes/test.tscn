@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://uumaq7eqfr4n"]
+
+[ext_resource type="PackedScene" uid="uid://cvj8hvwlg63t2" path="res://assets/meshes/lvl1/lvl1.gltf" id="1_bl13t"]
+[ext_resource type="PackedScene" uid="uid://b6t06rh6ver10" path="res://prefabs/player_ujabeny.tscn" id="2_iyx0m"]
+
+[node name="Test" type="Node3D" unique_id=560216344]
+
+[node name="lvl1_mesh" parent="." unique_id=1300638941 instance=ExtResource("1_bl13t")]
+
+[node name="PlayerCharacter" parent="." unique_id=887730227 instance=ExtResource("2_iyx0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4573932, 0)
