@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cyj75qt11531n"]
 
 [ext_resource type="Texture2D" uid="uid://bedqqk8j0bd0e" path="res://assets/meshes/placeholder/untitled.png" id="1_1fekn"]
+[ext_resource type="Script" uid="uid://7h520cod1ji0" path="res://scripts/smg_gun_logic.gd" id="1_1mcya"]
 [ext_resource type="Texture2D" uid="uid://x56ymm7f1li4" path="res://assets/meshes/placeholder/UZI_Material.001_Metallic.png" id="2_1mcya"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu8gk"]
@@ -47,6 +48,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_eo3md")
 
 [node name="SMG" type="Node3D" unique_id=209410712]
+script = ExtResource("1_1mcya")
 
 [node name="Uzi" type="Node3D" parent="." unique_id=1907012148]
 

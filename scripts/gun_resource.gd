@@ -15,10 +15,10 @@ var reload_time: float
 @export
 var radius_of_dmg: float
 @export
-var model: PackedScene
+var gun_logic: PackedScene
 @export
 var projectile_speed: float
 @export
-var projectile_model: PackedScene
+var projectile: PackedScene
 @export
 var anim_shoot_name: String

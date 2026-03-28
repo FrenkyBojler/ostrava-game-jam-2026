@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://b4ywvmsaaakw"]
 
 [ext_resource type="PackedScene" uid="uid://dcb4amgsq1s5b" path="res://prefabs/hand_cannon.tscn" id="1_8idqh"]
-[ext_resource type="PackedScene" uid="uid://bo0nwtyd2lqn6" path="res://prefabs/hand_cannon_bullet.tscn" id="2_0814j"]
+[ext_resource type="PackedScene" uid="uid://bry8gv42m2pre" path="res://prefabs/handgun_projectile.tscn" id="2_8idqh"]
 [ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="3_5xtx3"]
 
 [resource]
@@ -13,8 +13,8 @@ ttl = 0.8
 dmg = 10.0
 reload_time = 1.0
 radius_of_dmg = 1.0
-model = ExtResource("1_8idqh")
+gun_logic = ExtResource("1_8idqh")
 projectile_speed = 100.0
-projectile_model = ExtResource("2_0814j")
+projectile = ExtResource("2_8idqh")
 anim_shoot_name = "HandGunShoot"
 metadata/_custom_type_script = "uid://dqqr0gqodhj24"

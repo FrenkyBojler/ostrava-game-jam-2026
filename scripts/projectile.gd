@@ -2,13 +2,16 @@ class_name Projectile extends Node3D
 
 @onready
 var placeholder_bullet := %PlaceholderBullet
-@onready
-var time_to_live_timer := %TimeToLive as Timer
+var time_to_live_timer: Timer
 
 var can_fly := false
 
 var _dmg: float
 var _projectile_speed: float
+
+func _enter_tree() -> void:
+	time_to_live_timer = Timer.new()
+	add_child(time_to_live_timer)
 
 func _ready() -> void:
 	placeholder_bullet.visible = false
@@ -18,10 +21,7 @@ func _ready() -> void:
 		queue_free()
 	)
 
-func shoot(ttl: float, dmg: float, projectile_speed: float, mesh: PackedScene) -> void:
-	var mesh_instance := mesh.instantiate()
-	add_child(mesh_instance)
-	
+func shoot(ttl: float, dmg: float, projectile_speed: float) -> void:
 	time_to_live_timer.wait_time = ttl
 	time_to_live_timer.start()
 	

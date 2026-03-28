@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="2_37pk5"]
 [ext_resource type="Resource" uid="uid://b4ywvmsaaakw" path="res://reousrc/hand_cannon_gun_resource.tres" id="3_ekedq"]
 [ext_resource type="Resource" uid="uid://bb0xh6fsmpfwa" path="res://reousrc/smg_gun_resource.tres" id="4_8k260"]
-[ext_resource type="PackedScene" uid="uid://bu6f5fo62ekmc" path="res://prefabs/projectile.tscn" id="5_ekedq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dylr"]
 resource_name = "Material.001"
@@ -104,7 +103,6 @@ _data = {
 [node name="Gun" type="Node3D" unique_id=630209066]
 script = ExtResource("1_cxs04")
 guns = Array[ExtResource("2_37pk5")]([ExtResource("3_ekedq"), ExtResource("4_8k260")])
-projectile_scene = ExtResource("5_ekedq")
 
 [node name="GunModelHandler" type="Node3D" parent="." unique_id=1703791587]
 unique_name_in_owner = true

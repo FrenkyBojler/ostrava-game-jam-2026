@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dcb4amgsq1s5b"]
 
+[ext_resource type="Script" uid="uid://b8xwbm7nelvil" path="res://prefabs/hand_cannon_logic.gd" id="1_6fll7"]
 [ext_resource type="Texture2D" uid="uid://do6ihynoilh5s" path="res://assets/meshes/placeholder/Handcannon_untitled.png" id="1_u7ios"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7dylr"]
@@ -43,6 +44,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u7ios")
 
 [node name="HandCannon" type="Node3D" unique_id=92678778]
+script = ExtResource("1_6fll7")
 
 [node name="Gun" type="MeshInstance3D" parent="." unique_id=570110609]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00449723, 0.19196534, -0.542577)

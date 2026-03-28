@@ -1,0 +1,1 @@
+class_name HandgunProjectile extends Projectile
