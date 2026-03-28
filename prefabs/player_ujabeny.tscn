@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://ba0hfdffnq53u" path="res://scripts/health_label.gd" id="24_4vl0f"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
+radius = 0.27734375
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6bkys"]
 albedo_color = Color(0.196078, 0.223529, 1, 1)
@@ -55,6 +56,12 @@ font_size = 120
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_fc85j"]
+font = ExtResource("22_6hq66")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_6hq66"]
 font = ExtResource("22_6hq66")
 font_size = 40
@@ -75,6 +82,7 @@ platform_floor_layers = 4278190081
 script = ExtResource("1_je842")
 desired_move_speed_curve = ExtResource("2_b2bnw")
 in_air_move_speed_curve = ExtResource("3_gt7xx")
+dash_speed = 50.0
 
 [node name="StateMachine" type="Node" parent="." unique_id=1108714996 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_y772w")
@@ -631,6 +639,26 @@ grow_vertical = 0
 text = "10/12"
 label_settings = SubResource("LabelSettings_dmkdn")
 
+[node name="BreakDoorLabel" type="Label" parent="Control" unique_id=755981616]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.0
+offset_top = -123.0
+offset_right = 359.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Dash to break open"
+label_settings = SubResource("LabelSettings_fc85j")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ReloadingLabel" type="Label" parent="Control" unique_id=330162479]
 unique_name_in_owner = true
 visible = false
@@ -682,4 +710,6 @@ shape = SubResource("CapsuleShape3D_6hq66")
 debug_color = Color(0.84934384, 0, 0.24771458, 1)
 
 [connection signal="change_fov" from="StateMachine" to="CameraHolder" method="change_fov"]
+[connection signal="transitioned" from="StateMachine/DashState" to="." method="_on_dash_state_transitioned"]
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
+[connection signal="area_exited" from="HitArea" to="." method="_on_hit_area_area_exited"]

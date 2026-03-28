@@ -37,6 +37,42 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:door_frame_001/door_planks_001": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_002": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_003": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_004": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_005": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_006": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_007": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_008": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_009": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_010": {
+"generate/physics": true
+},
+"PATH:door_frame_001/door_planks_011": {
+"generate/physics": true
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1

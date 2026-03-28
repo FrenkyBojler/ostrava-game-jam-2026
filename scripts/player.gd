@@ -12,6 +12,8 @@ const MAX_HEALTH := 100.0
 @onready
 var current_health := MAX_HEALTH
 
+var has_dashed_recently := false
+
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
@@ -75,6 +77,10 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 			_play_hit()
 			_take_damage(projectile._dmg)
 			projectile.queue_free()
+	if area.get_parent() is Door and not (area.get_parent() as Door).broken:
+		%BreakDoorLabel.visible = true
+	if area.is_in_group("BreakDoor") and has_dashed_recently and not (area.get_parent() as Door).broken:
+		(area.get_parent() as Door).break_door(velocity)
 
 func _take_damage(dmg: float) -> void:
 	current_health -= dmg
@@ -88,3 +94,12 @@ func _play_hit() -> void:
 	
 func _death() -> void:
 	get_tree().reload_current_scene()
+
+func _on_hit_area_area_exited(area: Area3D) -> void:
+	if area.get_parent() is Door:
+		%BreakDoorLabel.visible = false
+
+func _on_dash_state_transitioned(caller: Node, value: String) -> void:
+	has_dashed_recently = true
+	await get_tree().create_timer(0.5).timeout
+	has_dashed_recently = false

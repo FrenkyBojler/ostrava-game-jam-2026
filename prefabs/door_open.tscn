@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bianvbca1tlk2"]
+
+[ext_resource type="Script" uid="uid://b7lhhqve3qnqb" path="res://scripts/door.gd" id="1_dd40h"]
+[ext_resource type="PackedScene" uid="uid://27210b2774uq" path="res://assets/meshes/door_open/door_open.gltf" id="2_aa5oi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dd40h"]
+size = Vector3(1.9631348, 2.6738281, 4.0247498)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aa5oi"]
+size = Vector3(1.5483398, 2.776062, 0.48828125)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oknmm"]
+size = Vector3(1.4222412, 2.3475647, 0.6791992)
+
+[node name="DoorOpen" type="Node3D" unique_id=393886895 node_paths=PackedStringArray("breakable_parent")]
+script = ExtResource("1_dd40h")
+breakable_parent = NodePath("door_open/door_frame_001")
+
+[node name="door_open" parent="." unique_id=1350279219 instance=ExtResource("2_aa5oi")]
+
+[node name="CollisionShape3D" parent="door_open/@StaticBody3D@99537" parent_id_path=PackedInt32Array(1350279219, 1138142407) index="0" unique_id=795347622]
+disabled = true
+
+[node name="InteractableArea" type="Area3D" parent="." unique_id=1050173649]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea" unique_id=1769078818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027954102, 1.3446132, -0.017105103)
+shape = SubResource("BoxShape3D_dd40h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=576026207]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=391611154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7282791, 1.3908386, -0.0068359375)
+shape = SubResource("BoxShape3D_aa5oi")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=589165077]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7422228, 1.3908386, -0.0068359375)
+shape = SubResource("BoxShape3D_aa5oi")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=760653659 groups=["BreakDoor"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1488121096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026550293, 1.265152, 0.045166016)
+shape = SubResource("BoxShape3D_oknmm")
+debug_color = Color(0.7058824, 0.627451, 0, 1)
+
+[editable path="door_open"]
