@@ -24,12 +24,13 @@
 [ext_resource type="FontFile" uid="uid://bvslkan23q0qd" path="res://assets/fonts/HeadCapitalBoldGrunge-KV9RA.otf" id="22_6hq66"]
 [ext_resource type="PackedScene" uid="uid://diplhol4cfisa" path="res://prefabs/hit_texture.tscn" id="23_dmkdn"]
 [ext_resource type="Script" uid="uid://ba0hfdffnq53u" path="res://scripts/health_label.gd" id="24_4vl0f"]
+[ext_resource type="PackedScene" uid="uid://bgecmn521fplj" path="res://prefabs/upgrades_list.tscn" id="25_fc85j"]
 [ext_resource type="AudioStream" uid="uid://mf21m3d6uoha" path="res://assets/audio/footsteps.wav" id="25_pbqsq"]
 [ext_resource type="AudioStream" uid="uid://bi7qrnk23ni6u" path="res://assets/audio/dash.wav" id="26_cg47n"]
 [ext_resource type="AudioStream" uid="uid://dvpe6offecmh0" path="res://assets/audio/hurt.wav" id="27_cg47n"]
 [ext_resource type="AudioStream" uid="uid://dikjmumxa5hyt" path="res://assets/audio/death.wav" id="28_c0t4o"]
 [ext_resource type="AudioStream" uid="uid://bdpf74fr6cuxp" path="res://assets/audio/jump.wav" id="29_cu0ja"]
-[ext_resource type="PackedScene" uid="uid://bgecmn521fplj" path="res://prefabs/upgrades_list.tscn" id="25_fc85j"]
+[ext_resource type="AudioStream" uid="uid://clllvhkemfnhf" path="res://assets/audio/Flesh_and_coal_loop.mp3" id="31_phign"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
 radius = 0.27734375
@@ -737,6 +738,11 @@ stream = ExtResource("28_c0t4o")
 
 [node name="Jumpy" type="AudioStreamPlayer3D" parent="." unique_id=2021057962]
 stream = ExtResource("29_cu0ja")
+
+[node name="Hudba" type="AudioStreamPlayer3D" parent="." unique_id=1513628323]
+stream = ExtResource("31_phign")
+volume_db = -5.0
+autoplay = true
 
 [connection signal="change_fov" from="StateMachine" to="CameraHolder" method="change_fov"]
 [connection signal="transitioned" from="StateMachine/DashState" to="." method="_on_dash_state_transitioned"]

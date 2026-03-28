@@ -8150,6 +8150,8 @@ gun_resource = ExtResource("2_6tyqv")
 run_anim = "Jump_Full_Short"
 attack_anim = "Throw"
 idle_anim = "Idle_A"
+death_sound = ExtResource("7_6tyqv")
+attack_sound = ExtResource("8_b58kp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1149931769]
 shape = SubResource("CapsuleShape3D_ks3ws")
@@ -8586,12 +8588,6 @@ debug_color = Color(0.9776885, 0, 0.40585044, 0.41960785)
 [node name="ProjectilePlacementPos" type="Node3D" parent="." unique_id=805506004]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5237901)
-
-[node name="Perishy" type="AudioStreamPlayer3D" parent="." unique_id=1655512141]
-stream = ExtResource("7_6tyqv")
-
-[node name="Attacky" type="AudioStreamPlayer3D" parent="." unique_id=161675136]
-stream = ExtResource("8_b58kp")
 
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

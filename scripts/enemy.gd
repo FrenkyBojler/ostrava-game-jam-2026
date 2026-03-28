@@ -47,7 +47,24 @@ var attack_anim: String
 @export
 var idle_anim: String
 
+@export
+var death_sound: AudioStream
+@export
+var attack_sound: AudioStream
+
+@onready
+var attack_sound_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
+@onready
+var death_sound_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
+
 func _ready() -> void:
+	attack_sound_player.stream = attack_sound
+	death_sound_player.stream = death_sound
+	
+	add_child(attack_sound_player)
+	add_child(death_sound_player)
+	
+	
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	_play_idle()
 
@@ -87,7 +104,7 @@ func update_target_position() -> void:
 		move_target = get_target_position_to_attack(safe_target)
 
 	navigation_agent.set_target_position(move_target)
-	look_at(move_target)
+	look_at(Vector3(target_node.global_position.x, global_position.y, target_node.global_position.z))
 
 func _physics_process(delta):
 	if playing_death:
@@ -109,6 +126,7 @@ func _physics_process(delta):
 			_play_attack()
 		elif not is_attacking:
 			velocity = Vector3.ZERO
+			move_and_slide()
 			_play_idle()
 		return
 
@@ -170,7 +188,7 @@ func _play_hit() -> void:
 	can_move = true
 
 func _play_death() -> void:
-	$Perishy.play()
+	death_sound_player.play()
 	playing_death = true
 	can_play_movement_anim = false
 	can_move = false
@@ -183,7 +201,7 @@ func _play_death() -> void:
 	queue_free()
 
 func _play_attack() -> void:
-	$Attacky.play()
+	attack_sound_player.play()
 	can_attack = false
 	is_attacking = true
 

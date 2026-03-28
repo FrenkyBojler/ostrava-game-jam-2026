@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://d0j628gcykl5e" path="res://scripts/enemy.gd" id="1_iqj46"]
 [ext_resource type="Resource" uid="uid://djv4kcf46iyyo" path="res://reousrc/wraight_gun.tres" id="2_cixgc"]
 [ext_resource type="Texture2D" uid="uid://miuf7ovhlw67" path="res://assets/meshes/placeholder/prototypebits_texture.png" id="3_g2de7"]
+[ext_resource type="AudioStream" uid="uid://cuubgjqxuo214" path="res://assets/audio/warith_death.wav" id="3_kb63l"]
+[ext_resource type="AudioStream" uid="uid://bhjkw81vwcetw" path="res://assets/audio/wraith_attack.wav" id="4_d58p3"]
 [ext_resource type="Texture2D" uid="uid://damebv70308ef" path="res://assets/meshes/monster_1/monster_1_T_monster_Metallic-T_monster_Roughness.png" id="5_d58p3"]
 [ext_resource type="Texture2D" uid="uid://cntysdncq5j2a" path="res://assets/meshes/monster_2/monster_2_T_monster_BaseColorRed.png" id="6_g2de7"]
 [ext_resource type="Texture2D" uid="uid://l3im7v6no52f" path="res://assets/meshes/monster_1/monster_1_T_monster_Normal.png" id="6_nfxf8"]
@@ -8284,6 +8286,8 @@ gun_resource = ExtResource("2_cixgc")
 run_anim = "Jump_Full_Short"
 attack_anim = "Throw"
 idle_anim = "Idle_A"
+death_sound = ExtResource("3_kb63l")
+attack_sound = ExtResource("4_d58p3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1149931769]
 shape = SubResource("CapsuleShape3D_ks3ws")
