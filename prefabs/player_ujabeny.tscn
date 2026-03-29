@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://dikjmumxa5hyt" path="res://assets/audio/death.wav" id="28_c0t4o"]
 [ext_resource type="Texture2D" uid="uid://mfdunjrm2851" path="res://assets/textures/icons/icon_gun.PNG" id="28_iiqn7"]
 [ext_resource type="AudioStream" uid="uid://bdpf74fr6cuxp" path="res://assets/audio/jump.wav" id="29_cu0ja"]
+[ext_resource type="PackedScene" uid="uid://7fjupqed2u5f" path="res://prefabs/ammo_box.tscn" id="29_kv86d"]
 [ext_resource type="AudioStream" uid="uid://clllvhkemfnhf" path="res://assets/audio/Flesh_and_coal_loop.mp3" id="31_phign"]
 [ext_resource type="AudioStream" uid="uid://bdqi5vab0cgfn" path="res://assets/audio/ambience.wav" id="32_ifw0f"]
 [ext_resource type="AudioStream" uid="uid://cly2fidheu13e" path="res://assets/audio/card_picked.wav" id="36_booaq"]
@@ -854,10 +855,11 @@ vertical_alignment = 1
 
 [node name="HealthBox" parent="Control" unique_id=131525353 instance=ExtResource("27_gpxsl")]
 layout_mode = 1
-offset_top = -60.0
-offset_bottom = -20.0
+offset_top = -103.0
+offset_bottom = -63.0
 
 [node name="Ammo" type="HBoxContainer" parent="Control" unique_id=696247259]
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -885,6 +887,11 @@ text = "10/12"
 label_settings = SubResource("LabelSettings_ifw0f")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="AmmoBox" parent="Control" unique_id=948208007 instance=ExtResource("29_kv86d")]
+layout_mode = 1
+offset_top = -56.0
+offset_bottom = -16.0
 
 [node name="HitArea" type="Area3D" parent="." unique_id=29700697]
 

@@ -28,6 +28,7 @@ func _ready_child() -> void:
 
 	hands.gun.ammo_updated.connect(func(current_ammo: int, max_ammo: int):
 		%CurrentAmmoLabel.text = str(current_ammo) + "/" + str(max_ammo)
+		GlobalGameState.player_ammo_changed.emit(current_ammo, max_ammo)
 	)
 
 	hands.gun.reloading_started.connect(func():

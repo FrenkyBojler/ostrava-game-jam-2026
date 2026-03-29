@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://xvpav76dg43s"]
+
+[ext_resource type="Texture2D" uid="uid://bw8xp4kckwjc3" path="res://assets/textures/icons/icon_ammo_empty.PNG" id="1_ue8i8"]
+
+[node name="AMMO_EMPTY" type="TextureRect" unique_id=1614401237]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ue8i8")
+expand_mode = 2

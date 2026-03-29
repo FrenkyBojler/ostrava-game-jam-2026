@@ -48,6 +48,7 @@ func _ready() -> void:
 	)
 	
 	_reload()
+	ammo_updated.emit(current_ammo, active_gun.max_ammo)
 
 func switch_gun(index: int) -> void:
 	if index < guns.size():

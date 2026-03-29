@@ -11,6 +11,7 @@ signal player_died
 signal player_left_start
 signal player_health_changed(current: int, max: int)
 signal player_started_slaying_singal
+signal player_ammo_changed(current: int, max: int)
 
 var levels_cleared := 0
 var difficulty_multipler := 1.0
