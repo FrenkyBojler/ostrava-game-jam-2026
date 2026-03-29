@@ -29,24 +29,21 @@ const UPGRADE_POOL: Array = [
 	["gun.reload_time", "-{value}s Reload Time", Rarity.COMMON, 0.15],
 	["gun.rate_of_fire", "-{value}s Fire Rate", Rarity.COMMON, 0.03],
 	["gun.projectile_speed", "+{value} Projectile Speed", Rarity.COMMON, 3.0],
-	["player.max_health", "+{value} Max Health", Rarity.COMMON, 10.0],
+	["player.max_health", "+{value} Max Health", Rarity.COMMON, 1],
 	["player.walk_speed", "+{value} Walk Speed", Rarity.COMMON, 1.0],
-	["player.run_speed", "+{value} Run Speed", Rarity.COMMON, 1.0],
 	# -- RARE (medium buffs) --
 	["gun.dmg", "+{value} Damage", Rarity.RARE, 5.0],
 	["gun.max_ammo", "+{value} Max Ammo", Rarity.RARE, 12],
 	["gun.reload_time", "-{value}s Reload Time", Rarity.RARE, 0.35],
 	["gun.rate_of_fire", "-{value}s Fire Rate", Rarity.RARE, 0.06],
-	["gun.radius_of_dmg", "+{value} Explosion Radius", Rarity.RARE, 1.5],
-	["player.max_health", "+{value} Max Health", Rarity.RARE, 25.0],
+	["player.max_health", "+{value} Max Health", Rarity.RARE, 2],
 	["player.jump_height", "+{value} Jump Height", Rarity.RARE, 0.5],
-	["player.run_speed", "+{value} Run Speed", Rarity.RARE, 2.5],
 	# -- LEGENDARY (big buffs) --
 	["gun.dmg", "+{value} Damage", Rarity.LEGENDARY, 12.0],
 	["gun.reload_time", "-{value}s Reload Time", Rarity.LEGENDARY, 0.6],
 	["gun.rate_of_fire", "-{value}s Fire Rate", Rarity.LEGENDARY, 0.1],
 	["gun.ttl", "+{value}s Projectile Lifetime", Rarity.LEGENDARY, 0.8],
-	["player.max_health", "+{value} Max Health", Rarity.LEGENDARY, 50.0],
+	["player.max_health", "+{value} Max Health", Rarity.LEGENDARY, 3],
 	["player.max_desired_move_speed", "+{value} Max Speed", Rarity.LEGENDARY, 5.0],
 ]
 
@@ -68,7 +65,7 @@ static func generate_upgrades(count: int = 3) -> Array[UpgradeResource]:
 	var used_properties: Array[String] = []
 
 	# One slot has a chance to be a heal card
-	if randi() % 100 < 40:
+	if randi() % 100 < 20:
 		var heal = UpgradeResource.new()
 		heal.property = "player.heal"
 		heal.value = 1

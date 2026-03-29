@@ -21,6 +21,7 @@ func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	GlobalUpgrades.upgrade_picked.connect(func(upgrade: UpgradeResource):
+		%Pick.play()
 		if upgrade.property.begins_with("player."):
 			_apply_upgrade(upgrade)
 	)
@@ -43,8 +44,13 @@ func _ready_child() -> void:
 
 	GlobalGameState.all_levels_cleared.connect(func():
 		show_new_objective("Escape using the elevator!")
+		_fade_out_hudba(0.5)
 	)
 	
+	GlobalGameState.player_started_slaying_singal.connect(func():
+		_fade_in_hudba(1.0)
+	)
+
 	show_new_level()
 	#await get_tree().create_timer(2).timeout
 	#show_new_objective("Clear all rooms to open the elevator and escape!")
@@ -58,6 +64,21 @@ func show_new_objective(text: String) -> void:
 	%ObjectiveLabelBig.show_and_hide()
 	await get_tree().create_timer(7).timeout
 	%ObjeectiveLabelSmall.visible = true
+
+func _fade_in_hudba(duration: float) -> void:
+	var hudba = %Hudba
+	hudba.volume_db = -40.0
+	hudba.play()
+	var tween = create_tween()
+	tween.tween_property(hudba, "volume_db", 0.0, duration)
+
+func _fade_out_hudba(duration: float) -> void:
+	var hudba = %Hudba
+	var tween = create_tween()
+	tween.tween_property(hudba, "volume_db", -40.0, duration)
+	await tween.finished
+	hudba.stop()
+	hudba.volume_db = 0.0
 	
 func show_new_level() -> void:
 	%LevelLabel.text = "Level " + str(GlobalGameState.level)

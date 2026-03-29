@@ -45,7 +45,14 @@ func _spawn_enemies() -> void:
 		return
 
 	var spawn_points_list = spawn_points.get_children()
-	for i in randi_range(2, 3):
+	var base_min := 2
+	var base_max := 3
+	var m = GlobalGameState.difficulty_multipler
+	var enemy_min = base_min + int((m - 1.0) * 2)
+	var enemy_max = base_max + int((m - 1.0) * 3)
+	var enemy_count = randi_range(enemy_min, enemy_max)
+	enemy_count = min(enemy_count, spawn_points_list.size())
+	for i in enemy_count:
 		var enemy = enemy_scenes.pick_random().instantiate() as Enemy
 		
 		enemy.enemy_died.connect(func(who: Enemy):
@@ -113,7 +120,7 @@ func _place_door(door_index: int, size: int, open: bool) -> Node3D:
 			door.rotate(Vector3.UP, -1.5)
 		
 		return door
-		
+
 func _prepare_level() -> void:
 	if not enemies_spawned and not is_start_level:
 		_spawn_enemies() 
@@ -133,6 +140,9 @@ func _on_player_inside_area_area_entered(area: Area3D) -> void:
 		player_entered_level.emit(world_pos)
 		is_player_present = true
 		_prepare_level()
+		
+		if not is_start_level:
+			GlobalGameState.start_slaying()
 
 func _on_player_inside_area_area_exited(area: Area3D) -> void:
 	if area.get_parent() is Player:

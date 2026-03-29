@@ -56,10 +56,12 @@ var attack_sound: AudioStream
 var attack_sound_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 @onready
 var death_sound_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
-
+@onready
+var bullet_hit_sound_player: AudioStreamPlayer3D = AudioStreamPlayer3D.new()
 func _ready() -> void:
 	attack_sound_player.stream = attack_sound
 	death_sound_player.stream = death_sound
+	bullet_hit_sound_player.stream = load("res://assets/audio/bullet_impact_sound.wav")
 	
 	add_child(attack_sound_player)
 	add_child(death_sound_player)
@@ -171,6 +173,7 @@ func die() -> void:
 
 func _on_hit_area_area_entered(area: Area3D) -> void:
 	if area.get_parent() is Projectile and not playing_death:
+		bullet_hit_sound_player.play()
 		var projectile = area.get_parent() as Projectile
 		if projectile.team != 2:
 			_play_hit()

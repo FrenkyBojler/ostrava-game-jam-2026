@@ -10,13 +10,21 @@ signal all_levels_cleared
 signal player_died
 signal player_left_start
 signal player_health_changed(current: int, max: int)
+signal player_started_slaying_singal
 
 var levels_cleared := 0
 var difficulty_multipler := 1.0
 var level := 1
 
 var player_max_health := 4
-var player_current_health := 1
+var player_current_health := player_max_health
+
+var player_started_slaying := false
+
+func start_slaying() -> void:
+	if not player_started_slaying:
+		player_started_slaying = true
+		player_started_slaying_singal.emit()
 
 func get_level_count() -> int:
 	return ceil(difficulty_multipler * BASE_LEVELS_COUNT)
@@ -49,6 +57,7 @@ func death() -> void:
 	player_died.emit()
 	levels_cleared = 0
 	level = 1
+	player_started_slaying = false
 	
 func finish_level() -> void:
 	if levels_cleared != get_level_count() - 1:
@@ -57,4 +66,5 @@ func finish_level() -> void:
 	levels_cleared = 0
 	difficulty_multipler += 0.5
 	level += 1
+	player_started_slaying = true
 	get_tree().reload_current_scene()

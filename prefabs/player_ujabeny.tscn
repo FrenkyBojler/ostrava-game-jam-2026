@@ -35,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://bdpf74fr6cuxp" path="res://assets/audio/jump.wav" id="29_cu0ja"]
 [ext_resource type="AudioStream" uid="uid://clllvhkemfnhf" path="res://assets/audio/Flesh_and_coal_loop.mp3" id="31_phign"]
 [ext_resource type="AudioStream" uid="uid://bdqi5vab0cgfn" path="res://assets/audio/ambience.wav" id="32_ifw0f"]
+[ext_resource type="AudioStream" uid="uid://cly2fidheu13e" path="res://assets/audio/card_picked.wav" id="36_booaq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5yjma"]
 radius = 0.27734375
@@ -905,12 +906,15 @@ stream = ExtResource("29_cu0ja")
 [node name="Hudba" type="AudioStreamPlayer3D" parent="." unique_id=2042953665]
 unique_name_in_owner = true
 stream = ExtResource("31_phign")
-autoplay = true
 
 [node name="Ambient" type="AudioStreamPlayer3D" parent="." unique_id=1414434356]
 unique_name_in_owner = true
 stream = ExtResource("32_ifw0f")
 autoplay = true
+
+[node name="Pick" type="AudioStreamPlayer3D" parent="." unique_id=1109774482]
+unique_name_in_owner = true
+stream = ExtResource("36_booaq")
 
 [connection signal="change_fov" from="StateMachine" to="CameraHolder" method="change_fov"]
 [connection signal="transitioned" from="StateMachine/DashState" to="." method="_on_dash_state_transitioned"]

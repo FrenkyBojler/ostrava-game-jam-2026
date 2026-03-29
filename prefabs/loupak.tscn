@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d0j628gcykl5e" path="res://scripts/enemy.gd" id="1_w4j4g"]
 [ext_resource type="Resource" uid="uid://djv4kcf46iyyo" path="res://reousrc/wraight_gun.tres" id="2_d5i06"]
 [ext_resource type="Texture2D" uid="uid://dnhtc1kv6jvm" path="res://assets/meshes/permonik_1/permonik_1_T_permonik_BaseColor.png" id="3_82wqv"]
-[ext_resource type="AudioStream" uid="uid://cuubgjqxuo214" path="res://assets/audio/warith_death.wav" id="3_d5i06"]
+[ext_resource type="AudioStream" uid="uid://cpjkx8k5sknjl" path="res://assets/audio/permonik_hit_sound.wav" id="3_d5i06"]
 [ext_resource type="AudioStream" uid="uid://bhjkw81vwcetw" path="res://assets/audio/wraith_attack.wav" id="4_82wqv"]
 [ext_resource type="Texture2D" uid="uid://cvvb16owvndsv" path="res://assets/meshes/permonik_1/permonik_1_T_permonik_Metallic-T_permonik_Roughness.png" id="4_vxdag"]
 [ext_resource type="Texture2D" uid="uid://5j7it3gx0bum" path="res://assets/meshes/permonik_1/permonik_1_T_permonik_Normal.png" id="5_sd1bx"]
