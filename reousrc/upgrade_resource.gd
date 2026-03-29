@@ -25,7 +25,6 @@ enum Rarity { COMMON, RARE, LEGENDARY }
 const UPGRADE_POOL: Array = [
 	# -- COMMON (small buffs) --
 	["gun.dmg", "+{value}% Damage", Rarity.COMMON, 10],
-	["gun.max_ammo", "+{value} Max Ammo", Rarity.COMMON, 5],
 	["gun.reload_time", "-{value}s Reload Time", Rarity.COMMON, 0.15],
 	["gun.rate_of_fire", "-{value}s Fire Rate", Rarity.COMMON, 0.03],
 	["gun.projectile_speed", "+{value} Projectile Speed", Rarity.COMMON, 3.0],
@@ -33,13 +32,14 @@ const UPGRADE_POOL: Array = [
 	["player.walk_speed", "+{value} Walk Speed", Rarity.COMMON, 1.0],
 	# -- RARE (medium buffs) --
 	["gun.dmg", "+{value}% Damage", Rarity.RARE, 25],
-	["gun.max_ammo", "+{value} Max Ammo", Rarity.RARE, 12],
+	["gun.max_ammo", "+{value} Max Ammo", Rarity.RARE, 2],
 	["gun.reload_time", "-{value}s Reload Time", Rarity.RARE, 0.35],
 	["gun.rate_of_fire", "-{value}s Fire Rate", Rarity.RARE, 0.06],
 	["player.max_health", "+{value} Max Health", Rarity.RARE, 2],
 	["player.jump_height", "+{value} Jump Height", Rarity.RARE, 0.5],
 	# -- LEGENDARY (big buffs) --
 	["gun.dmg", "+{value}% Damage", Rarity.LEGENDARY, 50],
+	["gun.max_ammo", "+{value} Max Ammo", Rarity.LEGENDARY, 5],
 	["gun.reload_time", "-{value}s Reload Time", Rarity.LEGENDARY, 0.6],
 	["gun.rate_of_fire", "-{value}s Fire Rate", Rarity.LEGENDARY, 0.1],
 	["gun.ttl", "+{value}s Projectile Lifetime", Rarity.LEGENDARY, 0.8],
