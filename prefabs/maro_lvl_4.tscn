@@ -57,7 +57,7 @@ spot_angle = 51.994404
 unique_name_in_owner = true
 
 [node name="SpawnPoint" type="Node3D" parent="SpawnPoints" unique_id=357107517]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7673476, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.919575, 1, 0)
 
 [node name="SpawnPoint2" type="Node3D" parent="SpawnPoints" unique_id=1135182534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7673476, 1, -6.2819033)
@@ -66,10 +66,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7673476, 1, -6.2819033)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6847136, 1, -6.2819033)
 
 [node name="SpawnPoint4" type="Node3D" parent="SpawnPoints" unique_id=1360116883]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7344477, 1, -12.281903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6053915, 1, -9.66514)
 
 [node name="SpawnPoint5" type="Node3D" parent="SpawnPoints" unique_id=1703357963]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.982159, 1, -12.281903)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.849274, 1, -7.987726)
 
 [node name="SpawnPoint6" type="Node3D" parent="SpawnPoints" unique_id=1890067945]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.982159, 1, 2.7453938)
@@ -93,16 +93,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.303469, 1, 14.374503)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.303469, 1, 3.7522402)
 
 [node name="SpawnPoint13" type="Node3D" parent="SpawnPoints" unique_id=992759274]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, 0.10950279)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.195505, 1, 0.10950279)
 
 [node name="SpawnPoint14" type="Node3D" parent="SpawnPoints" unique_id=2048352930]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, -4.887163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.195509, 1, -4.887163)
 
 [node name="SpawnPoint15" type="Node3D" parent="SpawnPoints" unique_id=1569787550]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, -11.919468)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.9077787, 1, -6.65239)
 
 [node name="SpawnPoint16" type="Node3D" parent="SpawnPoints" unique_id=1616624869]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.573599, 1, -11.919468)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4962225, 1, -10.309151)
 
 [connection signal="area_entered" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_entered"]
 [connection signal="area_exited" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_exited"]

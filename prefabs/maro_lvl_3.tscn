@@ -57,13 +57,13 @@ spot_angle = 51.994404
 unique_name_in_owner = true
 
 [node name="SpawnPoint" type="Node3D" parent="SpawnPoints" unique_id=668171195]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7673476, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.483425, 1, 0)
 
 [node name="SpawnPoint2" type="Node3D" parent="SpawnPoints" unique_id=1119548287]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7673476, 1, -6.2819033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.785898, 1, -7.809732)
 
 [node name="SpawnPoint3" type="Node3D" parent="SpawnPoints" unique_id=1628865246]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6847136, 1, -6.2819033)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.335609, 1, -5.8131948)
 
 [node name="SpawnPoint4" type="Node3D" parent="SpawnPoints" unique_id=1801344749]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7344477, 1, -12.281903)
@@ -87,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.8518476, 1, 14.374503)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9297571, 1, 14.374503)
 
 [node name="SpawnPoint11" type="Node3D" parent="SpawnPoints" unique_id=1198214059]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.303469, 1, 14.374503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.303469, 1, 1.5583668)
 
 [node name="SpawnPoint12" type="Node3D" parent="SpawnPoints" unique_id=1720643335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.303469, 1, 3.7522402)
@@ -99,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, 0.10950279)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, -4.887163)
 
 [node name="SpawnPoint15" type="Node3D" parent="SpawnPoints" unique_id=1056184098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.16065, 1, -11.919468)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.749872, 1, -4.9771757)
 
 [node name="SpawnPoint16" type="Node3D" parent="SpawnPoints" unique_id=271089028]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.573599, 1, -11.919468)

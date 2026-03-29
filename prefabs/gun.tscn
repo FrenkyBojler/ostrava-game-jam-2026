@@ -87,6 +87,8 @@ unique_name_in_owner = true
 [node name="Shooty" type="AudioStreamPlayer3D" parent="." unique_id=1138768543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40664828, 3.489367)
 stream = ExtResource("6_8k260")
+volume_db = 15.0
+max_db = 5.0
 
 [node name="Reloady" type="AudioStreamPlayer3D" parent="." unique_id=2137308200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7595235, 2.6536396)
