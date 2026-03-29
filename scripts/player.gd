@@ -9,11 +9,6 @@ const upgrades_screen_prefab := preload("res://prefabs/upgrades_screen.tscn")
 
 var is_reloading := false
 
-var max_health := 4
-
-@onready
-var current_health := max_health
-
 var has_dashed_recently := false
 
 var minimap: MiniMap
@@ -54,7 +49,7 @@ func _ready_child() -> void:
 	#await get_tree().create_timer(2).timeout
 	#show_new_objective("Clear all rooms to open the elevator and escape!")
 	
-	GlobalGameState.player_health_changed.emit(current_health, max_health)
+	GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)
 
 func show_new_objective(text: String) -> void:
 	%ObjeectiveLabelSmall.visible = false
@@ -149,12 +144,12 @@ func _consume_chest() -> void:
 
 func _take_damage(dmg: float) -> void:
 	$Hurty.play()
-	current_health -= dmg
-	%HealthLabel.text = str(current_health)
+	GlobalGameState.player_current_health -= dmg
+	%HealthLabel.text = str(GlobalGameState.player_current_health)
 	
-	GlobalGameState.player_health_changed.emit(current_health, max_health)
+	GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)	
 	
-	if current_health <= 0:
+	if GlobalGameState.player_current_health <= 0:
 		call_deferred("_death")
 
 func _play_hit() -> void:
@@ -164,10 +159,15 @@ func _apply_upgrade(upgrade: UpgradeResource) -> void:
 	var prop = upgrade.property.trim_prefix("player.")
 	var val = upgrade.value
 
-	if prop == "max_health":
-		max_health += val
-		current_health += val
-		%HealthLabel.text = str(current_health)
+	if prop == "heal":
+		GlobalGameState.player_current_health = min(GlobalGameState.player_current_health + val, GlobalGameState.player_max_health)
+		%HealthLabel.text = str(GlobalGameState.player_current_health)
+		GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)	
+	elif prop == "max_health":
+		GlobalGameState.player_max_health += val
+		GlobalGameState.player_current_health += val
+		%HealthLabel.text = str(GlobalGameState.player_current_health)
+		GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)	
 	else:
 		var current = get(prop)
 		if current != null:

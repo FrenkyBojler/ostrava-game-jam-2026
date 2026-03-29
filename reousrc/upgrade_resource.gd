@@ -67,6 +67,16 @@ static func generate_upgrades(count: int = 3) -> Array[UpgradeResource]:
 	var result: Array[UpgradeResource] = []
 	var used_properties: Array[String] = []
 
+	# One slot has a chance to be a heal card
+	if randi() % 100 < 40:
+		var heal = UpgradeResource.new()
+		heal.property = "player.heal"
+		heal.value = 1
+		heal.description = "Restore {value} HP".replace("{value}", str(heal.value))
+		heal.rarity = Rarity.COMMON
+		heal.headling = "Heal"
+		result.append(heal)
+
 	while result.size() < count:
 		var rarity = _pick_rarity()
 		var candidates = UPGRADE_POOL.filter(func(entry): return entry[2] == rarity and not used_properties.has(entry[0]))

@@ -15,6 +15,9 @@ var levels_cleared := 0
 var difficulty_multipler := 1.0
 var level := 1
 
+var player_max_health := 4
+var player_current_health := 1
+
 func get_level_count() -> int:
 	return ceil(difficulty_multipler * BASE_LEVELS_COUNT)
 
