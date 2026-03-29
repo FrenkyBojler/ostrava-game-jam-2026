@@ -718,6 +718,10 @@ script = ExtResource("24_4vl0f")
 
 [node name="UpgradesList" parent="Control" unique_id=839277164 instance=ExtResource("25_fc85j")]
 layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
 
 [node name="DiedLabel" type="Label" parent="Control" unique_id=1182998775]
 unique_name_in_owner = true
@@ -850,6 +854,8 @@ vertical_alignment = 1
 
 [node name="HealthBox" parent="Control" unique_id=131525353 instance=ExtResource("27_gpxsl")]
 layout_mode = 1
+offset_top = -60.0
+offset_bottom = -20.0
 
 [node name="Ammo" type="HBoxContainer" parent="Control" unique_id=696247259]
 layout_mode = 1
@@ -859,7 +865,8 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -238.0
-offset_top = -67.0
+offset_top = -85.0
+offset_bottom = -18.0
 grow_horizontal = 0
 grow_vertical = 0
 alignment = 2
