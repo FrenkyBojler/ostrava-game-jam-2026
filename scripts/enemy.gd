@@ -64,6 +64,7 @@ func _ready() -> void:
 	add_child(attack_sound_player)
 	add_child(death_sound_player)
 	
+	_apply_difficulty()
 	
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	_play_idle()
@@ -73,6 +74,16 @@ func _ready() -> void:
 	gun = gun_resource.gun_logic.instantiate()
 	add_child(gun)
 	gun.global_position = projectile_placement_position.global_position
+
+func _apply_difficulty() -> void:
+	var m = GlobalGameState.difficulty_multipler
+	max_health = ceil(max_health * m)
+	current_health = max_health
+	movement_speed *= (1.0 + (m - 1.0) * 0.3)
+	# Scale gun stats on a duplicate so we don't modify the shared resource
+	gun_resource = gun_resource.duplicate()
+	gun_resource.dmg = ceil(gun_resource.dmg * m)
+	gun_resource.rate_of_fire = max(gun_resource.rate_of_fire * (1.0 / (1.0 + (m - 1.0) * 0.2)), 0.3)
 
 func _get_attack_range() -> float:
 	return max(gun_resource.ttl * gun_resource.projectile_speed, MIN_ATTACK_RANGE)

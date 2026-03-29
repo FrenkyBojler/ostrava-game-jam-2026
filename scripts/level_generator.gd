@@ -15,8 +15,6 @@ var level_size : float
 @onready
 var mini_map := %MiniMap as MiniMap
 
-const NUMBER_OF_ROOMS := 10
-
 var levels: Array[LevelResource]
 var levels_placed: Array[Vector2]
 
@@ -33,7 +31,7 @@ func _generate_level() -> void:
 	
 	var player = player_scene.instantiate() as Player
 	
-	while(levels_placed.size() != NUMBER_OF_ROOMS):
+	while(levels_placed.size() != GlobalGameState.get_level_count()):
 		_place_random_room(rows)
 	_instantiate_levels(rows, player)
 	
@@ -79,7 +77,7 @@ func _place_random_room(rows: int) -> void:
 	var random_level := levels_placed.pick_random() as Vector2
 	var empty_neighbours = _get_empty_neighbours(random_level, rows)
 	
-	while(levels_placed.size() != NUMBER_OF_ROOMS and empty_neighbours.is_empty()):
+	while(levels_placed.size() != GlobalGameState.get_level_count() and empty_neighbours.is_empty()):
 		random_level = levels_placed.pick_random() as Vector2
 		empty_neighbours = _get_empty_neighbours(random_level, rows)
 
@@ -124,7 +122,7 @@ func _get_empty_neighbours(cell: Vector2, rows: int) -> Array[Vector2]:
 	return empty_neighborous
 
 func _get_number_of_rows() -> int:
-	var number_of_cells := ceil(sqrt(NUMBER_OF_ROOMS)) * ceilf(sqrt(NUMBER_OF_ROOMS))
+	var number_of_cells = ceil(sqrt(GlobalGameState.get_level_count())) * ceilf(sqrt(GlobalGameState.get_level_count()))
 	var ratio := sqrt(number_of_cells) as int
 	if ratio % 2 == 0:
 		return ratio + 1

@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bgecmn521fplj" path="res://prefabs/upgrades_list.tscn" id="25_fc85j"]
 [ext_resource type="AudioStream" uid="uid://mf21m3d6uoha" path="res://assets/audio/footsteps.wav" id="25_pbqsq"]
 [ext_resource type="AudioStream" uid="uid://bi7qrnk23ni6u" path="res://assets/audio/dash.wav" id="26_cg47n"]
+[ext_resource type="Script" uid="uid://cgohtrpdvcouk" path="res://scripts/hide_in_seconds.gd" id="26_es5jv"]
 [ext_resource type="AudioStream" uid="uid://dvpe6offecmh0" path="res://assets/audio/hurt.wav" id="27_cg47n"]
 [ext_resource type="AudioStream" uid="uid://dikjmumxa5hyt" path="res://assets/audio/death.wav" id="28_c0t4o"]
 [ext_resource type="AudioStream" uid="uid://bdpf74fr6cuxp" path="res://assets/audio/jump.wav" id="29_cu0ja"]
@@ -80,6 +81,18 @@ font_color = Color(0.84313726, 0.12941177, 0.19215687, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_es5jv"]
 font = ExtResource("22_6hq66")
 font_size = 80
+
+[sub_resource type="LabelSettings" id="LabelSettings_gpxsl"]
+font = ExtResource("22_6hq66")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_iiqn7"]
+font = ExtResource("22_6hq66")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_booaq"]
+font = ExtResource("22_6hq66")
+font_size = 40
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6hq66"]
 
@@ -759,6 +772,96 @@ theme_override_fonts/font = ExtResource("22_6hq66")
 theme_override_font_sizes/font_size = 50
 text = "RESTART"
 
+[node name="ObjectiveLabelBig" type="Label" parent="Control" unique_id=1140108360]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -593.0
+offset_top = -126.0
+offset_right = 593.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Clear all the rooms to open the elevator and Escape"
+label_settings = SubResource("LabelSettings_gpxsl")
+horizontal_alignment = 1
+script = ExtResource("26_es5jv")
+
+[node name="ObjeectiveLabelSmall" type="Label" parent="Control" unique_id=51356095]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.5
+offset_top = 60.0
+offset_right = 218.5
+offset_bottom = 109.0
+grow_horizontal = 2
+text = "CLEAR ALL ROOMS TO OPEN THE ELEVATOR AND ESCAPE"
+label_settings = SubResource("LabelSettings_iiqn7")
+horizontal_alignment = 1
+
+[node name="LevelCleared" type="Label" parent="Control" unique_id=1615172486]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -593.0
+offset_top = -24.0
+offset_right = 593.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Cleared"
+label_settings = SubResource("LabelSettings_gpxsl")
+horizontal_alignment = 1
+
+[node name="NextLevelButton" type="Button" parent="Control" unique_id=867985082]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = 188.0
+offset_right = 53.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("22_6hq66")
+theme_override_font_sizes/font_size = 40
+text = "Next Level"
+
+[node name="LevelLabel" type="Label" parent="Control" unique_id=1229756690]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_top = 15.0
+offset_right = 62.0
+offset_bottom = 53.0
+grow_horizontal = 2
+text = "LEVEL 1"
+label_settings = SubResource("LabelSettings_booaq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="HitArea" type="Area3D" parent="." unique_id=29700697]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HitArea" unique_id=1765208095]
@@ -797,5 +900,6 @@ autoplay = true
 [connection signal="change_fov" from="StateMachine" to="CameraHolder" method="change_fov"]
 [connection signal="transitioned" from="StateMachine/DashState" to="." method="_on_dash_state_transitioned"]
 [connection signal="pressed" from="Control/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/NextLevelButton" to="." method="_on_next_level_button_pressed"]
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
 [connection signal="area_exited" from="HitArea" to="." method="_on_hit_area_area_exited"]
