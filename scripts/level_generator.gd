@@ -29,34 +29,40 @@ func _generate_level() -> void:
 	var rows = _get_number_of_rows()
 	levels_placed.push_back(Vector2((rows - 1) / 2, (rows - 1) / 2))
 	
-	var player = player_scene.instantiate() as Player
 	
 	while(levels_placed.size() != GlobalGameState.get_level_count()):
 		_place_random_room(rows)
-	_instantiate_levels(rows, player)
+	_instantiate_levels(rows)
 	
 	mini_map.setup(rows, level_size, levels_placed)
-	
-	add_child(player)
-	player.setup(mini_map)
-	
-	player.global_position = Vector3(((rows - 1) / 2) * level_size, 5, ((rows - 1) / 2) * level_size)
-	
-func _instantiate_levels(rows: int, player: Node3D) -> void:
+
+var player: Player
+
+func _instantiate_levels(rows: int) -> void:
 	levels_placed.sort_custom(func(a: Vector2, b: Vector2):
 		return a.length() <= b.length()
 	)
 	
-	for level in levels_placed:
-		_instantiate_level(level, rows, player)
-
-func _instantiate_level(pos: Vector2, rows: int, player: Node3D) -> void:
-	var is_start_level := pos == Vector2((rows - 1) / 2, (rows - 1) / 2)
+	player = player_scene.instantiate() as Player
 	
+	for level in levels_placed:
+		_instantiate_level(level, rows)
+
+
+func _instantiate_level(pos: Vector2, rows: int) -> void:
+	var is_start_level := pos == Vector2((rows - 1) / 2, (rows - 1) / 2)
+
 	var level_resource = LevelResource.new()
 	var level_prefab = levels_scenes.pick_random() if not is_start_level else start_level_scene
 	randomize()
 	var level_instance = level_prefab.instantiate() as Level
+	
+	if is_start_level:
+		level_instance.add_child(player)
+		player.setup(mini_map)
+		player.position = level_instance.starting_pos.position
+		player.rotation = level_instance.starting_pos.rotation
+		level_instance.starting_pos.queue_free()
 	
 	level_resource.right_connection = LevelResource.ConnectionState.EdgeOfMap if not (pos.x + 1 < rows) else LevelResource.ConnectionState.Open if _has_right_neighbour(pos) else LevelResource.ConnectionState.Closed
 	level_resource.bottom_connection = LevelResource.ConnectionState.EdgeOfMap if not (pos.y + 1 < rows) else LevelResource.ConnectionState.Open if _has_bottom_neighbour(pos) else LevelResource.ConnectionState.Closed

@@ -51,8 +51,8 @@ func _ready_child() -> void:
 	)
 	
 	show_new_level()
-	await get_tree().create_timer(2).timeout
-	show_new_objective("Clear all rooms to open the elevator and escape!")
+	#await get_tree().create_timer(2).timeout
+	#show_new_objective("Clear all rooms to open the elevator and escape!")
 
 func show_new_objective(text: String) -> void:
 	%ObjeectiveLabelSmall.visible = false
@@ -131,9 +131,14 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 		_death()
 		
 	if area.is_in_group("finish"):
+		if GlobalGameState.levels_cleared != GlobalGameState.get_level_count() - 1:
+			return
 		%LevelCleared.visible = true
 		%NextLevelButton.visible = true
 		GlobalGameState.pause_game()
+	if area.is_in_group("start_level"):
+		GlobalGameState.player_left_start.emit()
+	
 
 func _consume_chest() -> void:
 	GlobalGameState.pause_game()

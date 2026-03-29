@@ -1,8 +1,5 @@
 class_name HideInSecondsLabel extends Label
 
-func _ready() -> void:
-	show_and_hide()
-
 func show_and_hide() -> void:
 	modulate.a = 1.0
 	visible = true

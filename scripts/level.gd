@@ -27,6 +27,9 @@ signal player_entered_level(world_pos: Vector2)
 
 var is_start_level: bool = false
 
+@export
+var starting_pos: Node3D
+
 func setup(level_resource: LevelResource, size: int, enemies: Array[PackedScene], player: Node3D, world_pos: Vector2, is_start_level: bool) -> void:
 	self.is_start_level = is_start_level
 	self.world_pos = world_pos
