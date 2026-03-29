@@ -14,7 +14,7 @@ shader_parameter/dither_size = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_sxo53"]
 font = ExtResource("3_iwq0e")
-font_size = 40
+font_size = 20
 
 [node name="placeholder_frenky_postprocessed" type="SubViewportContainer" unique_id=874157037]
 material = SubResource("ShaderMaterial_g7y67")
@@ -28,7 +28,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1758102904]
 handle_input_locally = false
 audio_listener_enable_3d = true
-size = Vector2i(1920, 1080)
+size = Vector2i(800, 600)
 render_target_update_mode = 4
 
 [node name="Control" type="Control" parent="SubViewport" unique_id=253295555]
@@ -48,10 +48,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -69.0
-offset_right = 0.0
-offset_bottom = 55.0
+offset_left = -79.0
+offset_top = 14.0
+offset_right = -10.0
+offset_bottom = 69.0
 grow_horizontal = 0
 label_settings = SubResource("LabelSettings_sxo53")
+horizontal_alignment = 2
 
 [node name="Placeholder" parent="SubViewport" unique_id=1062387625 instance=ExtResource("1_cbejb")]

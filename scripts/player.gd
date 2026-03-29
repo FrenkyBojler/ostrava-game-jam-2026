@@ -36,13 +36,13 @@ func _ready_child() -> void:
 	
 	hands.gun.reloading_started.connect(func():
 		is_reloading = true
-		%ReloadingLabel.visible = true
+		#%ReloadingLabel.visible = true
 		my_crosshair.switch_to_reloading()
 	)
 	
 	hands.gun.reloading_finished.connect(func():
 		is_reloading = false
-		%ReloadingLabel.visible = false
+		#%ReloadingLabel.visible = false
 		my_crosshair.switch_to_normal()
 	)
 

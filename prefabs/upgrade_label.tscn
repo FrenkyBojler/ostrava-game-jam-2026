@@ -4,7 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ao8cb"]
 font = ExtResource("1_e8yfu")
-font_size = 60
+font_size = 20
 
 [node name="UpgradeLabel" type="Label" unique_id=812888927]
 text = "Reload Time 0.3x"
