@@ -58,6 +58,7 @@ func death() -> void:
 	levels_cleared = 0
 	level = 1
 	player_started_slaying = false
+	player_current_health = player_max_health
 
 func finish_level() -> void:
 	if levels_cleared != get_level_count() - 1:
