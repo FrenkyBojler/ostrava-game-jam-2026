@@ -38,6 +38,7 @@ floor=""
 BreakDoor=""
 death=""
 finish=""
+start_level=""
 
 [input]
 

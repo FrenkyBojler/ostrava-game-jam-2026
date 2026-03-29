@@ -8,6 +8,7 @@ signal game_paused
 signal game_unpaused
 signal all_levels_cleared
 signal player_died
+signal player_left_start
 
 var levels_cleared := 0
 var difficulty_multipler := 1.0
@@ -46,7 +47,7 @@ func death() -> void:
 	level = 1
 	
 func finish_level() -> void:
-	if levels_cleared != get_level_count() -1:
+	if levels_cleared != get_level_count() - 1:
 		return
 
 	levels_cleared = 0
