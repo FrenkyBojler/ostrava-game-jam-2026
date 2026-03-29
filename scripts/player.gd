@@ -9,7 +9,7 @@ const upgrades_screen_prefab := preload("res://prefabs/upgrades_screen.tscn")
 
 var is_reloading := false
 
-var max_health := 100.0
+var max_health := 4
 
 @onready
 var current_health := max_health
@@ -24,27 +24,46 @@ func setup(minimap: MiniMap) -> void:
 
 func _ready_child() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
+
 	GlobalUpgrades.upgrade_picked.connect(func(upgrade: UpgradeResource):
 		if upgrade.property.begins_with("player."):
 			_apply_upgrade(upgrade)
 	)
-	
+
 	hands.gun.ammo_updated.connect(func(current_ammo: int, max_ammo: int):
 		%CurrentAmmoLabel.text = str(current_ammo) + "/" + str(max_ammo)
 	)
-	
+
 	hands.gun.reloading_started.connect(func():
 		is_reloading = true
 		#%ReloadingLabel.visible = true
 		my_crosshair.switch_to_reloading()
 	)
-	
+
 	hands.gun.reloading_finished.connect(func():
 		is_reloading = false
 		#%ReloadingLabel.visible = false
 		my_crosshair.switch_to_normal()
 	)
+
+	GlobalGameState.all_levels_cleared.connect(func():
+		show_new_objective("Escape using the elevator!")
+	)
+	
+	show_new_level()
+	await get_tree().create_timer(2).timeout
+	show_new_objective("Clear all rooms to open the elevator and escape!")
+
+func show_new_objective(text: String) -> void:
+	%ObjeectiveLabelSmall.visible = false
+	%ObjeectiveLabelSmall.text = text
+	%ObjectiveLabelBig.text = text
+	%ObjectiveLabelBig.show_and_hide()
+	await get_tree().create_timer(7).timeout
+	%ObjeectiveLabelSmall.visible = true
+	
+func show_new_level() -> void:
+	%LevelLabel.text = "Level " + str(GlobalGameState.level)
 
 func _process_child(delta: float) -> void:
 	if is_game_paused:
@@ -59,7 +78,6 @@ func _process_child(delta: float) -> void:
 	_check_crosshair()
 	
 	minimap.update_player(global_position, $CameraHolder.global_rotation.y)
-
 
 func _check_crosshair() -> void:
 	if is_reloading:
@@ -111,6 +129,11 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 
 	if area.is_in_group("death"):
 		_death()
+		
+	if area.is_in_group("finish"):
+		%LevelCleared.visible = true
+		%NextLevelButton.visible = true
+		GlobalGameState.pause_game()
 
 func _consume_chest() -> void:
 	GlobalGameState.pause_game()
@@ -146,6 +169,7 @@ func _death() -> void:
 	%DiedLabel.visible = true
 	%RestartButton.visible = true
 	GlobalGameState.pause_game()
+	GlobalGameState.death()
 
 func _on_hit_area_area_exited(area: Area3D) -> void:
 	if area.get_parent() is Door:
@@ -158,3 +182,7 @@ func _on_dash_state_transitioned(caller: Node, value: String) -> void:
 
 func _on_restart_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func _on_next_level_button_pressed() -> void:
+	GlobalGameState.finish_level()

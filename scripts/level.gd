@@ -51,6 +51,7 @@ func _spawn_enemies() -> void:
 			if enemies.is_empty():
 				_open_doors()
 				_spawn_chest(who.global_position)
+				GlobalGameState.level_cleared()
 		)
 		
 		var spawn_point = spawn_points_list.pick_random()
