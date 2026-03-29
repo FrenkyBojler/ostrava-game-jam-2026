@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cyp7i3kjggql7"]
 
 [ext_resource type="Script" uid="uid://d0j628gcykl5e" path="res://scripts/enemy.gd" id="1_yefm5"]
-[ext_resource type="Resource" uid="uid://bk7rn0vjo8ug4" path="res://reousrc/loupak_ranged_gun.tres" id="2_yefm5"]
+[ext_resource type="Resource" uid="uid://dbkjw3v54msk2" path="res://reousrc/wraith_ranged_resource.tres" id="2_1j2co"]
 [ext_resource type="Texture2D" uid="uid://clakfghkf5s4i" path="res://assets/meshes/permonik_1/T_permonik_BaseColorRed.png" id="3_1j2co"]
 [ext_resource type="Texture2D" uid="uid://dnhtc1kv6jvm" path="res://assets/meshes/permonik_1/permonik_1_T_permonik_BaseColor.png" id="3_2o52p"]
 [ext_resource type="AudioStream" uid="uid://cuubgjqxuo214" path="res://assets/audio/warith_death.wav" id="3_ubniu"]
@@ -8199,7 +8199,7 @@ height = 2.4533691
 
 [node name="LoupakRanged" type="CharacterBody3D" unique_id=1907275028 node_paths=PackedStringArray("projectile_placeholder_to_hide")]
 script = ExtResource("1_yefm5")
-gun_resource = ExtResource("2_yefm5")
+gun_resource = ExtResource("2_1j2co")
 projectile_placeholder_to_hide = NodePath("Rig_Medium/Skeleton3D/krumpac_001")
 run_anim = "Running_A"
 attack_anim = "Throw"

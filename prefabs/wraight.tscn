@@ -8362,6 +8362,21 @@ transform = Transform3D(0.35288453, -0.93542266, 0.021311812, 0.07136825, 0.0496
 bone_name = "hand.r"
 bone_idx = 12
 
+[node name="HeadAttachment" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" unique_id=1040638581]
+transform = Transform3D(0.99999326, -0.0036562877, -9.62715e-05, 0.003657497, 0.9994824, 0.031959068, -2.061576e-05, -0.031959217, 0.9994892, -0.0023524626, 1.3146489, 0.008907709)
+bone_name = "head"
+bone_idx = 14
+
+[node name="SpotLight" type="OmniLight3D" parent="Rig_Medium/Skeleton3D/HeadAttachment" unique_id=2111449531]
+transform = Transform3D(0.49999672, 0.0018287495, -1.0314946e-05, -0.001828145, 0.49974135, -0.015979605, -4.8142858e-05, 0.015979541, 0.49974462, 0.044095613, 0.048101276, 0.12344526)
+light_color = Color(0.14719835, 0.27809057, 0.86161304, 1)
+light_energy = 0.324
+
+[node name="SpotLight2" type="OmniLight3D" parent="Rig_Medium/Skeleton3D/HeadAttachment" unique_id=2002384468]
+transform = Transform3D(0.49999672, 0.0018287498, -1.0314946e-05, -0.0018281452, 0.49974135, -0.015979605, -4.8142865e-05, 0.015979541, 0.49974462, -0.042659752, 0.04405415, 0.12331407)
+light_color = Color(0.14719835, 0.27809057, 0.86161304, 1)
+light_energy = 0.324
+
 [node name="Rig_Medium_tmp" type="Node3D" parent="." unique_id=522768286]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08139962, 0.02250979)
 visible = false
@@ -8566,16 +8581,6 @@ libraries/ = SubResource("AnimationLibrary_5s5pc")
 [node name="GeneralAnimPlayer" type="AnimationPlayer" parent="." unique_id=398308926]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_3mmor")
-
-[node name="SpotLight" type="OmniLight3D" parent="." unique_id=2111449531]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.08856621, 1.1784196, -0.23899356)
-light_color = Color(0.6937734, 0, 0.19563991, 1)
-light_energy = 0.324
-
-[node name="SpotLight2" type="OmniLight3D" parent="." unique_id=1486733255]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.08371917, 1.1784196, -0.23899347)
-light_color = Color(0.6937734, 0, 0.19563991, 1)
-light_energy = 0.324
 
 [node name="HitArea" type="Area3D" parent="." unique_id=1037506022]
 collision_layer = 5

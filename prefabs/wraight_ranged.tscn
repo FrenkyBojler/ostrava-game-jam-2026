@@ -1,13 +1,29 @@
 [gd_scene format=4 uid="uid://d3aq4fq46acqb"]
 
 [ext_resource type="Script" uid="uid://d0j628gcykl5e" path="res://scripts/enemy.gd" id="1_iqj46"]
-[ext_resource type="Resource" uid="uid://djv4kcf46iyyo" path="res://reousrc/wraight_gun.tres" id="2_cixgc"]
+[ext_resource type="PackedScene" uid="uid://d125yx4sd1kvu" path="res://prefabs/loupak_gun.tscn" id="2_d58p3"]
+[ext_resource type="PackedScene" uid="uid://4d5d623hwx1f" path="res://prefabs/wraight_ranged_projectile.tscn" id="3_d58p3"]
 [ext_resource type="Texture2D" uid="uid://miuf7ovhlw67" path="res://assets/meshes/placeholder/prototypebits_texture.png" id="3_g2de7"]
 [ext_resource type="AudioStream" uid="uid://cuubgjqxuo214" path="res://assets/audio/warith_death.wav" id="3_kb63l"]
 [ext_resource type="AudioStream" uid="uid://bhjkw81vwcetw" path="res://assets/audio/wraith_attack.wav" id="4_d58p3"]
+[ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="4_xeit6"]
 [ext_resource type="Texture2D" uid="uid://damebv70308ef" path="res://assets/meshes/monster_1/monster_1_T_monster_Metallic-T_monster_Roughness.png" id="5_d58p3"]
 [ext_resource type="Texture2D" uid="uid://cntysdncq5j2a" path="res://assets/meshes/monster_2/monster_2_T_monster_BaseColorRed.png" id="6_g2de7"]
 [ext_resource type="Texture2D" uid="uid://l3im7v6no52f" path="res://assets/meshes/monster_1/monster_1_T_monster_Normal.png" id="6_nfxf8"]
+
+[sub_resource type="Resource" id="Resource_q1w34"]
+script = ExtResource("4_xeit6")
+name = "WraightAttack"
+rate_of_fire = 1.0
+max_ammo = 3
+ttl = 2.0
+dmg = 15.0
+reload_time = 1.0
+radius_of_dmg = 1.0
+gun_logic = ExtResource("2_d58p3")
+projectile_speed = 40.0
+projectile = ExtResource("3_d58p3")
+metadata/_custom_type_script = "uid://dqqr0gqodhj24"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ks3ws"]
 height = 2.4194336
@@ -8280,9 +8296,9 @@ _data = {
 radius = 0.6464844
 height = 2.4533691
 
-[node name="Wraight" type="CharacterBody3D" unique_id=1907275028]
+[node name="WraightRanged" type="CharacterBody3D" unique_id=1907275028]
 script = ExtResource("1_iqj46")
-gun_resource = ExtResource("2_cixgc")
+gun_resource = SubResource("Resource_q1w34")
 run_anim = "Jump_Full_Short"
 attack_anim = "Throw"
 idle_anim = "Idle_A"
@@ -8512,9 +8528,10 @@ skin = SubResource("Skin_xkwav")
 skeleton = NodePath("..")
 
 [node name="Rig_Medium" type="Node3D" parent="." unique_id=522768286]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08139962, 0.02250979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6116714, 0.023)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Rig_Medium" unique_id=447392617]
+transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, 0, 0)
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 2.3841856e-07, -2.3841856e-07, 0, 1, 0, -1, 0, 4.5351363e-09, -0.022509843, 0.71260303)
@@ -8590,7 +8607,7 @@ bones/10/parent = 9
 bones/10/rest = Transform3D(0.9938846, -0.11042376, 2.9469166e-07, 0.110423766, 0.99388456, 2.514136e-08, -2.956657e-07, 7.553352e-09, 1, 1.0896635e-09, 0.2418973, 1.4530885e-09)
 bones/10/enabled = true
 bones/10/position = Vector3(1.0896635e-09, 0.2418973, 1.4530885e-09)
-bones/10/rotation = Quaternion(2.1687786e-08, 6.2236936e-08, 0.51793927, 0.85541743)
+bones/10/rotation = Quaternion(2.1687784e-08, 6.2236936e-08, 0.51793927, 0.85541743)
 bones/10/scale = Vector3(1.0000002, 0.9999999, 0.99999994)
 bones/11/name = "wrist.r"
 bones/11/parent = 10
@@ -8646,14 +8663,14 @@ bones/18/parent = 17
 bones/18/rest = Transform3D(-1, -1.758562e-09, 1.5174308e-07, -1.1045634e-07, 0.6941062, -0.7198729, -1.0405982e-07, -0.7198731, -0.69410604, 1.468758e-08, 0.16565003, -2.0906313e-08)
 bones/18/enabled = true
 bones/18/position = Vector3(1.468758e-08, 0.16565003, -2.0906313e-08)
-bones/18/rotation = Quaternion(-2.2034567e-06, 0.9202539, -0.391322, 5.6286615e-07)
+bones/18/rotation = Quaternion(-2.2034567e-06, 0.9202539, -0.391322, 5.628661e-07)
 bones/18/scale = Vector3(1, 0.9999977, 1.0000024)
 bones/19/name = "upperleg.r"
 bones/19/parent = 1
 bones/19/rest = Transform3D(1, 1.3124298e-07, 1.5629156e-07, 1.3659373e-07, -0.9993963, -0.034742676, 1.5163742e-07, 0.034742665, -0.9993967, -0.17094506, 0.11358726, 1.3527391e-08)
 bones/19/enabled = true
 bones/19/position = Vector3(-0.17094508, 0.11358732, 1.557549e-08)
-bones/19/rotation = Quaternion(0.99732214, -0.02945736, 0.03152927, 0.059048317)
+bones/19/rotation = Quaternion(0.99732214, -0.02945736, 0.03152927, 0.059048314)
 bones/19/scale = Vector3(0.9999999, 0.99999976, 1.0000008)
 bones/20/name = "lowerleg.r"
 bones/20/parent = 19
@@ -8674,38 +8691,62 @@ bones/22/parent = 21
 bones/22/rest = Transform3D(-1, 1.7585549e-09, -1.5174307e-07, 1.1045633e-07, 0.6941062, -0.7198729, 1.0405983e-07, -0.7198731, -0.69410604, -1.4687581e-08, 0.16565003, -2.090631e-08)
 bones/22/enabled = true
 bones/22/position = Vector3(-1.4687581e-08, 0.16565003, -2.090631e-08)
-bones/22/rotation = Quaternion(-8.93489e-05, 0.9202216, -0.39139766, 2.0290989e-05)
+bones/22/rotation = Quaternion(-8.934891e-05, 0.9202217, -0.39139766, 2.029099e-05)
 bones/22/scale = Vector3(1, 0.9999966, 1.0000037)
 
 [node name="Cube_010" type="MeshInstance3D" parent="Rig_Medium/Skeleton3D" unique_id=1368654643]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, -1.4962919, 0.034441106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03946039, 0.034441106)
 mesh = SubResource("ArrayMesh_j4wfa")
 skin = SubResource("Skin_2uafw")
 skeleton = NodePath("..")
 
 [node name="Cube_011" type="MeshInstance3D" parent="Rig_Medium/Skeleton3D" unique_id=80182151]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, -1.4962919, 0.034441106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03946039, 0.034441106)
 mesh = SubResource("ArrayMesh_lxcrc")
 skin = SubResource("Skin_2uafw")
 skeleton = NodePath("..")
 
 [node name="Cube_012" type="MeshInstance3D" parent="Rig_Medium/Skeleton3D" unique_id=1081480282]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, -1.4962919, 0.034441106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03946039, 0.034441106)
 mesh = SubResource("ArrayMesh_5uipd")
 skin = SubResource("Skin_2uafw")
 skeleton = NodePath("..")
 
 [node name="Cube_013" type="MeshInstance3D" parent="Rig_Medium/Skeleton3D" unique_id=708101049]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, -1.4962919, 0.034441106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03946039, 0.034441106)
 mesh = SubResource("ArrayMesh_6p06y")
 skin = SubResource("Skin_2uafw")
 skeleton = NodePath("..")
 
 [node name="Cube_014" type="MeshInstance3D" parent="Rig_Medium/Skeleton3D" unique_id=148937661]
-transform = Transform3D(-2, 0, -1.7484555e-07, 0, 2, 0, 1.7484555e-07, 0, -2, 0, -1.4962919, 0.034441106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.03946039, 0.034441106)
 mesh = SubResource("ArrayMesh_qig0n")
 skin = SubResource("Skin_2uafw")
 skeleton = NodePath("..")
+
+[node name="HeadAttachment" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" unique_id=1729050303]
+transform = Transform3D(0.99972045, -1.4014349e-09, 0.023646593, 1.3934156e-09, 0.9999998, 3.5565773e-10, -0.023646593, -3.2260875e-10, 0.99972045, -4.287316e-09, 1.2278258, 1.9110133e-10)
+bone_name = "head"
+bone_idx = 14
+
+[node name="SpotLight" type="OmniLight3D" parent="Rig_Medium/Skeleton3D/HeadAttachment" unique_id=2111449531]
+transform = Transform3D(-0.4998602, 6.967073e-10, 0.011823255, 7.0071815e-10, 0.5000001, 1.6130448e-10, -0.011823255, 1.7782892e-10, -0.4998602, -0.09483028, -0.026055455, 0.2637818)
+light_color = Color(0.6937734, 0, 0.19563991, 1)
+light_energy = 0.324
+
+[node name="SpotLight2" type="OmniLight3D" parent="Rig_Medium/Skeleton3D/HeadAttachment" unique_id=1486733255]
+transform = Transform3D(-0.4998602, 6.967073e-10, 0.011823255, 7.0071815e-10, 0.5000001, 1.6130448e-10, -0.011823255, 1.7782892e-10, -0.4998602, 0.07740695, -0.026055455, 0.26785576)
+light_color = Color(0.6937734, 0, 0.19563991, 1)
+light_energy = 0.324
+
+[node name="HandAttachement" type="BoneAttachment3D" parent="Rig_Medium/Skeleton3D" unique_id=105613447]
+transform = Transform3D(0.1498946, 7.4505806e-07, -0.988701, 1.1920929e-07, -0.99999887, -2.9802322e-08, -0.9887012, -1.7881393e-07, -0.14989445, -0.54791105, 0.7371547, 0.0979766)
+bone_name = "hand.r"
+bone_idx = 12
+
+[node name="ProjectilePlacementPos" type="Node3D" parent="Rig_Medium/Skeleton3D/HandAttachement" unique_id=805506004]
+unique_name_in_owner = true
+transform = Transform3D(0.14989473, 2.8847444e-07, -0.9887028, 4.7334545e-08, -1.0000012, -1.1339547e-07, -0.988703, -7.098387e-07, -0.14989488, 0, 0, 0)
 
 [node name="MovementAnimPlayer" type="AnimationPlayer" parent="." unique_id=1363939674]
 unique_name_in_owner = true
@@ -8722,20 +8763,6 @@ collision_layer = 5
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.12634277, 0)
 shape = SubResource("CapsuleShape3D_yfjof")
 debug_color = Color(0.9776885, 0, 0.40585044, 0.41960785)
-
-[node name="SpotLight" type="OmniLight3D" parent="." unique_id=2111449531]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.08856621, 1.1784196, -0.23899347)
-light_color = Color(0.6937734, 0, 0.19563991, 1)
-light_energy = 0.324
-
-[node name="SpotLight2" type="OmniLight3D" parent="." unique_id=1486733255]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.08371917, 1.1784196, -0.23899347)
-light_color = Color(0.6937734, 0, 0.19563991, 1)
-light_energy = 0.324
-
-[node name="ProjectilePlacementPos" type="Node3D" parent="." unique_id=805506004]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5237901)
 
 [connection signal="area_entered" from="HitArea" to="." method="_on_hit_area_area_entered"]
 [connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]
