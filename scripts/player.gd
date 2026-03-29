@@ -212,6 +212,7 @@ func _on_dash_state_transitioned(caller: Node, value: String) -> void:
 	has_dashed_recently = false
 
 func _on_restart_button_pressed() -> void:
+	GlobalGameState.unpause_game()
 	get_tree().reload_current_scene()
 
 

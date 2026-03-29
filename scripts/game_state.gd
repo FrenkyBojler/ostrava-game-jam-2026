@@ -58,7 +58,6 @@ func death() -> void:
 	levels_cleared = 0
 	level = 1
 	player_started_slaying = false
-	unpause_game()
 
 func finish_level() -> void:
 	if levels_cleared != get_level_count() - 1:

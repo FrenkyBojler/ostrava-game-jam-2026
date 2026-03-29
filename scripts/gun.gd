@@ -46,6 +46,8 @@ func _ready() -> void:
 		if upgrade.property.begins_with("gun."):
 			_apply_upgrade(upgrade)
 	)
+	
+	_reload()
 
 func switch_gun(index: int) -> void:
 	if index < guns.size():
@@ -108,11 +110,14 @@ func _apply_upgrade(upgrade: UpgradeResource) -> void:
 	var val = upgrade.value
 	# Properties where lower is better — subtract the value
 	var subtract_props = ["reload_time", "rate_of_fire"]
+	var percent_props = ["dmg"]
 
 	for gun in guns:
 		if gun.get(prop) == null:
 			continue
-		if prop in subtract_props:
+		if prop in percent_props:
+			gun.set(prop, gun.get(prop) * (1.0 + val / 100.0))
+		elif prop in subtract_props:
 			gun.set(prop, max(gun.get(prop) - val, 0.05))
 		else:
 			gun.set(prop, gun.get(prop) + val)
