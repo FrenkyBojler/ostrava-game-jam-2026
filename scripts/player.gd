@@ -53,6 +53,8 @@ func _ready_child() -> void:
 	show_new_level()
 	#await get_tree().create_timer(2).timeout
 	#show_new_objective("Clear all rooms to open the elevator and escape!")
+	
+	GlobalGameState.player_health_changed.emit(current_health, max_health)
 
 func show_new_objective(text: String) -> void:
 	%ObjeectiveLabelSmall.visible = false
@@ -149,6 +151,8 @@ func _take_damage(dmg: float) -> void:
 	$Hurty.play()
 	current_health -= dmg
 	%HealthLabel.text = str(current_health)
+	
+	GlobalGameState.player_health_changed.emit(current_health, max_health)
 	
 	if current_health <= 0:
 		call_deferred("_death")

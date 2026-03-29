@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://df1awv70lg8p4"]
+
+[ext_resource type="Texture2D" uid="uid://h0c7pnuxegkv" path="res://assets/textures/icons/icon_heart_full.PNG" id="1_1sorw"]
+
+[node name="HP_FULL" type="TextureRect" unique_id=895348737]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1sorw")
+expand_mode = 2

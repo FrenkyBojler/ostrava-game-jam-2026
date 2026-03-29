@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d1n8mgusyina"]
+
+[ext_resource type="Texture2D" uid="uid://jfau5kanxox0" path="res://assets/textures/icons/icon_heart_empty.PNG" id="1_sqqbs"]
+
+[node name="HP_EMPTY" type="TextureRect" unique_id=1614401237]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_sqqbs")
+expand_mode = 2

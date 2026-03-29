@@ -9,6 +9,7 @@ signal game_unpaused
 signal all_levels_cleared
 signal player_died
 signal player_left_start
+signal player_health_changed(current: int, max: int)
 
 var levels_cleared := 0
 var difficulty_multipler := 1.0

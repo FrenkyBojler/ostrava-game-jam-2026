@@ -29,7 +29,9 @@
 [ext_resource type="AudioStream" uid="uid://bi7qrnk23ni6u" path="res://assets/audio/dash.wav" id="26_cg47n"]
 [ext_resource type="Script" uid="uid://cgohtrpdvcouk" path="res://scripts/hide_in_seconds.gd" id="26_es5jv"]
 [ext_resource type="AudioStream" uid="uid://dvpe6offecmh0" path="res://assets/audio/hurt.wav" id="27_cg47n"]
+[ext_resource type="PackedScene" uid="uid://ray8eafge0b1" path="res://prefabs/health_box.tscn" id="27_gpxsl"]
 [ext_resource type="AudioStream" uid="uid://dikjmumxa5hyt" path="res://assets/audio/death.wav" id="28_c0t4o"]
+[ext_resource type="Texture2D" uid="uid://mfdunjrm2851" path="res://assets/textures/icons/icon_gun.PNG" id="28_iiqn7"]
 [ext_resource type="AudioStream" uid="uid://bdpf74fr6cuxp" path="res://assets/audio/jump.wav" id="29_cu0ja"]
 [ext_resource type="AudioStream" uid="uid://clllvhkemfnhf" path="res://assets/audio/Flesh_and_coal_loop.mp3" id="31_phign"]
 [ext_resource type="AudioStream" uid="uid://bdqi5vab0cgfn" path="res://assets/audio/ambience.wav" id="32_ifw0f"]
@@ -59,10 +61,6 @@ shader_parameter/mask_size = 0.1
 shader_parameter/mask_edge = 0.800000038
 shader_parameter/animation_speed = 20.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_ifw0f"]
-font = ExtResource("22_6hq66")
-font_size = 50
-
 [sub_resource type="LabelSettings" id="LabelSettings_fc85j"]
 font = ExtResource("22_6hq66")
 font_size = 20
@@ -91,6 +89,10 @@ font = ExtResource("22_6hq66")
 font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_booaq"]
+font = ExtResource("22_6hq66")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_ifw0f"]
 font = ExtResource("22_6hq66")
 font_size = 40
 
@@ -646,24 +648,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CurrentAmmoLabel" type="Label" parent="Control" unique_id=1789229089]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -152.0
-offset_top = -95.0
-offset_right = 1.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "10/12"
-label_settings = SubResource("LabelSettings_ifw0f")
-horizontal_alignment = 2
-vertical_alignment = 1
-
 [node name="BreakDoorLabel" type="Label" parent="Control" unique_id=755981616]
 unique_name_in_owner = true
 visible = false
@@ -713,6 +697,7 @@ layout_mode = 1
 
 [node name="HealthLabel" type="Label" parent="Control" unique_id=1121869937]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -860,6 +845,36 @@ grow_horizontal = 2
 text = "LEVEL 1"
 label_settings = SubResource("LabelSettings_booaq")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBox" parent="Control" unique_id=131525353 instance=ExtResource("27_gpxsl")]
+layout_mode = 1
+
+[node name="Ammo" type="HBoxContainer" parent="Control" unique_id=696247259]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -67.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/Ammo" unique_id=1728287891]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+texture = ExtResource("28_iiqn7")
+expand_mode = 1
+
+[node name="CurrentAmmoLabel" type="Label" parent="Control/Ammo" unique_id=1789229089]
+unique_name_in_owner = true
+layout_mode = 2
+text = "10/12"
+label_settings = SubResource("LabelSettings_ifw0f")
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="HitArea" type="Area3D" parent="." unique_id=29700697]
