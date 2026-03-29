@@ -91,7 +91,7 @@ static func generate_upgrades(count: int = 3) -> Array[UpgradeResource]:
 		upgrade.description = str(entry[1]).replace("{value}", str(entry[3]))
 		upgrade.rarity = entry[2]
 		upgrade.value = entry[3]
-		upgrade.headling = RARITY_NAMES[entry[2]] + " Upgrade"
+		upgrade.headling = RARITY_NAMES[entry[2]]
 
 		used_properties.append(entry[0])
 		result.append(upgrade)

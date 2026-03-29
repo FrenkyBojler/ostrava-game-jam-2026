@@ -21,42 +21,54 @@ texture_pressed = ExtResource("2_cc0u2")
 texture_hover = ExtResource("2_cc0u2")
 script = ExtResource("2_ffmh5")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1666924401]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 22.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-
-[node name="Headline" type="Label" parent="VBoxContainer2" unique_id=1749095977]
+[node name="Value" type="Label" parent="." unique_id=230916031]
 unique_name_in_owner = true
-layout_mode = 2
-text = "TIER 1 UPGRADE"
+visible = false
+layout_mode = 0
+offset_top = 160.0
+offset_right = 300.0
+offset_bottom = 198.0
+text = "0.15x"
 label_settings = SubResource("LabelSettings_tk6tu")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2" unique_id=1822480857]
-layout_mode = 2
-theme_override_constants/separation = 100
-
-[node name="Description" type="Label" parent="VBoxContainer2/VBoxContainer" unique_id=232297726]
+[node name="Description" type="Label" parent="." unique_id=232297726]
 unique_name_in_owner = true
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -19.0
+offset_right = 150.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Faster reload"
 label_settings = SubResource("LabelSettings_8kcw4")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Value" type="Label" parent="VBoxContainer2/VBoxContainer" unique_id=230916031]
+[node name="Headline" type="Label" parent="." unique_id=1749095977]
 unique_name_in_owner = true
-layout_mode = 2
-text = "0.15x"
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -46.0
+offset_right = 150.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "TIER 1 UPGRADE"
 label_settings = SubResource("LabelSettings_tk6tu")
 horizontal_alignment = 1
 vertical_alignment = 1
