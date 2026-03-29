@@ -39,7 +39,7 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"walls.001",
+			"name":"walls.001-col.002",
 			"rotation":[
 				0,
 				0.7071068286895752,
@@ -54,7 +54,7 @@
 		},
 		{
 			"mesh":1,
-			"name":"walls.002",
+			"name":"walls.002-col.001",
 			"translation":[
 				0,
 				3.406614065170288,
@@ -63,7 +63,7 @@
 		},
 		{
 			"mesh":2,
-			"name":"walls.003",
+			"name":"walls.003-col.001",
 			"rotation":[
 				0,
 				-0.7071068286895752,
@@ -78,7 +78,7 @@
 		},
 		{
 			"mesh":3,
-			"name":"walls.004",
+			"name":"walls.004-col.005",
 			"rotation":[
 				0,
 				-1,
@@ -450,7 +450,7 @@
 	],
 	"meshes":[
 		{
-			"name":"walls.001",
+			"name":"walls.004-col.005",
 			"primitives":[
 				{
 					"attributes":{
@@ -473,7 +473,7 @@
 			]
 		},
 		{
-			"name":"walls.001",
+			"name":"walls.004-col.005",
 			"primitives":[
 				{
 					"attributes":{
@@ -496,7 +496,7 @@
 			]
 		},
 		{
-			"name":"walls.001",
+			"name":"walls.004-col.005",
 			"primitives":[
 				{
 					"attributes":{
@@ -519,7 +519,7 @@
 			]
 		},
 		{
-			"name":"walls.001",
+			"name":"walls.004-col.005",
 			"primitives":[
 				{
 					"attributes":{

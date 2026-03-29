@@ -197,7 +197,7 @@
 		},
 		{
 			"mesh":11,
-			"name":"ground_coll-convcolonly.001"
+			"name":"ground_coll-colonly.001"
 		},
 		{
 			"mesh":12,

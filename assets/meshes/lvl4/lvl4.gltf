@@ -411,7 +411,7 @@
 		},
 		{
 			"mesh":18,
-			"name":"ground_coll.004-convcolonly"
+			"name":"ground_coll.004-colonly"
 		}
 	],
 	"materials":[
@@ -809,7 +809,7 @@
 			]
 		},
 		{
-			"name":"ground_coll.004",
+			"name":"ground_coll.004-colonly",
 			"primitives":[
 				{
 					"attributes":{
