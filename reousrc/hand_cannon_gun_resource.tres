@@ -8,9 +8,9 @@
 script = ExtResource("3_5xtx3")
 name = "HandCannon"
 rate_of_fire = 1.0
-max_ammo = 12
+max_ammo = 4
 ttl = 0.8
-dmg = 50.0
+dmg = 20.0
 reload_time = 1.0
 radius_of_dmg = 1.0
 gun_logic = ExtResource("1_8idqh")

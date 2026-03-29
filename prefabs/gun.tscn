@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b2x53ylskajto" path="res://scripts/gun.gd" id="1_cxs04"]
 [ext_resource type="Script" uid="uid://dqqr0gqodhj24" path="res://scripts/gun_resource.gd" id="2_37pk5"]
 [ext_resource type="Resource" uid="uid://b4ywvmsaaakw" path="res://reousrc/hand_cannon_gun_resource.tres" id="3_ekedq"]
-[ext_resource type="Resource" uid="uid://bb0xh6fsmpfwa" path="res://reousrc/smg_gun_resource.tres" id="4_8k260"]
 [ext_resource type="PackedScene" uid="uid://gmn40keiftfc" path="res://assets/meshes/weapons/Handcannon.gltf" id="5_0afcb"]
 [ext_resource type="AudioStream" uid="uid://duvug5kyp3umc" path="res://assets/audio/gunshot.wav" id="6_8k260"]
 [ext_resource type="AudioStream" uid="uid://bsaks43jf8nl4" path="res://assets/audio/reload.wav" id="7_bmwcm"]
@@ -64,7 +63,7 @@ _data = {
 
 [node name="Gun" type="Node3D" unique_id=630209066]
 script = ExtResource("1_cxs04")
-guns = Array[ExtResource("2_37pk5")]([ExtResource("3_ekedq"), ExtResource("4_8k260")])
+guns = Array[ExtResource("2_37pk5")]([ExtResource("3_ekedq")])
 
 [node name="GunModelHandler" type="Node3D" parent="." unique_id=1703791587]
 unique_name_in_owner = true

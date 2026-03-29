@@ -8187,6 +8187,7 @@ height = 2.4533691
 
 [node name="Loupak" type="CharacterBody3D" unique_id=1907275028]
 script = ExtResource("1_w4j4g")
+movement_speed = 7.0
 gun_resource = ExtResource("2_d5i06")
 run_anim = "Running_A"
 attack_anim = "Throw"

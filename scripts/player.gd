@@ -117,6 +117,7 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event is InputEventKey:
 		var key_event = event as InputEventKey
+		return
 		if key_event.as_text_physical_keycode() == "1":
 			hands.gun.switch_gun(0)
 		if key_event.as_text_physical_keycode() == "2":

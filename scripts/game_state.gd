@@ -58,7 +58,8 @@ func death() -> void:
 	levels_cleared = 0
 	level = 1
 	player_started_slaying = false
-	
+	unpause_game()
+
 func finish_level() -> void:
 	if levels_cleared != get_level_count() - 1:
 		return
@@ -67,4 +68,5 @@ func finish_level() -> void:
 	difficulty_multipler += 0.5
 	level += 1
 	player_started_slaying = true
+	unpause_game()
 	get_tree().reload_current_scene()

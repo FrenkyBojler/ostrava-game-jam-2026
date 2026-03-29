@@ -65,12 +65,17 @@ func _ready() -> void:
 	
 	add_child(attack_sound_player)
 	add_child(death_sound_player)
+	add_child(bullet_hit_sound_player)
+	
 	
 	_apply_difficulty()
 	
 	navigation_agent.velocity_computed.connect(Callable(_on_velocity_computed))
 	_play_idle()
 
+	map_ready = false
+	await get_tree().physics_frame
+	await get_tree().physics_frame
 	map_ready = true
 
 	gun = gun_resource.gun_logic.instantiate()
