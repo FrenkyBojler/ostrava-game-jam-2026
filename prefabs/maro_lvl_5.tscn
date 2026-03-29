@@ -11,6 +11,9 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 [sub_resource type="BoxShape3D" id="BoxShape3D_5wua2"]
 size = Vector3(30, 1, 30)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_02kyi"]
+size = Vector3(23.97609, 1, 25.453186)
+
 [node name="lvl5" type="Node3D" unique_id=135452395]
 script = ExtResource("1_tkrmk")
 
@@ -103,6 +106,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.853664, 1, -11.919468)
 
 [node name="SpawnPoint16" type="Node3D" parent="SpawnPoints" unique_id=1183849451]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33634, 1, -11.919468)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1509198470 groups=["death"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.583084, -13.120665, 12.627285)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=912996592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0706558, 0, -1.5936584)
+shape = SubResource("BoxShape3D_02kyi")
 
 [connection signal="area_entered" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_entered"]
 [connection signal="area_exited" from="PlayerInsideArea" to="." method="_on_player_inside_area_area_exited"]

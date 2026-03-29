@@ -107,7 +107,7 @@ func update_target_position() -> void:
 	look_at(Vector3(target_node.global_position.x, global_position.y, target_node.global_position.z))
 
 func _physics_process(delta):
-	if playing_death:
+	if playing_death or GlobalGameState.is_paused:
 		return
 
 	repath_timer -= delta

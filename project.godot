@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/UniParticles3D/plugin.cfg")
 
 floor=""
 BreakDoor=""
+death=""
 
 [input]
 

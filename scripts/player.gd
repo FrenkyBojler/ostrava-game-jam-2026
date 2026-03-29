@@ -109,6 +109,9 @@ func _on_hit_area_area_entered(area: Area3D) -> void:
 		area.get_parent().queue_free()
 		_consume_chest()
 
+	if area.is_in_group("death"):
+		_death()
+
 func _consume_chest() -> void:
 	GlobalGameState.pause_game()
 	var upgrades_screen := upgrades_screen_prefab.instantiate()
@@ -140,7 +143,9 @@ func _apply_upgrade(upgrade: UpgradeResource) -> void:
 	
 func _death() -> void:
 	$Perishy.play()
-	get_tree().reload_current_scene()
+	%DiedLabel.visible = true
+	%RestartButton.visible = true
+	GlobalGameState.pause_game()
 
 func _on_hit_area_area_exited(area: Area3D) -> void:
 	if area.get_parent() is Door:
@@ -150,3 +155,6 @@ func _on_dash_state_transitioned(caller: Node, value: String) -> void:
 	has_dashed_recently = true
 	await get_tree().create_timer(0.5).timeout
 	has_dashed_recently = false
+
+func _on_restart_button_pressed() -> void:
+	get_tree().reload_current_scene()
