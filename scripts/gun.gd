@@ -48,6 +48,7 @@ func _ready() -> void:
 	)
 	
 	_reload()
+	await get_tree().process_frame
 	ammo_updated.emit(current_ammo, active_gun.max_ammo)
 
 func switch_gun(index: int) -> void:
@@ -61,7 +62,6 @@ func shoot() -> void:
 	if not can_shoot or is_reloading:
 		return
 	
-	current_ammo -= 1
 	
 	ammo_updated.emit(current_ammo, active_gun.max_ammo)
 
@@ -69,6 +69,8 @@ func shoot() -> void:
 		_starting_reloading()
 		return
 
+	current_ammo -= 1
+	
 	can_shoot = false
 	rate_of_fire_timer.start()
 	

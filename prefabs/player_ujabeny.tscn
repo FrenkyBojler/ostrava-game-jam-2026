@@ -925,6 +925,7 @@ stream = ExtResource("31_phign")
 [node name="Ambient" type="AudioStreamPlayer3D" parent="." unique_id=1414434356]
 unique_name_in_owner = true
 stream = ExtResource("32_ifw0f")
+volume_db = 56.207
 autoplay = true
 
 [node name="Pick" type="AudioStreamPlayer3D" parent="." unique_id=1109774482]

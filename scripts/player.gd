@@ -55,8 +55,6 @@ func _ready_child() -> void:
 	show_new_level()
 	#await get_tree().create_timer(2).timeout
 	#show_new_objective("Clear all rooms to open the elevator and escape!")
-	
-	GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)
 
 func show_new_objective(text: String) -> void:
 	%ObjeectiveLabelSmall.visible = false
@@ -167,12 +165,9 @@ func _consume_chest() -> void:
 
 func _take_damage(dmg: float) -> void:
 	$Hurty.play()
-	GlobalGameState.player_current_health -= dmg
-	%HealthLabel.text = str(GlobalGameState.player_current_health)
-	
-	GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)	
-	
-	if GlobalGameState.player_current_health <= 0:
+	GlobalPlayerState.change_health(-dmg)
+
+	if GlobalPlayerState.current_health <= 0:
 		call_deferred("_death")
 
 func _play_hit() -> void:
@@ -182,19 +177,9 @@ func _apply_upgrade(upgrade: UpgradeResource) -> void:
 	var prop = upgrade.property.trim_prefix("player.")
 	var val = upgrade.value
 
-	if prop == "heal":
-		GlobalGameState.player_current_health = min(GlobalGameState.player_current_health + val, GlobalGameState.player_max_health)
-		%HealthLabel.text = str(GlobalGameState.player_current_health)
-		GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)	
-	elif prop == "max_health":
-		GlobalGameState.player_max_health += val
-		GlobalGameState.player_current_health += val
-		%HealthLabel.text = str(GlobalGameState.player_current_health)
-		GlobalGameState.player_health_changed.emit(GlobalGameState.player_current_health, GlobalGameState.player_max_health)	
-	else:
-		var current = get(prop)
-		if current != null:
-			set(prop, current + val)
+	var current = get(prop)
+	if current != null:
+		set(prop, current + val)
 	
 func _death() -> void:
 	$Perishy.play()
@@ -213,8 +198,7 @@ func _on_dash_state_transitioned(caller: Node, value: String) -> void:
 	has_dashed_recently = false
 
 func _on_restart_button_pressed() -> void:
-	GlobalGameState.unpause_game()
-	get_tree().reload_current_scene()
+	GlobalGameState.reset_game()
 
 
 func _on_next_level_button_pressed() -> void:

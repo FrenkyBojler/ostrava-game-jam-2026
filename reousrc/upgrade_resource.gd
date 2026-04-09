@@ -60,10 +60,30 @@ const RARITY_NAMES: Dictionary = {
 	Rarity.LEGENDARY: "Legendary",
 }
 
+static func get_max_ammo_upgrade() -> UpgradeResource:
+	var heal = UpgradeResource.new()
+	heal.property = "gun.max_ammo"
+	heal.value = 2
+	heal.description = "+{value} Max Ammo".replace("{value}", str(heal.value))
+	heal.rarity = Rarity.COMMON
+	heal.headling = "Max Ammo"
+	
+	return heal
+	
+static func get_max_health_upgrade() -> UpgradeResource:
+	var heal = UpgradeResource.new()
+	heal.property = "player.max_health"
+	heal.value = 2
+	heal.description = "+{value} Max Health".replace("{value}", str(heal.value))
+	heal.rarity = Rarity.COMMON
+	heal.headling = "Max Health"
+	
+	return heal
+
 static func generate_upgrades(count: int = 3) -> Array[UpgradeResource]:
 	var result: Array[UpgradeResource] = []
 	var used_properties: Array[String] = []
-
+	
 	# One slot has a chance to be a heal card
 	if randi() % 100 < 20:
 		var heal = UpgradeResource.new()

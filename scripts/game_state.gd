@@ -6,19 +6,16 @@ var is_paused := false
 
 signal game_paused
 signal game_unpaused
+signal game_reset
 signal all_levels_cleared
 signal player_died
 signal player_left_start
-signal player_health_changed(current: int, max: int)
 signal player_started_slaying_singal
 signal player_ammo_changed(current: int, max: int)
 
 var levels_cleared := 0
 var difficulty_multipler := 1.0
 var level := 1
-
-var player_max_health := 4
-var player_current_health := player_max_health
 
 var player_started_slaying := false
 
@@ -59,7 +56,6 @@ func death() -> void:
 	levels_cleared = 0
 	level = 1
 	player_started_slaying = false
-	player_current_health = player_max_health
 
 func finish_level() -> void:
 	if levels_cleared != get_level_count() - 1:
@@ -69,5 +65,9 @@ func finish_level() -> void:
 	difficulty_multipler += 0.5
 	level += 1
 	player_started_slaying = true
-	unpause_game()
+	reset_game()
+	
+func reset_game() -> void:
 	get_tree().reload_current_scene()
+	unpause_game()
+	game_reset.emit()

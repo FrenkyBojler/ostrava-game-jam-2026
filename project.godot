@@ -19,12 +19,13 @@ config/icon="res://icon.svg"
 
 GlobalUpgrades="*uid://b68xrft15dgr7"
 GlobalGameState="*uid://de76msokfjt3a"
+GlobalPlayerState="*uid://nnw1phlqpeel"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=3
 window/size/initial_position_type=3
 window/stretch/mode="viewport"
 
